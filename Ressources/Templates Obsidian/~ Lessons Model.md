@@ -1,7 +1,6 @@
 ---
 created: {{date}}
 tags:
-  - Model
   - Lessons/School/HEH/Bloc1/Quad2
 ---
 
@@ -19,17 +18,10 @@ tags:
 
 ---
 
-## 📅 Dates de coursd d
+## 📅 Dates de cours
 
-https://hehplanning2023.umons.ac.be/invite
+https://hehplanning2024.umons.ac.be/invite
 
----
-
-## ❓ Questions à Poser
-
-- [Question 1]
-- [Question 2]
-- [Question 3]
 
 ---
 
@@ -41,12 +33,6 @@ https://hehplanning2023.umons.ac.be/invite
 
 ---
 
-## 🤔 Réflexions Rapides
-
-- [Réflexion 1]
-- [Réflexion 2]
-
----
 ## 📑 Notes
 
 ### Note du [xxxx-xx-xx]
