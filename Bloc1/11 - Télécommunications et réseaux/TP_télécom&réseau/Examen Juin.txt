@@ -1,0 +1,175 @@
+Examen Juin:
+
+en
+conf t 
+hostname R1
+
+interface fastEthernet 0/0
+ ip address 172.17.1.254 255.255.254.0
+ no shutdown
+ exit
+
+interface fastEthernet 0/1
+ ip address 172.17.2.126 255.255.255.128
+ no shutdown
+ exit
+
+interface fastEthernet 1/0
+ ip address 172.17.2.210 255.255.255.252
+ no shutdown
+ exit
+
+-------------------
+
+en
+conf t 
+hostname R2
+
+interface fastEthernet 0/0
+ ip address 172.17.2.213 255.255.255.252
+ no shutdown
+ exit
+
+interface fastEthernet 0/1
+ ip address 172.17.2.190 255.255.255.192
+ no shutdown
+ exit
+
+interface fastEthernet 1/0
+ ip address 172.17.2.209 255.255.255.252
+ no shutdown
+ exit
+
+-------------------
+
+en
+conf t 
+hostname R3
+
+interface gigabitEthernet 0/0
+ ip address 172.17.2.214 255.255.255.252
+ no shutdown
+ exit
+
+interface gigabitEthernet 0/1
+ ip address 172.17.2.206 255.255.255.240
+ no shutdown
+ exit
+
+-----------------------
+
+IP, Mask et Passerelle
+ PC1
+ PC2
+ PC3
+ PC4
+ SRV01
+
+------------------------
+
+
+
+en
+conf t
+enable secret ciscocisco
+service password-encryption
+
+
+line console 0
+ password ciscocisco
+ login
+ exit
+
+line vty 0 4
+ password ciscocisco
+ login
+ exit
+
+login block-for 240 attempts 3 within 120
+
+
+
+------------------------
+
+
+en 
+conf t
+
+ip domain-name examen.heh
+crypto key generate rsa general-keys modulus 2048
+username admroot secret ciscocisco
+
+line vty 0 4
+ login local
+ transport input ssh
+ exit
+
+ip default-gateway 172.17.2.206
+
+interface vlan 1
+ ip address 172.17.2.205 255.255.255.240
+ no shutdown
+ exit
+
+
+-----------------
+
+
+en 
+conf t 
+hostname R1
+
+ip route 172.17.2.128 255.255.255.192 172.17.2.209
+ip route 172.17.2.192 255.255.255.240 172.17.2.209
+
+en 
+conf t 
+hostname R2
+
+ip route 172.17.0.0 255.255.254.0 172.17.2.210
+ip route 172.17.2.0 255.255.255.128 172.17.2.210
+ip route 172.17.2.192 255.255.255.240 172.17.2.214
+
+en 
+conf t 
+hostname R3
+
+ip route 0.0.0.0 0.0.0.0 172.17.2.213
+
+
+
+-----------------------
+
+
+en
+copy run start
+
+
+
+interface FastEthernet0/0
+ ipv6 address 2001::11:172:0:0:1/64
+ ipv6 enable
+ no shutdown
+ exit
+
+
+interface FastEthernet0/0
+ ipv6 address 2001::2:172:0:0:2/64
+ ipv6 enable
+ no shutdown
+ exit
+
+ipv6 route ::/0 2001::11:0:0:2
+
+
+
+
+
+
+
+
+
+
+
+
+

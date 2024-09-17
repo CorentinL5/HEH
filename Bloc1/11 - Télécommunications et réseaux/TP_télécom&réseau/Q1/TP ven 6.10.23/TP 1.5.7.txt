@@ -1,0 +1,26 @@
+étape 1 :
+    - Network devices: (routers, switch, hubs, wireless devices, security, WAN Emulation)
+    - 15 périph. finaux
+    - 13 dispositifs intermédiares (sans nuages)
+    - 8 des périph. finaux sont pas de ordi de bureau
+    - 4 (sans-fil, rouge, bleu et noir)
+    
+étape 2 :
+    a. Modèle client-serveur: les clients sont connectés au serveur, le client fait une requete et le serveur répond, il y a aucune connection partagée entre les clients tout passe par le serveur.
+    b. Ils recoivent la requete , puis la transmettent par la suite
+    c. la rapidité et la facilité d'installation.
+
+étape 3 :
+    a.
+        - LAN : Local area Network  / WAN : World Area Network.
+        - LAN : "petit" réseau      / WAN : "Grand" réseau.
+        - LAN : niveau d'une classe / WAN : niveau mondial.
+    b. 1 WAN
+    c. 3 LAN
+    d. Un routeur connecté à un switch lui même connecté à servers (un serv. DNS et un serv. web/netacad) le routeur est lié à un cloud.
+    e. Via un navigateur web
+    f. cable, VPN, wi-fi, etc.
+
+
+Q. secrète :
+    - N/A

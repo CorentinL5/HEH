@@ -1,0 +1,26 @@
+# Fichiers vidéo
+*.mp4
+*.avi
+*.mkv
+*.mov
+*.flv
+*.wmv
+
+# Fichiers audio
+*.mp3
+*.wav
+*.flac
+*.aac
+*.ogg
+*.wma
+
+
+# Autres fichiers lourds
+*.psd  # Photoshop
+*.ai   # Adobe Illustrator
+*.mov  # QuickTime
+
+# Dossiers spécifiques à exclureµ
+.git/
+.idea/
+.obsidian/

@@ -1,0 +1,12 @@
+étape 1 :
+    version 12.2(25)FX
+
+q. de réflexion :
+    1 : Mettre un MDP pour accéder à la console et au diff modes
+    2 : Connexion Console Série :
+            Avantages : Compatibilité historique, Disponibilité généralisée, Stabilité.
+            Inconvénients : Matériel spécifique, Vitesse de transmission limitée.
+
+        Connexion Console USB :**
+            Avantages : Facilité d'utilisation, Vitesse de transmission, Pas besoin de câbles spécifiques.
+            Inconvénients : Compatibilité limitée, Dépendance aux pilotes, Besoin d'un câble adaptateur.

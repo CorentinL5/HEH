@@ -1,0 +1,20 @@
+=== COULEURS ===
+
+Fond noir du menu : #04161d
+Fond gris du menu (hover) : #6c7678
+Fond jaune : #edb506
+Textes noirs : #04161d
+Textes blancs : #ffffff
+Police du menu : Verdana
+
+=== TEXTES ===
+
+Doug Design
+
+My portfolio
+Instagram
+Facebook
+Contact
+
+Hello, I'm Doug
+I make logos.

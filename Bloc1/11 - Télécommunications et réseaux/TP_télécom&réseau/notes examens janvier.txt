@@ -1,0 +1,8 @@
+bannière 
+mdp 
+mdp priviliégé
+
+
+pas demandé mais il faut le faire
+
+-> protéger le périph interne( si précisé que celui-là / si pas précisé => le faire partout)

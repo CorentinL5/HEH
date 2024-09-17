@@ -1,0 +1,115 @@
+@font-face {
+    font-family: "BigNoodle";
+    src: url('fonts/big_noodle.ttf');
+}
+
+:root {
+    --color-Jaune: #fcb434;
+    --color-Noir: #000000;
+    --color-Blanc: #ffffff;
+
+    --radius-border: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    font-family: "BigNoodle", Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+    color: var(--color-Blanc);
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 1rem;
+}
+
+header nav {
+    background-color: var(--color-Jaune);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+}
+
+header nav ul {
+    list-style: none;
+    flex-direction: row;
+    align-items: center;
+}
+
+header nav a {
+    color: var(--color-Noir);
+}
+
+header nav h1 {
+    font-size: 2.5em;
+}
+
+header nav h1 a:hover {
+    opacity: 0.75;
+}
+
+header nav li {
+    padding: 0.5em;
+}
+
+header nav li a:hover {
+    color: var(--color-Blanc);
+    background-color: var(--color-Noir);
+    padding: 0.5em 5em;
+}
+
+
+main {
+    background: url('img/background.png');
+    background-size: cover;
+    background-position: top;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: flex-start;
+    width: calc(100%-4rem);
+}
+
+main div {
+    padding: 1em;
+    background-color: var(--color-Noir);
+    opacity: 0.6;
+    border-radius: var(--radius-border);
+}
+
+@media (width >= 720px) {
+    
+    header nav {
+        top: 0;
+        right: 0;
+        position: absolute;
+        z-index: 2;
+        width: calc(100%);
+        opacity: 0.6;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    header nav ul {
+        display: flex;
+    }
+    
+    main {
+        padding-top:10%;
+        height: 100vh;
+    }
+    
+    main div {
+        width: 40%;
+    }
+}

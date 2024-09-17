@@ -1,0 +1,16 @@
+partie1:
+    étape 2 :
+        - 24 interfaces FastEthernet
+        - 2 interfaces GigabitEthernet
+        - line vty 0 4 et line vty 5 15
+        - commande affiche nvram = jsp
+        - pk startup-config est absente = jsp
+
+partie2:
+    étape 7 : le mdp est chiffré
+
+partie3:
+    étape 1 : motd affiché quand on se connecte au switch - permettre d'informer et de prévenir un personne qu'elle aura des problèmes si elle se n'est pas le droit d'accéder au switch/matérielle
+
+partie4: /
+

@@ -1,0 +1,57 @@
+Créer les variables...
+    buttonpin: 2
+    ledPins: 3, 4, 5, 6, 7, 8, 9, 10 
+    numLeds: calculer le nombre de leds
+    Ledpinsmode: 13, 12, 11
+    LedAct: 0
+    mode: 0
+    TempsPressionButton: 0
+    AppuiLong: 1000
+    BoutonPresser: false
+    ModeSelec: false
+    SelecduMode: 0
+    buzzerPin: A1
+    LedActLast: 0
+    mode2Paused: false
+    mode2LastLedSet: false
+    mode2LastLedIndex: 0
+    analogPin: A2
+    minVoltage: 3.3
+    alert_times: 3
+
+
+void setup():
+    créer la console 
+    bouton: input
+    parcourir les leds: output
+    buzzer: output
+    faire sonner le buzzer un fois (informatif)
+
+    CheckBattery()
+    updateModeLEDs()
+
+
+
+void loop():
+    récupérer l'état du bouton
+
+    si appuie
+    on vérifie si c'est un appui appui long (on fait un changement de mode)
+    
+    si c'est le mode 1 + appui court: changer la led à allumer
+
+    puis executeMode()
+
+
+
+void executeMode():
+    pour chaque cas on fait faire ce qu'il faut pour le mode
+
+void updateModeLEDs():
+    mettre les lumières allumés des modes (bleu)
+    
+void CheckBattery():
+    récupérer la batterie
+    transformer en un voltage
+    print le voltage dans la console
+    s'il est plus petit on fait sonner alert_times de fois le buzzer

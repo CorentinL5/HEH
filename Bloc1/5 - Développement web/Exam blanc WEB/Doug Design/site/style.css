@@ -1,0 +1,148 @@
+@font-face {
+	font-family: "Sweets";
+	src: url("fonts/caramel_sweets.ttf");
+}
+
+:root {
+	--color-menu : #04161d;
+	--color-hover : #6c7678;
+	--color-jaune : #edb506;
+	--color-noir : #04161d;
+	--color-blanc : #ffffff;
+
+}
+
+* {
+	margin: 0;
+	padding: 0;
+
+}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+}
+
+
+html {
+	background-color: var(--color-jaune );
+}
+
+header {
+	background-color: var(--color-menu);
+}
+
+header nav {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 2em 0;
+}
+
+header nav h1 {
+	text-align: center;
+}
+
+header nav ul {
+	width: 100%;
+}
+
+header nav li {
+	text-align: center;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header nav li:focus,
+header nav li:hover {
+	background-color: var(--color-hover);
+}
+
+
+header nav li a {
+	display: block;
+	width: 100%;
+	padding: 0.75em 0;
+	color: var(--color-blanc);
+}
+
+main #MeDoug {
+	position: relative;
+}
+
+main #MeDoug div {
+	text-align: center;
+	padding-top: 2em;
+	font-size: 3.5em;
+	font-family: "Sweets", Verdana, Geneva, Tahoma, sans-serif;
+	color: var(--color-noir);
+}
+
+main #MeDoug h2 {
+	padding: 0 0.25em;
+	text-align: center;
+}
+
+main #MeDoug h2 span {
+	color: var(--color-blanc);
+}
+
+main #MeDoug figure {
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+main #MeDoug figure img {
+	max-width: 100%;
+}
+
+
+
+
+
+@media (width >= 1024px) {
+	header nav h1 img {
+		width: 80%;
+	}
+	
+	header nav {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		padding: 0;
+	}
+	
+	header nav ul {
+		display: flex;
+		width: auto;
+	}
+	
+	header nav li {
+		padding: 1em 2.5em;
+	}
+	
+	main #MeDoug h2{
+		text-align: left;
+	}
+
+	main #MeDoug div {
+		position: absolute;
+		font-size: 3.35em;
+		height: 100%;
+		width: 60%;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	main #MeDoug figure img {
+		max-width: 35%;
+	}
+}

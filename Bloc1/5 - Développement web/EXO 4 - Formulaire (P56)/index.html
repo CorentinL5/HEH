@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulaire</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Commande de Pizza</legend>
+        <form method="POST" action="mailto:saggtegg@gmail.com" enctype="multipart/form-data">
+            <label>
+                <b>Nom</b>
+                <br>
+                <input type="text" id="nom" name="nom" placeholder="Votre nom">
+            </label>
+            <br>
+            <br>
+            <label>
+                <b>Prénom</b>
+                <br>
+                <input type="text" id="prenom" name="prenom" placeholder="Votre prénom">
+            </label>
+            <br>
+            <br>
+            <label>
+                <b>Pizza</b>
+                <br>
+                <select id="pizza" name="pizza">
+                    <option value="Margherita">Margherita</option>
+                    <option value="Regina">Regina</option>
+                    <option value="quatre fromages">Quatre fromages</option>
+                    <option value="4 saisons">4 saisons</option>
+                    <option value="fruits de mer">Fruits de mer</option>
+                    <option value="Sicilienne">Sicilienne</option>
+                </select>
+            </label>
+            <br>
+            <div id="supplements">
+                <b>Suppléments</b>
+                <br>
+                <input type="checkbox" id="fromage" name="supplement[]" value="fromage">
+                <label for="fromage">Fromage</label>
+                <br>
+                <input type="checkbox" id="olives" name="supplement[]" value="olives">
+                <label for="olives">Olives</label>
+                <br>
+                <input type="checkbox" id="poivrons" name="supplement[]" value="poivrons">
+                <label for="poivrons">Poivrons</label>
+                <br>
+                <input type="checkbox" id="jambon" name="supplement[]" value="jambon">
+                <label for="jambon">Jambon</label>
+            </div>
+            <br>
+            <div id="livraison">
+                <b>Livraison</b>
+                <br>
+                <input type="radio" id="restaurant" name="livraison" value="restaurant" checked>
+                <label for="restaurant">Au restaurant</label>
+                <br>
+                <input type="radio" id="domicile" name="livraison" value="domicile">
+                <label for="domicile">Livraison à domicile</label>
+                <br>
+                <textarea id="adresse" name="adresse" placeholder="Votre adresse"></textarea>
+            </div>
+            <br>
+            <br>
+            <div id="paiement">
+                <b>Paiement</b>
+                <br>
+                <input type="radio" id="paypal" name="paiement" value="paypal">
+                <label for="paypal">Paypal</label>
+                <input type="radio" id="visa" name="paiement" value="visa">
+                <label for="visa">Visa</label>
+                <input type="radio" id="cash" name="paiement" value="cash">
+                <label for="cash">Cash</label>
+            </div>
+            <br>
+            <input type="submit" value="Commander la pizza !">
+        </form>
+    </fieldset>
+</body>
+</html>

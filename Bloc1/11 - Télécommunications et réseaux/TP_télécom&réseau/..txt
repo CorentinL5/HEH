@@ -1,0 +1,132 @@
+.
+en
+conf t
+hostname name
+
+
+interface FastEthernet0/0
+ ip address ip mask
+ no shutdown
+ exit
+
+
+line console 0
+ password password
+ login
+ exit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+line vty 0 4
+ password password
+ login
+ exit
+
+
+enable secret cisco
+service password-encryption
+
+banner motd #RESTRICTED#
+login block-for 300 attempts 3 within 120
+
+
+
+ip domain-name examen.juin
+crypto key generate rsa
+ 1024
+username admin secret Cisco
+line vty 0 4
+ login local
+ transport input ssh
+ exit
+interface vlan 1
+ ip address SW4_IP_Address Subnet_Mask
+ no shutdown
+ exit
+
+ipv6 unicast-routing
+ip route ip mask 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+interface FastEthernet0/0
+ ipv6 address 2001::1:172:0:0:1/64
+ ipv6 enable
+ no shutdown
+ exit
+
+ipv6 route ::/0 2001::2:172:0:0:229

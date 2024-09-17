@@ -1,0 +1,11 @@
+#cl :
+    ambiguous command
+
+#clock :
+    incomplete command
+
+#clock set 25:00:00 :
+    invalid input detected at '^' marker
+
+#clock set 25:00:00 :
+    incomplete command 

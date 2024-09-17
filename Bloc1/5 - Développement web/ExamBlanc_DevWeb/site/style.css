@@ -1,0 +1,210 @@
+@font-face {
+    font-family: f;
+    src: url();
+}
+
+:root {
+    --color-white: #fafafa;
+    --color-dark: #111;
+    --color-dark2: #333;
+    --color-light: #eee;
+    --color-light2: #ccc;
+
+    --border-radius: 5px;
+
+    --image-bg: url("img/bg_1.jpg");
+    --icon-01: url("img/icon01.png");
+    --icon-02: url("img/icon02.png");
+    --icon-03: url("img/icon03.png");
+    --icon-04: url("img/icon04.png");
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    filter: brightness(80%);
+}
+
+html {
+    background-color: var(--color-white);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: var(--color-dark);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), var(--image-bg) ;
+    background-size: cover;
+    color: var(--color-light);
+}
+
+header nav {
+    background-color: var(--color-dark);
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav h1 a {
+    color: var(--color-light);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header nav ul {
+    display:none;
+}
+
+header nav p a {
+    color: var(--color-light2);
+}
+
+header nav p:target ~ ul {
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    background-color: var(--color-dark);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+
+}
+
+header nav ul li {
+    list-style: none;
+    padding: 0.5em;
+}
+
+header nav ul li a{
+    color: var(--color-light);
+}
+
+header div {
+    position: relative;
+    width: 50%;
+    padding: 5em 1em 10em 1em;
+}
+
+header div h2 {
+    margin: 0 0 1em 0;
+}
+
+header div p {
+    margin: 0 0 2.8em 0;
+    color: var(--color-light2);
+}
+
+header nav li:last-child,
+header div a {
+    background-color: var(--color-dark2);
+    border: var(--color-dark) solid 1px;
+    border-radius: var(--border-radius);
+    padding: 0.75em;
+    color: var(--color-light);
+    text-decoration:none;
+}
+
+main {
+    position: relative;
+    margin: 0 2em;
+    top: -4em;
+}
+
+main #Formation {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+main #Formation .card {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding: 5em 1.25em;
+}
+
+main #Formation .card:nth-child(even) {
+    background-color: var(--color-light2);
+}
+
+main #Formation .card:nth-child(even) img {
+    background-color: var(--color-white);
+    border-radius: 50%;
+    padding: 1em;
+}
+
+main #Formation .card:nth-child(odd) {
+    background-color: var(--color-white);
+}
+
+main #Formation .card:nth-child(odd) img {
+    background-color: var(--color-light2);
+    border-radius: 50%;
+    padding: 1em;
+}
+
+footer {
+    background-color: var(--color-dark);
+    padding: 1.5em;
+    color: var(--color-light);
+    text-align: center;
+
+}
+
+@media (width >= 480px) {
+    main #Formation {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    main #Formation > .card:nth-child(1) { grid-area: 1 / 1; }
+    main #Formation > .card:nth-child(2) { grid-area: 1 / 2; }
+    main #Formation > .card:nth-child(3) { grid-area: 2 / 2; }
+    main #Formation > .card:nth-child(4) { grid-area: 2 / 1; }
+}
+
+
+@media (width >= 720px) {
+
+    header nav {
+        background-color: transparent;
+    }
+
+    header nav p {
+        display: none;
+    }
+
+    header nav ul {
+        display: flex;
+        align-items: center;
+    }
+
+    header div {
+    left: 40%;
+    /* right: -50%; */
+    }
+
+    main #Formation {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+    main #Formation > .card:nth-child(1) { grid-area: 1 / 1; }
+    main #Formation > .card:nth-child(2) { grid-area: 1 / 2; }
+    main #Formation > .card:nth-child(3) { grid-area: 1 / 3; }
+    main #Formation > .card:nth-child(4) { grid-area: 1 / 4; }
+}

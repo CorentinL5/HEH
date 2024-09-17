@@ -1,0 +1,18 @@
+Partie 1:
+    Routeurs
+    Switches
+    Hubs
+    Wireless devices
+    Security
+    WAN Emulation
+
+Partie 2:
+    d.
+        WebServer
+        ALS1
+    e.
+        Laptop_1
+    f.
+        Sur la même table que le "PC_1"
+
+
