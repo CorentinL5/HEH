@@ -19,7 +19,7 @@ tags:
 
 ## 📅 Dates de cours
 
-https://hehplanning2024.umons.ac.be/invitew
+https://hehplanning2024.umons.ac.be/invite
 
 
 ---
