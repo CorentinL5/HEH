@@ -7,7 +7,6 @@ tags:
 # # 📚  {{title}}
 > **Création de la note à *`{{time}}`* le *`{{date}}`.***
 ---
-[[../Lessons 🏫/0 - Lessons Menu|🏫 - Lessons Menu]]
 
 # 📝 Prise de Notes - Cours
 

@@ -7,7 +7,6 @@ tags:
 # # 📚  Base de données
 > **Création de la note à *`10:38`* le *`2024-09-17`.***
 ---
-[[../Lessons 🏫/0 - Lessons Menu|🏫 - Lessons Menu]]
 
 # 📝 Prise de Notes - Cours
 
@@ -20,7 +19,7 @@ tags:
 
 ## 📅 Dates de cours
 
-https://hehplanning2024.umons.ac.be/invite
+https://hehplanning2024.umons.ac.be/invitew
 
 
 ---
