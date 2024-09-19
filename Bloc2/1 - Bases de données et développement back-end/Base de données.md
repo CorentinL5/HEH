@@ -27,7 +27,7 @@ https://hehplanning2024.umons.ac.be/invite
 ## 📚 Références
 
 - [Fiche ECTS](https://www.heh.be/upload/ects/2024-2025/2024-2025-UE-bases-de-donnees-et-developpement-back-end-12334.pdf) 
-- [Schéma](https://app.diagrams.net/)
+- [Diagrams.net](https://app.diagrams.net/)
 ---
 
 ## 📑 Notes
