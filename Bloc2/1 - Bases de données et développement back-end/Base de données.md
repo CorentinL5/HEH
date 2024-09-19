@@ -64,15 +64,27 @@ https://hehplanning2024.umons.ac.be/invite
 
 ### Note du [[2024-09-19]]
 
-#### Exercice de MCD et MLD
+#### Exercices de MCD
 1) Marque 
    Voiture
    client
-   - ![[Pasted image 20240919083936.png]]
+   - ![[Pasted image 20240919091227.png]]
 2) Dresseur,
    Pokemon,
    race,
    type,
    attaque,
    equipe
-   - 
+   - ![[Pasted image 20240919091239.png]]
+#### MCD > MLD
+> Cardinalités retirés et noms d'associations retirés
+##### one to many
+- ajouter une clé et faire une flèche de la clé 
+##### many to many
+- table avec le verbe
+- et ajouter dans cette table les 2 ID et des infos, souligner une nouvelle ID 
+  (flèche de la nouvelle table vers les deux existantes)
+##### one to one
+- UNE SEULE TABLE
+
+/back
