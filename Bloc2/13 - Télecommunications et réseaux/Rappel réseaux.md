@@ -34,20 +34,6 @@ https://hehplanning2024.umons.ac.be/invite
 
 ## 📑 Notes
 
-### Note du [xxxx-xx-xx]
-
-- [Note 1]
-- [Note 2]
-
-### Note du [xxxx-xx-xx]
-
-- [Note 1]
-- [Note 2]
-
-### Note du [xxxx-xx-xx]
-
-- [Note 1]
-- [Note 2]
 
 ---
 # Protocoles
@@ -81,5 +67,10 @@ TCP/IP
 # Commutateurs
 Travaille sur les 2 premières couches du modèle OSI
 
-# Routeur
- ![google](https://google.com)
+---
+
+
+# exercices 
+- ![[Pasted image 20240919141409.png]]
+- ![[Pasted image 20240919141455.png]]
+- ![[Pasted image 20240919141536.png]]
