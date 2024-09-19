@@ -150,7 +150,7 @@ line vty 0 4
  password cisco
  login
  exit
-banner motd #RESTRICTED#
+banner motd `#RESTRICTED#`
 login block-for 300 attempts 3 within 120 * not working
 
 

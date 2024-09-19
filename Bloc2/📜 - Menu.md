@@ -1,7 +1,7 @@
 ---
 created: 2024-09-19
 tags:
-  - Lessons/School/HEH/Bloc1/Quad2
+  - Lessons/School/HEH/Bloc2/Quad2
 ---
 
 # # 📚  📜 - Menu
