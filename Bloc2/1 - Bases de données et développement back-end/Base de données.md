@@ -65,3 +65,14 @@ https://hehplanning2024.umons.ac.be/invite
 ### Note du [[2024-09-19]]
 
 #### Exercice de MCD et MLD
+1) Marque 
+   Voiture
+   client
+   - ![[Pasted image 20240919083936.png]]
+2) Dresseur,
+   Pokemon,
+   race,
+   type,
+   attaque,
+   equipe
+   - 
