@@ -31,7 +31,7 @@ https://hehplanning2024.umons.ac.be/invite
 
 ## 📑 Notes
 
-### Note du [2024-09-17]
+### Note du [[2024-09-17]]
 
 - SGBD: Système de Gestion de Base de Données
 - SQL 
@@ -47,7 +47,7 @@ https://hehplanning2024.umons.ac.be/invite
 - Cardinalités
 	1,1 / 0,N
 ##### Clé primaire
-> Être Certain unique
+> *Être Certain d'être unique*
 - propriété naturelle
 	Personne > Email
 - propriété artificielle 👍
@@ -61,3 +61,7 @@ https://hehplanning2024.umons.ac.be/invite
 	Il faut créer une table "de jointure" pour "lier les deux"
 
 ---
+
+### Note du [[2024-09-19]]
+
+#### Exercice de MCD et MLD
