@@ -1,5 +1,3 @@
-#type/cours #type/notes 
-
 # Questions Exam
 ## Liste par élève...
 ### Q Lucas:

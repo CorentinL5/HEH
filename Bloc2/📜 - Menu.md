@@ -12,41 +12,9 @@ tags:
 
 ---
 
-## 👋 Infos du Cours
-- **Professeur :** [Nom du Professeur]
-
----
-
-## 📅 Dates de cours
+## 📅 Dates des cours
 
 https://hehplanning2024.umons.ac.be/invite
 
-
----
-
-## 📚 Références
-
-- [Référence 1]
-- [Référence 2]
-- [Référence 3]
-
----
-
-## 📑 Notes
-
-### Note du [xxxx-xx-xx]
-
-- [Note 1]
-- [Note 2]
-
-### Note du [xxxx-xx-xx]
-
-- [Note 1]
-- [Note 2]
-
-### Note du [xxxx-xx-xx]
-
-- [Note 1]
-- [Note 2]
 
 ---
