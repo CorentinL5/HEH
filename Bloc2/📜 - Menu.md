@@ -18,3 +18,13 @@ https://hehplanning2024.umons.ac.be/invite
 
 
 ---
+
+```plantuml
+@startuml
+Class11 "1  " <|.. Class12
+Class13 --> Class14
+Class15 ..> Class16
+Class17 ..|> Class18
+Class19 <--* Class20
+@enduml
+```

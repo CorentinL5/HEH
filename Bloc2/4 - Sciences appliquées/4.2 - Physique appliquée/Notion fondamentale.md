@@ -42,7 +42,7 @@ Arc électrique : 1cm / 10000 volts
 Faut - de 25 Volts sur une prise pour chipoter
 ![[Pasted image 20240924093245.png]] 
 ![[Pasted image 20240924093300.png]] 
- ]]  
+![[Pasted image 20240924093829.png]]  
 ![[Pasted image 20240924093708.png]] 
 ![[Pasted image 20240924094451.png]] 
 

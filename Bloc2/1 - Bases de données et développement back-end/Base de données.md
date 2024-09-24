@@ -136,3 +136,7 @@ MDP = MLD plus détaillé
 
 #### MLD Pokémon
 ![[Pasted image 20240919100258.png]]
+---
+## Langage SQL
+> langage de prog depuis 1999
+
