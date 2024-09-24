@@ -5,38 +5,13 @@ tags:
 ---
 
 # # 📚  Notions fondamentales
-> **Création de la note à *`{{time}}`* le *`{{date}}`.***
----
 
 > **Création de la note à *`08:55`* le *`2024-09-17`.***
 ---
 
 # 📝 Prise de Notes - Cours
 
----
-
-## 👋 Infos du Cours
-- **Professeur :** *ROLAND*
-
----
-
-## 📅 Dates de cours
-
-https://hehplanning2024.umons.ac.be/invite
-
----
-
-## 📚 Références
-
-- [Référence 1]
-- [Référence 2]
-- [Référence 3]
-
-
----
-## 📑 Notes
-### 
-
+## Les vecteurs
 ![[Pasted image 20240917092600.png]]
 
 
@@ -47,3 +22,27 @@ https://hehplanning2024.umons.ac.be/invite
 ![[Pasted image 20240917095051.png]]
 
 ---
+
+![[Pasted image 20240924083428.png]] 
+Pas besoin de connaître l'angle
+
+![[Pasted image 20240924084707.png]]
+
+| ![[Pasted image 20240924084713.png]]                  | ![[Pasted image 20240924084915.png]]               |
+| ----------------------------------------------------- | -------------------------------------------------- |
+| AB = (-3,1) / AC = (-4,-3) <br>AB\*AC = (12 + -3) = 9 | AB = (3,3) / AC = (-1,3) <br>AB\*AC = (-3 + 9) = 6 |
+![[Pasted image 20240924085832.png]] 
+1) **0** = AB CA BC = AC + CA
+2) AD 
+3) AB
+4) CB
+5) 3AB 2AB + AC + CB = 2AB + AB
+![[Pasted image 20240924092045.png]] 
+Arc électrique : 1cm / 10000 volts
+Faut - de 25 Volts sur une prise pour chipoter
+![[Pasted image 20240924093245.png]] 
+![[Pasted image 20240924093300.png]] 
+ ]]  
+![[Pasted image 20240924093708.png]] 
+![[Pasted image 20240924094451.png]] 
+
