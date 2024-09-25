@@ -139,4 +139,3 @@ MDP = MLD plus détaillé
 ---
 ## Langage SQL
 > langage de prog depuis 1999
-
