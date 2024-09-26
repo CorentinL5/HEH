@@ -49,7 +49,7 @@ tags:
    - b) Pour obtenir le nombre de répertoires : utilise `ls -l /boot | grep ^d | wc -l`.
 
 10. **Création du répertoire `etudiant/` dans `/usr/` :**
-   - Créer un répertoire ici sans droits administratifs (`root`) génère une erreur de permission : `Permission denied`. Seul l’utilisateur `root` peut créer/modifier des répertoires dans `/usr/`.
+   - Créer un répertoire ici sans droits administratifs (`root`) génère une erreur de permission : `Permission denied`. Seul l’utilisateur `root` peut créer/modifier des répertoires dans `/usr/`.![[Pasted image 20240926092946.png]]
    - Créer un répertoire `etudiant` dans `/home/groupeX/` : cela fonctionne normalement car tu as les droits nécessaires dans ton répertoire personnel.
 
 11. **Création et manipulation du fichier `bac.info.heh` :**
@@ -59,8 +59,9 @@ tags:
 12. **Copie et suppression du fichier :**
 - Copier et renommer : `cp bac.info.heh /tmp/infobac2`.
 - Supprimer le répertoire `etudiant` avec `rmdir etudiant` si le répertoire est vide après les opérations.
+  ![[Pasted image 20240926093345.png]] 
 
-13. **Commande `cal` sans argument :**
+13. **Commande `cal` :**
 - Affiche le calendrier du mois en cours. Pour voir un calendrier spécifique : `cal 09 1995` (par exemple, pour septembre 1995).
 
 14. **Équivalents des commandes reboot et halt avec `shutdown` :**
@@ -77,3 +78,116 @@ tags:
 
 16. **Éditeurs de texte en mode console :**
 - Apprends les bases de `vim` avec la commande `vimtutor`, qui propose un tutoriel interactif pour se familiariser avec cet éditeur puissant. Alternativement, `nano` est plus simple pour débuter.
+
+---
+
+## Manip two 
+### PDF
+![[02_Labo_Linux_Les_commandes_de_bases_suite-ELEVES-.pdf]]   
+### Réponses
+1. **Prompt après connexion en `userX` :**
+   - Le prompt affiché dépend du shell et de la configuration de l'utilisateur. En général, il ressemble à : `userX@machine:~$`, indiquant le nom de l’utilisateur, le nom de la machine et le répertoire courant (`~` pour le dossier personnel).
+
+2. **Recherche de fichiers avec `locate` :**
+   - a) Pour trouver `crontab`, utilise la commande : 
+     ```bash
+     locate crontab
+     ```
+     - Les fichiers `crontab` se trouvent souvent dans `/etc/` et `/usr/bin/`.
+   - b) Pour `chown`, utilise :
+     ```bash
+     locate chown
+     ```
+     - Le fichier `chown` se trouve généralement dans `/usr/bin/`.
+   - c) **Créer un fichier et essayer de le trouver avec `locate` :**
+     - Après avoir créé un fichier, `locate` ne le trouvera pas immédiatement car il utilise une base de données qui n'est pas mise à jour en temps réel. Utilise `updatedb` pour mettre à jour cette base de données et ensuite `locate` pour retrouver le fichier.
+
+3. **Détermination du type de données avec `file` :**
+   - a) Pour `bikibean.zip` :
+     ```bash
+     file bikibean.zip
+     ```
+     - Cette commande indiquera probablement "Zip archive data".
+   - b) Pour `Agilent.html` :
+     ```bash
+     file Agilent.html
+     ```
+     - Résultat attendu : "HTML document, ASCII text".
+   - c) Pour `grub2.cfg` :
+     ```bash
+     file grub2.cfg
+     ```
+     - Cela indiquera quelque chose comme "ASCII text".
+
+4. **Taille des fichiers avec `du` :**
+   - a) Utiliser `du` pour connaître la taille :
+     ```bash
+     du Agilent.html
+     du bikibean.zip
+     ```
+   - b) Option pour afficher des tailles lisibles :
+     - Utilise `-h` (human-readable) : 
+     ```bash
+     du -h Agilent.html
+     du -h bikibean.zip
+     ```
+
+5. **Visualiser le contenu de `/etc/fstab` :**
+   - Utilise la commande :
+     ```bash
+     cat /etc/fstab
+     ```
+   - Cette commande affiche le contenu du fichier de configuration des systèmes de fichiers.
+
+6. **Déplacer `bikibean.zip` vers `/tmp` avec `mv` :**
+   - Utilise la commande :
+     ```bash
+     mv bikibean.zip /tmp
+     ```
+
+7. **Recherche de fichiers avec `find` :**
+   - a) Pour trouver le répertoire de `fstab` :
+     ```bash
+     find / -name fstab 2>/dev/null
+     ```
+     - Ce fichier se trouve généralement dans `/etc/`.
+   - b) Fichiers modifiés au cours des 10 derniers jours :
+     ```bash
+     find / -mtime -10
+     ```
+   - c) Comportement de `find` sans chemin spécifié :
+     - Si aucun chemin n’est indiqué, `find` effectue la recherche dans le répertoire courant (`.`) et ses sous-répertoires.
+
+8. **Écrire un message dans la bannière de connexion (`motd`) :**
+   - Édite le fichier `/etc/motd` pour ajouter ton message. Pour vérifier, ouvre une nouvelle session ou utilise :
+     ```bash
+     nano /etc/motd
+     ```
+
+9. **Emplacement du binaire de `passwd` avec `which` :**
+   - Utilise :
+     ```bash
+     which passwd
+     ```
+     - Il se trouve souvent dans `/usr/bin/passwd`.
+
+### Réponses aux questions suivantes :
+
+10. **Informations de `whereis` :**
+    - La commande `whereis` affiche les emplacements du binaire, du code source et de la page de manuel d’une commande. Par exemple :
+      ```bash
+      whereis ls
+      ```
+
+11. **Informations de `tty` :**
+    - La commande `tty` indique le fichier de terminal associé à la session en cours, souvent quelque chose comme `/dev/pts/0`.
+
+12. **Fonction de `last` :**
+    - La commande `last` affiche les derniers utilisateurs qui se sont connectés au système, avec la date et l'heure de la connexion.
+
+13. **Fonction de `wc` :**
+    - La commande `wc` (word count) compte les lignes, mots et caractères d’un fichier. Par exemple :
+      ```bash
+      wc filename
+      ```
+      - Options : `-l` pour les lignes, `-w` pour les mots, et `-c` pour les caractères.
