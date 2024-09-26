@@ -13,7 +13,7 @@ tags:
 ---
 ## Manip one 
 ### PDF
-![[01_Labo_Linux_Les_commandes_de_bases-ELEVES-.pdf]]   
+![[01_Labo_Linux_Les_commandes_de_bases-ELEVES-.pdf]] 
 ### Réponses
 1. **Prompt après `su root` :**
    - Lorsque tu passes en super-utilisateur avec `su root`, le prompt change souvent pour indiquer que tu es root, généralement de `user@machine$` à `root@machine#`, avec le symbole `#` montrant que tu es en mode super-utilisateur.
