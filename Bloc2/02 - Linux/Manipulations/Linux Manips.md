@@ -170,9 +170,6 @@ tags:
      which passwd
      ```
      - Il se trouve souvent dans `/usr/bin/passwd`.
-
-### Réponses aux questions suivantes :
-
 10. **Informations de `whereis` :**
     - La commande `whereis` affiche les emplacements du binaire, du code source et de la page de manuel d’une commande. Par exemple :
       ```bash
@@ -315,5 +312,257 @@ tags:
 ### PDF 
 ![[03_Labo_Linux_Permissions_acces-ELEVES-.pdf]] 
 ### Réponses
+1. **UID, GID et répertoire personnel des utilisateurs :**
+   - a) **root** : 
+     - UID : 0
+     - GID : 0
+     - Répertoire personnel : `/root`
+   - b) **shutdown** :
+     - UID : généralement 6
+     - GID : généralement 6
+     - Répertoire personnel : `/sbin` ou non spécifié
+   - c) **nobody** :
+     - UID : généralement 65534
+     - GID : généralement 65534
+     - Répertoire personnel : `/nonexistent` ou `/`
 
+2. **Création d’un utilisateur `userX` et vérification :**
+   - Pour créer l’utilisateur : 
+     ```bash
+     useradd userX
+     ```
+   - Pour vérifier la connexion :
+     ```bash
+     su - userX
+     ```
+   - Pour vérifier la création du répertoire personnel : 
+     ```bash
+     ls /home/userX
+     ```
 
+3. **UID réservés et utilisateurs réels :**
+   - Les UID inférieurs à 1000 sont généralement réservés pour les comptes systèmes et services. Les utilisateurs "réels" commencent à partir de l’UID 1000.
+
+4. **Création d’un compte existant :**
+   - Si tu essaies de créer un utilisateur déjà existant :
+     ```bash
+     useradd userX
+     ```
+     - Réponse du système : `useradd: user 'userX' already exists`.
+
+5. **Afficher l’UID et les groupes de `userX` :**
+   ```bash
+   id userX
+   ```
+
+6. **Création de fichiers par `userX` et vérification :**
+   - Créer les fichiers : 
+     ```bash
+     touch /home/userX/essai
+     touch /tmp/essai2
+     ```
+   - Vérifier le propriétaire :
+     ```bash
+     ls -l /home/userX/essai
+     ls -l /tmp/essai2
+     ```
+
+7. **Modification et suppression du compte `userX` :**
+   - a) Modifier l’UID de `userX` :
+     ```bash
+     usermod -u 1055 userX
+     ```
+   - b) Vérifier l’association des fichiers :
+     ```bash
+     ls -l /home/userX/essai
+     ls -l /tmp/essai2
+     ```
+   - c) Supprimer le compte `userX` :
+     ```bash
+     userdel userX
+     ```
+     - Par défaut, le répertoire personnel n’est pas supprimé, sauf si tu utilises l’option `-r`.
+
+8. **Création d’un compte utilisateur valide jusqu’à demain 18h :**
+   ```bash
+   useradd -e $(date -d "tomorrow 18:00" +%F) userX_temp
+   ```
+
+9. **Créer un compte avec changement de mot de passe tous les trois mois :**
+   ```bash
+   useradd userY
+   chage -M 90 userY
+   ```
+
+10. **Fonctions des commandes :**
+   - a) `passwd -l groupeX` : Verrouille le mot de passe du compte `groupeX`, empêchant l’accès.
+   - b) `logname` : Affiche le nom de l’utilisateur connecté actuellement.
+   - c) `groups` : Liste les groupes auxquels appartient l’utilisateur courant.
+   - d) `chfn` : Change les informations du compte utilisateur (nom complet, téléphone, etc.).
+   - e) `useradd -D` : Affiche ou modifie les paramètres par défaut des nouveaux comptes utilisateurs.
+
+11. **Créer un groupe `graduatX` :**
+    ```bash
+    groupadd graduatX
+    ```
+
+12. **Modification du groupe d’un utilisateur :**
+   - a) Ajouter `userX` aux groupes `bachelier` et `userX` :
+     ```bash
+     usermod -aG bachelier,userX userX
+     ```
+   - b) Vérifier l’appartenance :
+     ```bash
+     id userX
+     ```
+
+13. **Définition de `userX` dans `/etc/passwd` :**
+   - a) Mot de passe crypté : Se trouve dans `/etc/shadow`, généralement marqué par un `x` dans `/etc/passwd`.
+   - b) Numéro d’utilisateur : UID.
+   - c) Numéro de groupe : GID.
+   - d) Nom complet de l’utilisateur : Peut inclure des détails comme "User X".
+   - e) Shell de l’utilisateur : `/bin/bash` ou autre shell par défaut.
+   - f) Exemples de comptes non associés à une personne : `nobody`, `daemon`.
+
+14. **`chmod 770 test` modifie-t-il le fichier ou le répertoire ?**
+   - Pour différencier, utilise `ls -ld test`. Le `d` initial indique un répertoire.
+
+15. **Création de liens vers des fichiers du répertoire `/root` :**
+   - Un utilisateur normal ne peut pas créer de lien direct vers des fichiers dans `/root` sans autorisations spécifiques.
+
+16. **Permissions des liens durs et symboliques :**
+   - **Lien dur** : Les permissions du fichier original ne changent pas si celles du lien dur changent.
+   - **Lien symbolique** : Les permissions du lien symbolique sont indépendantes des permissions du fichier cible.
+
+17. **Modification du contenu via un lien symbolique :**
+   - Même si le lien symbolique a `777`, on ne peut pas modifier le fichier si le fichier lui-même n’a pas les permissions d’écriture.
+
+18. **Lien symbolique créé par root :**
+   - a) L’utilisateur peut l’utiliser s’il a les droits nécessaires sur le fichier cible.
+   - b) Le lien apparaît de la même manière dans le répertoire, peu importe qui liste.
+
+19. **Création d’un utilisateur par un membre du groupe root :**
+   - Seul root (ou un utilisateur avec privilèges administratifs spécifiques) peut créer de nouveaux utilisateurs, même si l’utilisateur appartient au groupe root.
+
+---
+
+## Manip five
+### PDF
+![[05_Labo_Linux_sauvegarde-ELEVES-.pdf]] 
+### Réponses
+1. **Différence entre une sauvegarde incrémentale et différentielle :**
+   - **Sauvegarde incrémentale** : Sauvegarde uniquement les fichiers modifiés depuis la dernière sauvegarde (qu'elle soit complète ou incrémentale). Elle est rapide et utilise moins d'espace, mais la restauration est plus complexe car il faut appliquer chaque sauvegarde incrémentale dans l'ordre.
+   - **Sauvegarde différentielle** : Sauvegarde tous les fichiers modifiés depuis la dernière sauvegarde complète. Elle est plus lente et utilise plus d'espace qu'une sauvegarde incrémentale, mais la restauration est plus simple car il suffit d'utiliser la dernière sauvegarde complète et la dernière sauvegarde différentielle.
+
+2. **Création d'une arborescence de fichiers :**
+   - Connectez-vous en tant que `userX` :
+     ```bash
+     su - userX
+     ```
+   - Créez des répertoires et fichiers dans `/home/userX` :
+     ```bash
+     mkdir /home/userX/docs /home/userX/images
+     touch /home/userX/docs/file1.txt /home/userX/images/image1.png
+     ```
+
+3. **Archivage avec `tar` :**
+   - a) **Archiver l’arborescence** :
+     ```bash
+     tar -cvf /tmp/userX.tar /home/userX/
+     ```
+   - b) **Lister le contenu de l’archive** :
+     ```bash
+     tar -tvf /tmp/userX.tar
+     ```
+   - c) **Détruire un fichier et le restaurer depuis l’archive** :
+     - Supprimer un fichier :
+       ```bash
+       rm /home/userX/docs/file1.txt
+       ```
+     - Restaurer le fichier depuis l’archive :
+       ```bash
+       tar -xvf /tmp/userX.tar -C /
+       ```
+
+   - d) **Sauvegarde incrémentale des modifications** :
+     - 1) Mettre à jour l’archive avec les nouveaux fichiers ou ceux modifiés :
+       ```bash
+       tar -uvf /tmp/userX.tar /home/userX/
+       ```
+     - 2) **Vérifier le bon fonctionnement** :
+       - Listez de nouveau le contenu de l'archive pour vérifier l'ajout des fichiers modifiés :
+         ```bash
+         tar -tvf /tmp/userX.tar
+         ```
+  
+   - e) **Détruire tous les fichiers et les restaurer** :
+     - Supprimer tous les fichiers dans `/home/userX` :
+       ```bash
+       rm -rf /home/userX/*
+       ```
+     - Restaurer tout depuis l’archive :
+       ```bash
+       tar -xvf /tmp/userX.tar -C /
+       ```
+
+   - f) **Archivage compressé dans `/var/sauve/`** :
+     - Créer un archive compressée de `/home/` :
+       ```bash
+       tar -czvf /var/sauve/homeX.tar.gz /home/
+       ```
+     - Lister le contenu de l’archive compressée :
+       ```bash
+       tar -tzvf /var/sauve/homeX.tar.gz
+       ```
+
+   - g) **À partir de quelle étape dispose-t-on d’une sauvegarde ?**
+     - Dès que l'archive initiale est créée (étape 3.a), on dispose d'une sauvegarde.
+
+4. **Compression de données :**
+   - a) **Compresser un fichier avec `gzip` :**
+     ```bash
+     gzip <nom_du_fichier>
+     ```
+   - b) **Vérifier l’état de compression :**
+     - Affiche les détails de compression avec `gzip -l` :
+       ```bash
+       gzip -l <nom_du_fichier.gz>
+       ```
+   - c) **Décompresser le fichier avec `gunzip` :**
+     ```bash
+     gunzip <nom_du_fichier.gz>
+     ```
+   - d) **Compresser et décompresser avec `bzip2` :**
+     - Compresser avec `bzip2` :
+       ```bash
+       bzip2 <nom_du_fichier>
+       ```
+     - Décompresser avec `bunzip2` :
+       ```bash
+       bunzip2 <nom_du_fichier.bz2>
+       ```
+
+5. **Utilisation de `rsync` :**
+   - a) **Copier le contenu de `/home/userX/` vers `/tmp/backup/` :**
+     ```bash
+     rsync -av /home/userX/ /tmp/backup/
+     ```
+   - b) **Ajouter deux fichiers et synchroniser :**
+     - Ajouter des fichiers et supprimer un fichier :
+       ```bash
+       touch /home/userX/newfile1.txt /home/userX/newfile2.txt
+       rm /home/userX/oldfile.txt
+       ```
+     - Synchroniser les répertoires :
+       ```bash
+       rsync -av --delete /home/userX/ /tmp/backup/
+       ```
+   - c) **Vérification des fichiers supprimés :**
+     - Le fichier supprimé dans `/home/userX` n’apparaîtra plus dans `/tmp/backup/` si l’option `--delete` a été utilisée lors de la synchronisation avec `rsync`.
+
+---
+
+## Manip six
+### PDF
+![[06_Labo_Linux_processus-ELEVES-.pdf]] 
+### Réponses
