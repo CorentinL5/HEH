@@ -148,7 +148,7 @@ tags:
 7. **Recherche de fichiers avec `find` :**
    - a) Pour trouver le répertoire de `fstab` :
      ```bash
-     find / -name fstab
+     find / -name fstab 
      ```
      - Ce fichier se trouve généralement dans `/etc/`.
    - b) Fichiers modifiés au cours des 10 derniers jours :
