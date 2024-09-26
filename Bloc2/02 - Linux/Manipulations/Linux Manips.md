@@ -191,3 +191,10 @@ tags:
       wc filename
       ```
       - Options : `-l` pour les lignes, `-w` pour les mots, et `-c` pour les caractères.
+
+---
+
+## Manip three
+### PDF
+![[03_Labo_Linux_Permissions_acces-ELEVES-.pdf]] 
+### Réponses
