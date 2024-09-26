@@ -198,3 +198,122 @@ tags:
 ### PDF
 ![[03_Labo_Linux_Permissions_acces-ELEVES-.pdf]] 
 ### Réponses
+1. **Informations données par la commande `ls -l` :**
+   - La commande `ls -l` affiche des informations détaillées sur les fichiers et répertoires. Exemple :
+     ```
+     -rw-r--r-- 1 userX groupX 1234 Sep 26 08:34 example.txt
+     ```
+     - `-rw-r--r--` : Permissions du fichier (lecture, écriture, exécution).
+     - `1` : Nombre de liens (hard links).
+     - `userX` : Propriétaire du fichier.
+     - `groupX` : Groupe propriétaire du fichier.
+     - `1234` : Taille du fichier en octets.
+     - `Sep 26 08:34` : Date et heure de la dernière modification.
+     - `example.txt` : Nom du fichier.
+
+2. **Permissions d’accès et type de fichier :**
+   - a) `systemd` : Binaire ou script d'initialisation. Permissions généralement en lecture et exécution (`r-xr-xr-x`).
+   - b) `inittab` : Fichier de configuration (`rw-r--r--`), fichier texte.
+   - c) `skel` : Répertoire modèle (`rwxr-xr-x`), utilisé pour les nouveaux comptes utilisateurs.
+
+3. **Permissions par défaut des fichiers créés :**
+   - a) **Root :** Généralement `rw-r--r--` (644).
+   - b) **Utilisateur quelconque :** Généralement `rw-r--r--` (644).
+   - c) Un utilisateur ne peut pas toujours lire les fichiers créés par root, car root peut restreindre les droits d’accès (ex. : `chmod 600` pour `rw-------`).
+
+4. **Permissions par défaut des répertoires créés :**
+   - a) **Root :** Généralement `rwxr-xr-x` (755).
+   - b) **Utilisateur quelconque :** Généralement `rwxr-xr-x` (755).
+   - c) L’exécution sur un répertoire permet de naviguer dans ce répertoire et d’exécuter des commandes sur ses fichiers. C’est essentiel pour pouvoir accéder au contenu.
+
+5. **Modifier les permissions de `droituserX` :**
+   - a) **Première méthode (symbolique) :**
+     ```bash
+     chmod u=rx,g=w,o= droituserX
+     ```
+   - b) **Deuxième méthode (numérique) :**
+     ```bash
+     chmod 521 droituserX
+     ```
+   - c) **Vérifier les droits :**
+     ```bash
+     ls -l droituserX
+     ```
+   - d) Sans préciser `u`, `g`, ou `o`, `chmod` change les permissions de toutes les catégories (`ugo`).
+
+6. **Réinitialiser les droits par défaut et questions sur les permissions :**
+   - a) Seul le propriétaire ou root peut modifier les permissions d’un fichier.
+   - b) Si root change le groupe en `root`, userX perd les permissions de modification, sauf s’il reste propriétaire.
+   - c) Si root est propriétaire et le groupe est `userX`, un utilisateur de ce groupe ne peut pas modifier le fichier.
+   - d) Seul le propriétaire du fichier ou root peut modifier les permissions.
+   - e) En général, le propriétaire ou root peut modifier les permissions d’un fichier.
+
+7. **Montage et démontage de `/home` :**
+   - Pour démonter :
+     ```bash
+     umount /home
+     ```
+   - Pour remonter :
+     ```bash
+     mount /home
+     ```
+   - Pour vérifier le système de fichiers et la capacité :
+     ```bash
+     mount | grep /home
+     df -h /home
+     ```
+
+8. **Modification ou suppression de fichiers appartenant à root :**
+   - Un utilisateur ne peut pas modifier ou supprimer un fichier appartenant à root, même dans son propre répertoire, à moins d’avoir les permissions appropriées.
+
+9. **Permissions par défaut pour un fichier créé :**
+   - Réponse : **c) 644** (`rw-r--r--`).
+
+10. **Fichiers modifiés au cours des 9 derniers jours :**
+    ```bash
+    find / -mtime -9
+    ```
+
+11. **Fichiers modifiés il y a exactement 9 jours :**
+    ```bash
+    find / -mtime 9
+    ```
+
+12. **Copier `/home` dans `/usr/homebackup` :**
+    ```bash
+    cp -r /home /usr/homebackup
+    ```
+
+13. **Recherche dans un fichier avec `grep` :**
+    - a) Trouver `userX` dans `/etc/passwd` :
+      ```bash
+      grep userX /etc/passwd
+      ```
+    - b) Trouver `userX` dans tous les fichiers de `/etc` :
+      ```bash
+      grep -r userX /etc
+      ```
+
+14. **Permissions des commandes `chmod` :**
+   - `chmod 777 fichier` : `rwxrwxrwx`
+   - `chmod 141 fichier` : `--xr----x`
+   - `chmod 471 fichier` : `r--rwx--x`
+   - `chmod 754 fichier` : `rwxr-xr--`
+   - `chmod 664 fichier` : `rw-rw-r--`
+   - `chmod 627 fichier` : `rw--w-rwx`
+   - `chmod 765 fichier` : `rwxrw-r-x`
+   - `chmod 462 fichier` : `r--rw--w-`
+
+15. **Structure des fichiers de configuration :**
+   - **/etc/fstab** : Contient les informations sur les systèmes de fichiers à monter automatiquement au démarrage.
+   - **/etc/passwd** : Contient les informations des utilisateurs (nom, UID, GID, etc.).
+   - **/etc/shadow** : Contient les mots de passe cryptés des utilisateurs et des informations supplémentaires sur les comptes.
+   - **/etc/group** : Contient les groupes du système et les utilisateurs associés à chaque groupe.
+
+---
+## Manip four
+### PDF 
+![[03_Labo_Linux_Permissions_acces-ELEVES-.pdf]] 
+### Réponses
+
+
