@@ -18,10 +18,10 @@ mais faut être logique et ne pas mettre n'importe quoi
 
 
 Serveur de nom
-SOA
-NS
-A / AAAA
-PTR
-CNAME
-MX
-SRV
+	SOA
+	NS
+	A / AAAA
+	PTR
+	CNAME
+	MX
+	SRV
