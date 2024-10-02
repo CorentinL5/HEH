@@ -535,7 +535,7 @@ $$
 C'est la formule standard qui nous dit que la multiplication par $e^{-ap}$ dans le domaine de Laplace correspond à un décalage de $a$ unités vers la droite dans le domaine temporel, avec la fonction échelon de Heaviside $u(t - a)$ qui active la fonction à partir de $t = a$.
 
 Dans notre cas, $a = 1$, donc la multiplication par $e^{-p}$ indique un décalage de 1 unité vers la droite. Cela transforme la fonction $\frac{t^2}{2}$ en $\frac{(t - 1)^2}{2}$ et introduit la fonction échelon de Heaviside $u(t - 1)$ qui active cette fonction à partir de $t = 1$.
-
+ 
 #### Conclusion
 
 En combinant ces deux résultats, nous obtenons que :
