@@ -11,9 +11,11 @@ q
 # 📝 Prise de Notes - Cours
 
 ---
-![[Laplace.pdf]]
+
+> ![[Laplace.pdf]]
 
 # Calcul des Transformées de Laplace Inverses
+> ![[LaplaceExo24-25.pdf]]
 
 ## Exercice 1
 > Calculer les transformées de Laplace des signaux causaux suivants
@@ -291,7 +293,7 @@ $$
 
 ### (a) $\frac{3}{p+2} - \frac{1}{p^3}$
 
-#### Première partie :
+Première partie :
 $$
 \frac{3}{p+2}
 $$
@@ -304,7 +306,7 @@ $$
 \mathcal{L}^{-1} \left( \frac{3}{p+2} \right) = 3 e^{-2t}
 $$
 
-#### Deuxième partie :
+Deuxième partie :
 $$
 \frac{1}{p^3}
 $$
@@ -317,7 +319,7 @@ $$
 \mathcal{L}^{-1} \left( \frac{1}{p^3} \right) = \frac{t^2}{2}
 $$
 
-#### Solution complète (a) :
+Solution complète (a) :
 $$
 \mathcal{L}^{-1} \left( \frac{3}{p+2} - \frac{1}{p^3} \right) = 3 e^{-2t} - \frac{t^2}{2}
 $$
@@ -344,35 +346,42 @@ A + B = 1 \quad \text{et} \quad 4A + 3B = 2
 $$
 Résolution de ce système :
 $$
-A = 1 \quad \text{et} \quad B = -1
+A = -1 \quad \text{et} \quad B = 2
 $$
 Donc :
 $$
-\frac{p+2}{(p+3)(p+4)} = \frac{1}{p+3} - \frac{1}{p+4}
+\frac{p+2}{(p+3)(p+4)} = \frac{-1}{p+3} + \frac{2}{p+4}
 $$
 
 Les transformées inverses de $\frac{1}{p+a}$ sont $e^{-at}$, donc la solution est :
 $$
-\mathcal{L}^{-1} \left( \frac{p+2}{(p+3)(p+4)} \right) = e^{-3t} - e^{-4t}
+\mathcal{L}^{-1} \left( \frac{p+2}{(p+3)(p+4)} \right) = -e^{-3t} + 2e^{-4t}
 $$
 
 ---
 
 ### (c) $\frac{a}{p^2 - a^2}$ 
-
+		
 Cette expression peut être simplifiée en utilisant la formule :
 $$
 \frac{1}{p^2 - a^2} = \frac{1}{2a} \left( \frac{1}{p - a} - \frac{1}{p + a} \right)
 $$
-La transformée inverse est donc :
+Donc :
 $$
-\mathcal{L}^{-1} \left( \frac{1}{p^2 - a^2} \right) = \frac{\sinh(at)}{a}
+\mathcal{L}^{-1} \left( \frac{A}{p - a} \right) + \left( \frac{B}{p - a} \right)
 $$
-En multipliant par $a$, on obtient :
 $$
-\mathcal{L}^{-1} \left( \frac{a}{p^2 - a^2} \right) = \sinh(at)
+\frac{A(P+a) + B(p-a)}{(p-a)(p+a)}
 $$
-
+$$
+\text{Si p = -a : } a=-2aB \leftrightarrow B = -\frac{1}{2}
+$$
+$$
+\text{Si p = a : } a=2aA \leftrightarrow A = \frac{1}{2}
+$$
+$$
+\mathcal{L1}^{-1} \left( \frac{a}{p^2 - a^2} \right) =  \frac{e^at-e^-at}{2}
+$$
 ---
 
 ### (d) $\frac{3}{(p+6)^2}$ 
@@ -392,34 +401,87 @@ $$
 
 On commence par factoriser le dénominateur :
 $$
-p^2 + 4p - 21 = (p-3)(p+7)
+p^2 + 4p - 21 = 0
+$$
+$$
+\Delta = b^2 - 4ac = 4^2 - 4 \times 1 \times (-21) = 16 + 84 = 100
+$$
+$$
+p = \frac{-b \pm \sqrt{\Delta}}{2a} = \frac{-4 \pm \sqrt{100}}{2 \times 1} = \frac{-4 \pm 10}{2}
+$$
+$$
+p_1 = \frac{-4 + 10}{2} = 3 \quad \text{et} \quad p_2 = \frac{-4 - 10}{2} = -7
+$$
+$$
+p^2 + 4p - 21 = (p - 3)(p + 7)
 $$
 Ensuite, on décompose en fractions partielles :
 $$
 \frac{10}{(p-3)(p+7)} = \frac{A}{p-3} + \frac{B}{p+7}
 $$
-En résolvant, on trouve $A = \frac{5}{2}$ et $B = \frac{5}{2}$, donc :
+En résolvant, on trouve $A = 1$ et $B = -1$, donc :
 $$
 \frac{10}{(p-3)(p+7)} = \frac{5}{2} \left( \frac{1}{p-3} - \frac{1}{p+7} \right)
 $$
 Les transformées inverses de $\frac{1}{p-a}$ sont $e^{at}$, donc la solution est :
 $$
-\mathcal{L}^{-1} \left( \frac{10}{p^2 + 4p - 21} \right) = \frac{5}{2} e^{3t} - \frac{5}{2} e^{-7t}
+\mathcal{L}^{-1} \left( \frac{10}{p^2 + 4p - 21} \right) = e^{3t} - e^{-7t}
 $$
 
 ---
 
-### (f) $\frac{p}{(p-5)^3}$ 
+### (f) $\frac{p}{(p - 5)^3}$
 
-C'est une fonction dérivée. On reconnaît que la transformée inverse de $\frac{1}{(p-a)^n}$ est :
 $$
-\mathcal{L}^{-1} \left( \frac{1}{(p-a)^n} \right) = \frac{t^{n-1}}{(n-1)!} e^{at}
+\frac{p}{(p - 5)^3} = \frac{A}{(p - 5)} + \frac{B}{(p - 5)^2} + \frac{C}{(p - 5)^3}
 $$
-Dans ce cas, nous avons besoin de la dérivée par rapport à $t$. La solution est donc :
+Multiplier par $(p - 5)^3$ 
+Pour éliminer les dénominateurs, multiplions les deux côtés de l'équation par $(p - 5)^3$ :
+
 $$
-\mathcal{L}^{-1} \left( \frac{p}{(p-5)^3} \right) = (t + 2) e^{5t}
+p = A(p - 5)^2 + B(p - 5) + C
+$$
+Développer
+Développons chaque terme :
+
+- $A(p - 5)^2 = A(p^2 - 10p + 25) = A p^2 - 10 A p + 25 A$
+- $B(p - 5) = B p - 5 B$
+- $C$ reste inchangé.
+
+L'équation devient donc :
+
+$$
+p = A p^2 - 10 A p + 25 A + B p - 5 B + C
+$$
+$$
+p = A p^2 + (-10A + B) p + (25A - 5B + C)
 $$
 
+Comparer les coefficients
+Pour que cette équation soit valide, les coefficients de chaque puissance de $p$ doivent être égaux de chaque côté de l'équation.
+
+- Le coefficient de $p^2$ est 0 à gauche, donc $A = 0$.
+- Le coefficient de $p$ est 1 à gauche, donc $-10A + B = 1$.
+- Le terme constant est 0 à gauche, donc $25A - 5B + C = 0$.
+
+Résolution
+
+- De $A = 0$, on déduit que $B = 1$ (de l'équation $-10A + B = 1$).
+- En substituant $A = 0$ et $B = 1$ dans l'équation $25A - 5B + C = 0$, on obtient $-5 + C = 0$, donc $C = 5$.
+
+Résultat final
+$$
+A = 0, \quad B = 1, \quad C = 5
+$$
+
+Ainsi, la décomposition en fractions partielles est :
+
+$$
+\frac{p}{(p - 5)^3} = \frac{1}{(p - 5)^2} + \frac{5}{(p - 5)^3}
+$$
+$$
+\mathcal{L}^{-1} \left( \frac{p}{(p - 5)^3} \right) = \mathcal{L}^{-1} \left( \frac{1}{(p - 5)^2} \right) + 5 \times \mathcal{L}^{-1} \left( \frac{5}{(p - 5)^3} \right)
+$$
 ---
 
 ### (g) $\frac{p+7}{p^2 + 49}$
@@ -438,12 +500,57 @@ $$
 
 ### (h) $\frac{e^{-p}}{p^3}$
 
-Cette expression est une transformée décalée dans le temps. On reconnaît que la transformée inverse de $\frac{1}{p^3}$$ est  $\frac{t^2}{2}$ . Le terme $e^{-p}$ représente un décalage d'une unité vers la droite. 
-Donc la solution est :
+Pour expliquer le raisonnement complet derrière la résolution de l'expression $\frac{e^{-p}}{p^3}$ en utilisant les formules présentes dans l'image, nous allons décomposer le problème en deux parties principales : la transformée inverse de $\frac{1}{p^3}$ et l'effet du terme $e^{-p}$ qui introduit un décalage.
+
+#### Partie 1 : Transformée inverse de $\frac{1}{p^3}$
+
+Dans l'image, nous voyons plusieurs formules pour la transformée de Laplace de fonctions courantes. La formule pertinente ici est celle de la transformée de Laplace d'une fonction de la forme $t^n$, indiquée par :
+
+$$
+t^n \quad \longrightarrow \quad \frac{n!}{p^{n+1}}
+$$
+
+Nous avons dans notre cas $\frac{1}{p^3}$, qui correspond à $n = 2$, car :
+
+$$
+\mathcal{L} \left( \frac{t^2}{2} \right) = \frac{2!}{p^3} = \frac{2}{p^3}
+$$
+
+Par conséquent, nous savons que la transformée inverse de $\frac{1}{p^3}$ est donnée par :
+
+$$
+\mathcal{L}^{-1} \left( \frac{1}{p^3} \right) = \frac{t^2}{2}
+$$
+
+Cela nous donne la partie de la fonction sans décalage temporel.
+
+#### Partie 2 : Effet du terme $e^{-p}$
+
+Le terme $e^{-p}$ dans l'expression $\frac{e^{-p}}{p^3}$ représente un décalage dans le temps. Dans l'image, nous avons la formule correspondante au décalage temporel sous la forme :
+
+$$
+e^{-ap} x(t) \quad \longrightarrow \quad x(t - a) u(t - a)
+$$
+
+C'est la formule standard qui nous dit que la multiplication par $e^{-ap}$ dans le domaine de Laplace correspond à un décalage de $a$ unités vers la droite dans le domaine temporel, avec la fonction échelon de Heaviside $u(t - a)$ qui active la fonction à partir de $t = a$.
+
+Dans notre cas, $a = 1$, donc la multiplication par $e^{-p}$ indique un décalage de 1 unité vers la droite. Cela transforme la fonction $\frac{t^2}{2}$ en $\frac{(t - 1)^2}{2}$ et introduit la fonction échelon de Heaviside $u(t - 1)$ qui active cette fonction à partir de $t = 1$.
+
+#### Conclusion
+
+En combinant ces deux résultats, nous obtenons que :
+
 $$
 \mathcal{L}^{-1} \left( \frac{e^{-p}}{p^3} \right) = u(t-1) \frac{(t-1)^2}{2}
 $$
-où $u(t-1)$ est la fonction échelon de Heaviside.
+
+##### Raisonnement résumé :
+1. La transformée inverse de $\frac{1}{p^3}$ est $\frac{t^2}{2}$.
+2. Le terme $e^{-p}$ représente un décalage de 1 unité vers la droite, ce qui nous donne $\frac{(t-1)^2}{2}$.
+3. La fonction échelon de Heaviside $u(t-1)$ est utilisée pour activer cette fonction à partir de $t = 1$.
+
+Donc, la solution complète est
+$$u(t-1) \frac{(t-1)^2}{2}$$
 
 ---
 
