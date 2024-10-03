@@ -310,7 +310,7 @@ tags:
 ---
 ## Manip four
 ### PDF 
-![[03_Labo_Linux_Permissions_acces-ELEVES-.pdf]] 
+![[04_Labo_Linux_Gestion_des_utilisateurs_-ELEVES-.pdf]] 
 ### Réponses
 1. **UID, GID et répertoire personnel des utilisateurs :**
    - a) **root** : 
@@ -455,7 +455,7 @@ tags:
    - **Sauvegarde différentielle** : Sauvegarde tous les fichiers modifiés depuis la dernière sauvegarde complète. Elle est plus lente et utilise plus d'espace qu'une sauvegarde incrémentale, mais la restauration est plus simple car il suffit d'utiliser la dernière sauvegarde complète et la dernière sauvegarde différentielle.
 
 2. **Création d'une arborescence de fichiers :**
-   - Connectez-vous en tant que `userX` :
+   - Connectez vous en tant que `userX` :
      ```bash
      su - userX
      ```

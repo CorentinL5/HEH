@@ -45,6 +45,14 @@ line console 0
 
 
 
+
+
+
+
+
+
+
+
 line vty 0 4
  password password
  login
@@ -130,3 +138,10 @@ interface FastEthernet0/0
  exit
 
 ipv6 route ::/0 2001::2:172:0:0:229
+
+
+
+
+
+
+
