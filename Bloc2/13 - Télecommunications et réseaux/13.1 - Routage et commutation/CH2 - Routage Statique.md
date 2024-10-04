@@ -4,7 +4,7 @@ tags:
   - Lessons/School/HEH/Bloc2/Quad2
 ---
 
-# # 📚  Routage Statique
+# # 📚  CH2 - Routage Statique
 > **Création de la note à *`11:06`* le *`2024-10-04`.***
 ---
 
