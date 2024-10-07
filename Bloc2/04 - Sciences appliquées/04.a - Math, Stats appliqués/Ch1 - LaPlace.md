@@ -15,7 +15,7 @@ q
 > ![[Laplace.pdf]]
 
 # Calcul des Transformées de Laplace Inverses
-> ![[LaplaceExo24-25.pdf]]
+> ![[LaplaceExo24-25.pdf#page=1|noscroll]]
 
 ## Exercice 1
 > Calculer les transformées de Laplace des signaux causaux suivants
