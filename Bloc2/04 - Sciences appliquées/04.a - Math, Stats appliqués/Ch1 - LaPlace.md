@@ -558,7 +558,7 @@ $$u(t-1) \frac{(t-1)^2}{2}$$
 > Résoudre les équations différentielles suivantes
 > ![[Pasted image 20241001140728.png]] 
 
-### (a) $s'(t) + 3s(t) = 0$ avec $s(0) = 1$
+, nb;hvj, ;nj, ;njnh,b j bnbh ,fnbh,f,nh,hnML+M+L%M+%L### (a) $s'(t) + 3s(t) = 0$ avec $s(0) = 1$
 
 Cette équation est une équation différentielle linéaire du premier ordre avec coefficients constants. La solution générale d'une équation de la forme $s'(t) + as(t) = 0$ est :
 $$
