@@ -558,191 +558,58 @@ $$u(t-1) \frac{(t-1)^2}{2}$$
 > Résoudre les équations différentielles suivantes
 > ![[Pasted image 20241001140728.png]] 
 
-, nb;hvj, ;nj, ;njnh,b j bnbh ,fnbh,f,nh,hnML+M+L%M+%L### (a) $s'(t) + 3s(t) = 0$ avec $s(0) = 1$
+J'ai ouvert l'image que vous avez fournie. Maintenant, je vais résoudre les équations différentielles en utilisant les transformées de Laplace. Voici les solutions pour chaque équation :
 
-Cette équation est une équation différentielle linéaire du premier ordre avec coefficients constants. La solution générale d'une équation de la forme $s'(t) + as(t) = 0$ est :
-$$
-s(t) = Ce^{-at}
-$$
-Ici, $a = 3$, donc la solution générale est :
-$$
-s(t) = Ce^{-3t}
-$$
-Utilisons la condition initiale $s(0) = 1$ pour déterminer $C$ :
-$$
-1 = Ce^{0} \implies C = 1
-$$
-La solution est donc :
-$$
-s(t) = e^{-3t}
-$$
+### (a) $s'(t) + 3s(t) = 0$;$s(0) = 1$
+
+1. **Transformée de Laplace :**  
+  $s(s) + 3S(s) = 0$
+   
+2. **Résoudre pour$S(s)$:**  
+  $S(s) = -\frac{s}{3}$
+
+3. **Transformée inverse de Laplace :**  
+  $s(t) = e^{-3t}$
 
 ---
 
-### (b) $s'(t) - 2s(t) = t$ avec $s(0) = 0$
+### (b) $s'(t) - 2s(t) = t$ ; $s(0) = 0$
 
-Cette équation est une équation différentielle linéaire non homogène. La solution générale est de la forme :
-$$
-s(t) = s_h(t) + s_p(t)
-$$
-- **Solution de l'équation homogène** :
-L'équation homogène associée est $s'(t) - 2s(t) = 0$. La solution est :
-$$
-s_h(t) = Ce^{2t}
-$$
+1. **Transformée de Laplace :**  
+  $s(s) - 2S(s) =\frac{1}{s^2}$
 
-- **Solution particulière** :
-Cherchons une solution particulière de la forme $s_p(t) = At + B$. En dérivant :
-$$
-s_p'(t) = A
-$$
-Substituons dans l'équation :
-$$
-A - 2(At + B) = t
-$$
-Ce qui donne le système suivant :
-$$
-A - 2A = 0 \implies A = 1
-$$
-$$
--2B = 0 \implies B = 0
-$$
-Donc, la solution particulière est $s_p(t) = t$.
+2. **Résoudre pour $S(s)$:**  
+  $S(s)(1 - 2) =\frac{1}{s^2} \text{ X } S(s) = \frac{1}{s^2(1 - 2)} = -\frac{1}{s^2}$
 
-- **Solution générale** :
-$$
-s(t) = Ce^{2t} + t
-$$
-Utilisons la condition initiale $s(0) = 0$ pour déterminer $C$ :
-$$
-0 = Ce^{0} + 0 \implies C = 0
-$$
-La solution est donc :
-$$
-s(t) = t
-$$
+3. **Transformée inverse de Laplace :** 
+  $s(t) = -\frac{t}{2}$
 
 ---
 
-### (c) $s'(t) = s(t) + te^t$ avec $s(0) = -1$
+### (c) $s'(t) = s(t) + te^t ;s(0) = -1$
 
-Cette équation est également une équation différentielle non homogène. Nous allons utiliser la méthode du facteur intégrant pour la résoudre.
-
-- **Réécriture de l'équation** :
-$$
-s'(t) - s(t) = te^t
-$$
-
-Le facteur intégrant est donné par $e^{-\int -1 dt} = e^t$.
-
-- **Multiplication de l'équation par le facteur intégrant** :
-$$
-e^t s'(t) - e^t s(t) = te^{2t}
-$$
-$$
-\frac{d}{dt}(e^t s(t)) = te^{2t}
-$$
-
-Intégrons les deux côtés par rapport à $t$ :
-$$
-e^t s(t) = \int te^{2t} dt
-$$
-Utilisons l'intégration par parties pour résoudre $\int te^{2t} dt$. Soit :
-- $u = t \implies du = dt$
-- $dv = e^{2t} dt \implies v = \frac{e^{2t}}{2}$
-
-L'intégrale devient :
-$$
-\int te^{2t} dt = \frac{te^{2t}}{2} - \int \frac{e^{2t}}{2} dt = \frac{te^{2t}}{2} - \frac{e^{2t}}{4}
-$$
-
-Ainsi, nous avons :
-$$
-e^t s(t) = \frac{te^{2t}}{2} - \frac{e^{2t}}{4} + C
-$$
-Divisons par $e^t$ :
-$$
-s(t) = \frac{te^{t}}{2} - \frac{e^{t}}{4} + Ce^{-t}
-$$
-
-Utilisons la condition initiale $s(0) = -1$ :
-$$
--1 = \frac{0}{2} - \frac{1}{4} + C \implies C = -\frac{3}{4}
-$$
-
-La solution finale est donc :
-$$
-s(t) = \frac{te^{t}}{2} - \frac{e^{t}}{4} - \frac{3}{4}e^{-t}
-$$
+1. **Transformée de Laplace :**  
+  $s(p) - (-1) = S(p) +\frac{1}{(s-1)^2}$
+$s(p) * (p-1) = \frac{1}{(p-1)²}-1$
+$L^{-1}\left( \frac{1}{p^3} \right) = \frac{t²}{2}$
 
 ---
 
-### (d) $\frac{1}{2}s'(t) + s(t) = \sin(2t) + \cos(2t)$ avec $s(0) = 0$
+### (d) ${1}{2}s'(t) + s(t) =\sin(2t) +\cos(2t) ; s(0) = 0$
 
-Commençons par réécrire l'équation :
 $$
-s'(t) + 2s(t) = 2\sin(2t) + 2\cos(2t)
-$$
-
-C'est une équation différentielle linéaire non homogène. La solution générale est de la forme :
-$$
-s(t) = s_h(t) + s_p(t)
-$$
-
-- **Solution de l'équation homogène** :
-L'équation homogène associée est $s'(t) + 2s(t) = 0$. La solution est :
-$$
-s_h(t) = Ce^{-2t}
-$$
-
-- **Solution particulière** :
-Cherchons une solution particulière de la forme :
-$$
-s_p(t) = A\sin(2t) + B\cos(2t)
-$$
-En dérivant :
-$$
-s_p'(t) = 2A\cos(2t) - 2B\sin(2t)
-$$
-Substituons dans l'équation :
-$$
-(2A\cos(2t) - 2B\sin(2t)) + 2(A\sin(2t) + B\cos(2t)) = 2\sin(2t) + 2\cos(2t)
-$$
-
-En regroupant les termes en $\sin(2t)$ et $\cos(2t)$ :
-$$
-(2A + 2B)\cos(2t) + (-2B + 2A)\sin(2t) = 2\cos(2t) + 2\sin(2t)
-$$
-Cela nous donne le système :
-$$
-2A + 2B = 2 \quad \text{(1)}
+\frac{1}{2} * S(p) + S(p) = \frac{p+2}{p²+4}
 $$
 $$
--2B + 2A = 2 \quad \text{(2)}
+S(p) * \left( \frac{1}{2} * p + 1 \right) = \frac{p+2}{p²+4}
 $$
-
-Résolvons ce système :
-- En additionnant (1) et (2), on obtient $4A = 4 \implies A = 1$
-- En substituant dans (1), on trouve $2 + 2B = 2 \implies B = 0$
-
-La solution particulière est donc :
 $$
-s_p(t) = \sin(2t)
+S(p) * \left( p + 2 \right) = \frac{p+2}{p²+4}
 $$
-
-- **Solution générale** :
 $$
-s(t) = Ce^{-2t} + \sin(2t)
+\frac{1}{2} * S(p) = \frac{1}{p²+4}
 $$
-
-Utilisons la condition initiale $s(0) = 0$ :
 $$
-0 = C + \sin(0) \implies C = 0
+s(t) = L^{-1} \left(  \frac{2}{p²+4} \right) = \sin(2t)
 $$
-
-La solution finale est donc :
-$$
-s(t) = \sin(2t)
-$$
-
 ---
