@@ -19,8 +19,11 @@
 *.psd  # Photoshop
 *.ai   # Adobe Illustrator
 *.mov  # QuickTime
+*.iso  # Images pour les VM
 
 # Dossiers spécifiques à exclureµ
 .git/
 .idea/
 .obsidian/
+
+
