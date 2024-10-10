@@ -13,7 +13,8 @@ tags:
 ---
 ## Manip one - Cmd de bases
 ### PDF
-![[01_Labo_Linux_Les_commandes_de_bases-ELEVES-.pdf]]
+![[01_Labo_Linux_Les_commandes_de_bases-ELEVES-.pdf#page=1|noscroll]]
+![[01_Labo_Linux_Les_commandes_de_bases-ELEVES-.pdf#page=2|noscroll]]
 ### Réponses
 1. **Prompt après `su root` :**
    - Lorsque tu passes en super-utilisateur avec `su root`, le prompt change souvent pour indiquer que tu es root, généralement de `user@machine$` à `root@machine#`, avec le symbole `#` montrant que tu es en mode super-utilisateur.
@@ -83,7 +84,8 @@ tags:
 
 ## Manip two - Cmd de bases suite
 ### PDF
-![[02_Labo_Linux_Les_commandes_de_bases_suite-ELEVES-.pdf]]
+![[02_Labo_Linux_Les_commandes_de_bases_suite-ELEVES-.pdf#page=1|noscroll]]
+![[02_Labo_Linux_Les_commandes_de_bases_suite-ELEVES-.pdf#page=2|noscroll]]
 ### Réponses
 1. **Prompt après connexion en `userX` :**
    - Le prompt affiché dépend du shell et de la configuration de l'utilisateur. En général, il ressemble à : `userX@machine:~$`, indiquant le nom de l’utilisateur, le nom de la machine et le répertoire courant (`~` pour le dossier personnel).
@@ -193,7 +195,8 @@ tags:
 
 ## Manip three - Gestion de Fichiers
 ### PDF
-![[03_Labo_Linux_Permissions_acces-ELEVES-.pdf]]
+![[03_Labo_Linux_Permissions_acces-ELEVES-.pdf#page=1|noscroll]]
+![[03_Labo_Linux_Permissions_acces-ELEVES-.pdf#page=2|noscroll]]
 ### Réponses
 1. **Informations données par la commande `ls -l` :**
    - La commande `ls -l` affiche des informations détaillées sur les fichiers et répertoires. Exemple :
@@ -310,7 +313,8 @@ tags:
 ---
 ## Manip four - gestion des utilisateurs
 ### PDF 
-![[04_Labo_Linux_Gestion_des_utilisateurs_-ELEVES-.pdf]]
+![[04_Labo_Linux_Gestion_des_utilisateurs_-ELEVES-.pdf#page=1|noscroll]]
+![[04_Labo_Linux_Gestion_des_utilisateurs_-ELEVES-.pdf#page=2|noscroll]]
 ### Réponses
 1. **UID, GID et répertoire personnel des utilisateurs :**
    - a) **root** : 
