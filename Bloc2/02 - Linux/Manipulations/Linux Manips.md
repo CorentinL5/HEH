@@ -8,7 +8,7 @@ tags:
 > **Création de la note à *`08:34`* le *`2024-09-26`.***
 ---
 
-# 📝 Prise de Notes - Cours
+# 📝 Prise de Notes
 
 ---
 ## Manip one - Cmd de bases
@@ -784,8 +784,6 @@ sudo chown userX:newgroup /tmp/monfichier
 Explication :  
 `touch` crée un fichier vide. Ensuite, `chown` change le propriétaire (`userX`) et le groupe (`newgroup`) du fichier.
 
----
-
 2. Quelles sont les permissions d’accès associées au répertoire /tmp ?
 
 Le répertoire `/tmp` a généralement les permissions suivantes :
@@ -796,8 +794,6 @@ drwxrwxrwt
 
 - Le `t` à la fin représente le **sticky bit**, ce qui signifie que seul le propriétaire du fichier ou l'utilisateur root peut le supprimer, même si d'autres utilisateurs ont les permissions d'écriture dans `/tmp`.
 - Les permissions complètes sont : **lecture, écriture, et exécution** pour tous les utilisateurs, mais avec cette restriction de suppression due au sticky bit.
-
----
 
 3. Quelle est la valeur du umask ? Modifier le umask de manière à ce que les fichiers nouvellement créés aient les permissions par défaut suivantes : rw- -w- r--.
 
@@ -816,8 +812,6 @@ umask 0135
 Explication :  
 Le `umask` définit quelles permissions doivent être **retirées** lors de la création de fichiers. Ici, on soustrait de 666 (permissions par défaut pour les fichiers).
 
----
-
 4. Modifier le umask de manière à ce que, par défaut, seul le propriétaire d’un fichier dispose des droits en lecture et écriture sur ce fichier. Les autres utilisateurs du système ne doivent avoir aucun droit sur le fichier.
 
 Pour atteindre cet objectif, vous devez définir le `umask` à 0077 :
@@ -829,7 +823,6 @@ umask 0077
 Explication :  
 Cela garantit que les fichiers sont créés avec des permissions `rw-------` (seul le propriétaire a les droits).
 
----
 
 5. Quels sont les différents systèmes de fichiers montés, à quels fichiers spéciaux sont-ils associés, quels sont leurs répertoires de montage (mount) ?
 
@@ -850,8 +843,6 @@ Cela vous montrera une liste des systèmes de fichiers, avec les informations su
 - **Fichiers spéciaux** (par exemple, `/dev/sda1`, `/dev/sda2`)
 - **Points de montage** (par exemple, `/`, `/home`, `/tmp`)
 
----
-
 6. Affichez l’espace occupé par les différentes partitions de votre système (df). Quels résultats obtenez-vous ?
 
 Exécutez la commande :
@@ -861,8 +852,6 @@ df -h
 ```
 
 Cela affiche l'espace disque utilisé et disponible sur chaque système de fichiers monté, ainsi que le pourcentage d'utilisation.
-
----
 
 7. Quelles sont les tailles (en octets) de blocs qu’il est possible de définir dans un système de fichiers de type ext4 ?
 
@@ -878,8 +867,6 @@ Vous pouvez vérifier la taille des blocs d’un système de fichiers existant a
 ```bash
 sudo tune2fs -l /dev/sdX | grep 'Block size'
 ```
-
----
 
 8. L'utilisateur pierre est en train de visualiser son fichier `.profile` (/home/pierre/profile) grâce à la commande `more`. L'administrateur peut-il démonter le FS `/home` ? Si non, pourquoi ? Que doit-il faire pour y arriver ?
 
@@ -904,8 +891,6 @@ Pour démonter `/home`, vous devez soit :
 fuser -k /home
 ```
 
----
-
 9. Réalisez la vérification d’une partition de votre système (fsck).
 
 Pour vérifier une partition, vous pouvez utiliser la commande `fsck` (file system check). Par exemple :
@@ -915,8 +900,6 @@ sudo fsck /dev/sda1
 ```
 
 Cela vérifie et répare les erreurs sur la partition `/dev/sda1`. Assurez-vous que la partition n'est pas montée lors de l'exécution de cette commande.
-
----
 
 10. Affichez les informations sur le système de fichiers d’une partition (dumpe2fs).
 
@@ -931,7 +914,6 @@ Vous y trouverez des informations comme :
 - **Nombre de blocs par groupe de blocs**
 - **Date de la dernière vérification du système de fichiers**
 
----
 
 11. Créez, sur un nouveau disque dur virtuel, un système de fichier ext4 dont les blocs ont une taille de 4096 octets (mkfs.ext4).
 
@@ -2258,8 +2240,6 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      sudo resize2fs /dev/vg_home/lv_home
      ```
 
----
-
 2. **Diminuez la taille du LV de `/home` pour le remettre à 1 Go.**
 
    - **Démontez `/home`** :
@@ -2302,8 +2282,6 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      sudo mount /home
      ```
 
----
-
 3. **Réalisez une commande « toto » qui ouvrira en édition le fichier de configuration de l’interface réseau.**
 
    - Créez un alias ou un script pour la commande `toto` :
@@ -2340,8 +2318,6 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
        sudo chmod +x /usr/local/bin/toto
        ```
 
----
-
 4. **Réalisez un script qui vérifie les fichiers modifiés dans `/etc` lors des dernières 24h et écrit la liste de ces fichiers dans un fichier. Ce script devra être lancé automatiquement tous les soirs à 20h.**
 
    - **Création du script** :
@@ -2376,8 +2352,6 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      ```bash
      0 20 * * * /usr/local/bin/check_etc.sh
      ```
-
----
 
 5. **Réalisez un script qui prend comme paramètre le nom de l’utilisateur et son mot de passe. Il créera cet utilisateur, le rajoutera automatiquement au groupe `userX` et l’obligera à modifier son mot de passe à sa première connexion.**
 
@@ -2423,7 +2397,6 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      sudo /usr/local/bin/create_user.sh <nom_utilisateur> <mot_de_passe>
      ```
 
----
 
 6. **Écrire un script bash permettant d'afficher tous les comptes locaux d'un système Linux hormis root.**
 
