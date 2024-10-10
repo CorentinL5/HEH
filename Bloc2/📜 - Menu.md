@@ -17,3 +17,4 @@ tags:
 https://hehplanning2024.umons.ac.be/invite
 
 ---
+![[Slides.pdf]]
