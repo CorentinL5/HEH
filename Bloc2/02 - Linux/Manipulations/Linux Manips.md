@@ -775,10 +775,10 @@ tags:
 
 ```bash
 # Créer un fichier avec l'utilisateur root
-sudo touch /tmp/monfichier
+ touch /tmp/monfichier
 
 # Modifier l'utilisateur et le groupe propriétaire du fichier
-sudo chown userX:newgroup /tmp/monfichier
+ chown userX:newgroup /tmp/monfichier
 ```
 
 Explication :  
@@ -865,7 +865,7 @@ Pour un système de fichiers de type ext4, les tailles de blocs possibles sont :
 Vous pouvez vérifier la taille des blocs d’un système de fichiers existant avec la commande suivante :
 
 ```bash
-sudo tune2fs -l /dev/sdX | grep 'Block size'
+ tune2fs -l /dev/sdX | grep 'Block size'
 ```
 
 8. L'utilisateur pierre est en train de visualiser son fichier `.profile` (/home/pierre/profile) grâce à la commande `more`. L'administrateur peut-il démonter le FS `/home` ? Si non, pourquoi ? Que doit-il faire pour y arriver ?
@@ -896,7 +896,7 @@ fuser -k /home
 Pour vérifier une partition, vous pouvez utiliser la commande `fsck` (file system check). Par exemple :
 
 ```bash
-sudo fsck /dev/sda1
+ fsck /dev/sda1
 ```
 
 Cela vérifie et répare les erreurs sur la partition `/dev/sda1`. Assurez-vous que la partition n'est pas montée lors de l'exécution de cette commande.
@@ -906,7 +906,7 @@ Cela vérifie et répare les erreurs sur la partition `/dev/sda1`. Assurez-vous 
 La commande suivante affiche les informations du système de fichiers d’une partition spécifique :
 
 ```bash
-sudo dumpe2fs /dev/sda1
+ dumpe2fs /dev/sda1
 ```
 
 Vous y trouverez des informations comme :
@@ -920,7 +920,7 @@ Vous y trouverez des informations comme :
 Pour créer un système de fichiers ext4 avec une taille de bloc de 4096 octets, utilisez la commande suivante :
 
 ```bash
-sudo mkfs.ext4 -b 4096 /dev/sdX
+ mkfs.ext4 -b 4096 /dev/sdX
 ```
 
 Remplacez `/dev/sdX` par le nom du périphérique du disque dur virtuel.
@@ -935,15 +935,15 @@ Remplacez `/dev/sdX` par le nom du périphérique du disque dur virtuel.
 
    - Pour vérifier si `crond` est actif et obtenir son PID, vous pouvez utiliser la commande suivante :
 
-     ```bash
-     ps aux | grep crond
-     ```
+ ```bash
+	 ps aux | grep crond
+ ```
 
      Si `crond` est actif, vous verrez une ligne avec son **PID** dans la deuxième colonne. Sinon, pour démarrer le service `crond` :
 
-     ```bash
-     sudo systemctl start crond
-     ```
+ ```bash
+	systemctl start crond
+ ```
 
 2. **Crontab**
    
@@ -956,13 +956,13 @@ Remplacez `/dev/sdX` par le nom du périphérique du disque dur virtuel.
    Pour visualiser le fichier :
 
    ```bash
-   cat /var/log/cron
+	cat /var/log/cron
    ```
 
    Pour effacer son contenu (si vous avez les droits) :
 
    ```bash
-   sudo truncate -s 0 /var/log/cron
+	truncate -s 0 /var/log/cron
    ```
 
    c) **Que se passe-t-il si vous placez un script dans le répertoire `/etc/cron.daily` ?**
@@ -975,15 +975,15 @@ Remplacez `/dev/sdX` par le nom du périphérique du disque dur virtuel.
 
    Sous l’utilisateur `userX`, ouvrez l'éditeur de crontab :
 
-	   ```bash
-	   crontab -e
-	   ```
+   ```bash
+   crontab -e
+   ```
 
    Ajoutez la ligne suivante pour exécuter la tâche toutes les minutes :
 
-	   ```bash
-	   * * * * * echo "Bonjour $(date)" >> /tmp/date.cron
-	   ```
+   ```bash
+   * * * * * echo "Bonjour $(date)" >> /tmp/date.cron
+   ```
 
    b) **Une tâche périodique qui doit écrire, tous les quarts d'heure, de 8h à 17h du lundi au vendredi, dans le fichier `/tmp/processusX` (remplacez X par votre numéro de groupe), la liste des processus en cours d'exécution qui ont un terminal de contrôle.**
 
@@ -1000,10 +1000,10 @@ Remplacez `/dev/sdX` par le nom du périphérique du disque dur virtuel.
    c) **Vérifiez que les tâches sont bien enregistrées (crontab –l).**
 
    Pour vérifier que les tâches sont bien programmées :
-	
-	   ```bash
-	   crontab -l
-	   ```
+
+   ```bash
+   crontab -l
+   ```
 
    d) **Vérifiez son fonctionnement une fois programmé.**
 
@@ -1015,17 +1015,17 @@ Remplacez `/dev/sdX` par le nom du périphérique du disque dur virtuel.
 
    Utilisez la commande `at` pour programmer une tâche :
 
-	   ```bash
-	   echo 'echo "rappel : vendredi midi, déjeuner avec la secrétaire :-))"' | at now + 3 minutes
-	   ```
+   ```bash
+   echo 'echo "rappel : vendredi midi, déjeuner avec la secrétaire :-))"' | at now + 3 minutes
+   ```
 
    b) **Que fait la commande `atq` ?**
 
    La commande `atq` affiche la liste des tâches programmées avec `at` :
 
-	   ```bash
-	   atq
-	   ```
+   ```bash
+   atq
+   ```
 
    c) **Qu’est-ce que atd ?**
 
@@ -1035,16 +1035,16 @@ Remplacez `/dev/sdX` par le nom du périphérique du disque dur virtuel.
 
    Reprogrammez la commande :
 
-	   ```bash
-	   echo 'echo "rappel : vendredi midi, déjeuner avec la secrétaire :-))"' | at now + 3 minutes
-	   ```
+   ```bash
+   echo 'echo "rappel : vendredi midi, déjeuner avec la secrétaire :-))"' | at now + 3 minutes
+   ```
 
    Ensuite, annulez-la avec `atrm` :
 
-	   ```bash
-	   atq  # Pour obtenir le numéro de la tâche
-	   atrm [numéro de tâche]
-	   ```
+   ```bash
+   atq  # Pour obtenir le numéro de la tâche
+   atrm [numéro de tâche]
+   ```
 
 5. **Redémarrer le démon crond**
 
@@ -1052,9 +1052,9 @@ Remplacez `/dev/sdX` par le nom du périphérique du disque dur virtuel.
 
    Pour redémarrer le service `crond` :
 
-	   ```bash
-	   sudo systemctl restart crond
-	   ```
+   ```bash
+systemctl restart crond
+   ```
 
    b) **Le démon crond doit-il être redémarré après modification de son fichier de configuration ?**
 
@@ -1071,9 +1071,9 @@ Remplacez `/dev/sdX` par le nom du périphérique du disque dur virtuel.
 
    Ajoutez `userX` au fichier `/etc/cron.deny` :
 
-	   ```bash
-	   echo "userX" | sudo tee -a /etc/cron.deny
-	   ```
+   ```bash
+   echo "userX" |  tee -a /etc/cron.deny
+   ```
 
    c) **Si vous interdisez l’accès à la commande crontab à un utilisateur, cela a-t-il une influence sur les tâches périodiques déjà programmées par cet utilisateur ?**
 
@@ -1082,10 +1082,10 @@ Remplacez `/dev/sdX` par le nom du périphérique du disque dur virtuel.
 7. **Mettez en place une tâche périodique qui met à jour la base de données de la commande locate (updatedb). Cette mise à jour doit être réalisée une fois par semaine, pendant votre pause.**
 
    Ouvrez le crontab avec `crontab -e` et ajoutez la ligne suivante pour exécuter la mise à jour une fois par semaine (par exemple le mercredi à midi) :
-	
-	   ```bash
-	   0 12 * * 3 /usr/bin/updatedb
-	   ```
+
+   ```bash
+   0 12 * * 3 /usr/bin/updatedb
+   ```
 
 Cela exécute `updatedb` chaque mercredi à midi, ce qui correspond à une pause potentielle.
 
@@ -1099,15 +1099,15 @@ Cela exécute `updatedb` chaque mercredi à midi, ce qui correspond à une pause
 
    - Avec `lspci`, vous pouvez lister tous les périphériques, y compris la carte réseau :
 
-     ```bash
-     lspci | grep -i net
-     ```
+ ```bash
+ lspci | grep -i net
+ ```
 
    - Avec `lshw`, vous pouvez obtenir des informations détaillées sur votre matériel réseau (nécessite les droits `root`) :
 
-     ```bash
-     sudo lshw -C network
-     ```
+ ```bash
+  lshw -C network
+ ```
 
    Cela vous donnera des informations telles que le modèle de votre carte réseau et son état.
 
@@ -1115,9 +1115,9 @@ Cela exécute `updatedb` chaque mercredi à midi, ce qui correspond à une pause
 
    Utilisez la commande `lsmod` pour vérifier si le module de pilote de votre carte réseau est chargé :
 
-	   ```bash
-	   lsmod | grep <nom_du_pilote>
-	   ```
+   ```bash
+   lsmod | grep <nom_du_pilote>
+   ```
 
    Le nom du pilote est souvent mentionné dans la sortie de la commande précédente (`lshw` ou `lspci`), par exemple `e1000` ou `r8169`.
 
@@ -1127,21 +1127,21 @@ Cela exécute `updatedb` chaque mercredi à midi, ce qui correspond à une pause
 
    - Avec `nmcli` :
 
-     ```bash
-     nmcli device show
-     ```
+ ```bash
+ nmcli device show
+ ```
 
    - Avec `ip` :
 
-     ```bash
-     ip addr show
-     ```
+ ```bash
+ ip addr show
+ ```
 
    - Avec `ifconfig` (peut nécessiter d'être installé) :
 
-	     ```bash
-	     ifconfig
-	     ```
+ ```bash
+ ifconfig
+ ```
 
    La **MAC address** est généralement marquée comme `ether` et l'**adresse IP** sera répertoriée sous `inet`.
 
@@ -1149,41 +1149,41 @@ Cela exécute `updatedb` chaque mercredi à midi, ce qui correspond à une pause
 
    Pour désactiver une interface réseau (par exemple `eth0`) :
 	
-	   ```bash
-	   nmcli device disconnect eth0
-	   ```
+   ```bash
+   nmcli device disconnect eth0
+   ```
 
    Pour l'activer à nouveau :
 
-	   ```bash
-	   nmcli device connect eth0
-	   ```
+   ```bash
+   nmcli device connect eth0
+   ```
 
 5. **Configurez manuellement (pas de DHCP) votre ordinateur de manière à vous connecter à Internet voir votre configuration NAT (ifconfig, route, /etc/resolv.conf, /etc/host.conf)**
 
    - Configurez l'adresse IP statique avec `ifconfig` :
 
-     ```bash
-     sudo ifconfig eth0 192.168.1.100 netmask 255.255.255.0 up
-     ```
+ ```bash
+  ifconfig eth0 192.168.1.100 netmask 255.255.255.0 up
+ ```
 
    - Définissez la passerelle par défaut :
 
-     ```bash
-     sudo route add default gw 192.168.1.1
-     ```
+ ```bash
+  route add default gw 192.168.1.1
+ ```
 
    - Configurez les serveurs DNS dans `/etc/resolv.conf` :
 
-     ```bash
-     sudo nano /etc/resolv.conf
-     ```
+ ```bash
+  nano /etc/resolv.conf
+ ```
 
      Ajoutez le serveur DNS, par exemple :
 
-     ```
-     nameserver 8.8.8.8
-     ```
+ ```
+ nameserver 8.8.8.8
+ ```
 
    - Vérifiez la configuration NAT si vous utilisez une VM avec NAT.
 
@@ -1195,13 +1195,13 @@ Cela exécute `updatedb` chaque mercredi à midi, ce qui correspond à une pause
 
    Utilisez `nmcli` pour configurer l'interface réseau en fonction de votre NAT :
 
-	   ```bash
+   ```bash
 	   nmcli con mod eth0 ipv4.addresses 192.168.1.100/24
 	   nmcli con mod eth0 ipv4.gateway 192.168.1.1
 	   nmcli con mod eth0 ipv4.dns 8.8.8.8
 	   nmcli con mod eth0 ipv4.method manual
 	   nmcli con up eth0
-	   ```
+   ```
 
    Après redémarrage, ces paramètres devraient persister. Si cela fonctionne, l'adresse IP et la connexion réseau devraient rester stables.
 
@@ -1209,15 +1209,15 @@ Cela exécute `updatedb` chaque mercredi à midi, ce qui correspond à une pause
 
    Listez les fichiers de configuration de NetworkManager :
 
-	   ```bash
-	   ls /etc/NetworkManager/system-connections/
-	   ```
+   ```bash
+	ls /etc/NetworkManager/system-connections/
+   ```
 
    Analysez le fichier de configuration correspondant à votre interface réseau (souvent un fichier `.nmconnection`) :
 
-	   ```bash
-	   sudo cat /etc/NetworkManager/system-connections/<nom-du-fichier>
-	   ```
+   ```bash
+	cat /etc/NetworkManager/system-connections/<nom-du-fichier>
+   ```
 
    Ce fichier contient les paramètres IP, DNS, et d'autres configurations de l'interface.
 
@@ -1225,16 +1225,16 @@ Cela exécute `updatedb` chaque mercredi à midi, ce qui correspond à une pause
 
    a) **Testez la communication vers google et vers le serveur DNS de l’institut :**
 
-	   ```bash
-	   ping google.com
-	   ping <adresse_IP_DNS_institut>
-	   ```
+   ```bash
+   ping google.com
+   ping <adresse_IP_DNS_institut>
+   ```
 
    b) **Testez la connectivité de la passerelle en spécifiant des paquets de taille 1500 octets et en envoyant que 5 paquets :**
 
-	   ```bash
-	   ping -s 1500 -c 5 192.168.1.1
-	   ```
+   ```bash
+   ping -s 1500 -c 5 192.168.1.1
+   ```
 
    Cela envoie 5 paquets de 1500 octets à la passerelle (adresse IP à remplacer par celle de votre passerelle).
 
@@ -1446,7 +1446,7 @@ Cela exécute `updatedb` chaque mercredi à midi, ce qui correspond à une pause
    Utilisez `time` pour mesurer le temps d'exécution de la commande `updatedb` :
 
 	   ```bash
-	   sudo time updatedb
+	    time updatedb
 	   ```
 
    La sortie vous donnera trois valeurs :
@@ -1471,7 +1471,7 @@ Cela exécute `updatedb` chaque mercredi à midi, ce qui correspond à une pause
    Si le paquet n'est pas installé, installez-le :
 
 	   ```bash
-	   sudo yum install quota
+	    yum install quota
 	   ```
 
    Une fois installé, la commande `rpm -q quota` vous affichera la version du paquet.
@@ -1497,20 +1497,20 @@ Cela exécute `updatedb` chaque mercredi à midi, ce qui correspond à une pause
    - Remontez la partition `/home` avec la commande suivante :
 
      ```bash
-     sudo mount -o remount /home
+      mount -o remount /home
      ```
 
    - Initialisez les fichiers de quotas :
 
      ```bash
-     sudo quotacheck -cum /home
-     sudo quotaon /home
+      quotacheck -cum /home
+      quotaon /home
      ```
 
    - Vérifiez que les quotas sont activés :
 
      ```bash
-     sudo quotaon -p /home
+      quotaon -p /home
      ```
 
 4. **Créez un utilisateur quelconque, puis configurez-lui des quotas**
@@ -1518,8 +1518,8 @@ Cela exécute `updatedb` chaque mercredi à midi, ce qui correspond à une pause
    - Créez un utilisateur :
 
      ```bash
-     sudo useradd testuser
-     sudo passwd testuser
+      useradd testuser
+      passwd testuser
      ```
 
    a) **Fixez ses limites d'espace disque à 100 Ko (limite douce) et 300 Ko (limite dure)**
@@ -1527,7 +1527,7 @@ Cela exécute `updatedb` chaque mercredi à midi, ce qui correspond à une pause
    Utilisez la commande `edquota` pour configurer les quotas pour `testuser` :
 
 	   ```bash
-	   sudo edquota -u testuser
+	    edquota -u testuser
 	   ```
 
    Dans l'éditeur, définissez les valeurs comme suit :
@@ -1545,7 +1545,7 @@ Cela exécute `updatedb` chaque mercredi à midi, ce qui correspond à une pause
    Utilisez la commande suivante pour afficher un rapport des quotas :
 
 	   ```bash
-	   sudo repquota /home
+	    repquota /home
 	   ```
 
    c) **Vérifiez que ces quotas fonctionnent en copiant des fichiers dans le répertoire de l'utilisateur**
@@ -1569,7 +1569,7 @@ Cela exécute `updatedb` chaque mercredi à midi, ce qui correspond à une pause
    Modifiez la période de grâce en utilisant la commande `edquota -t` :
 
 	   ```bash
-	   sudo edquota -t
+	    edquota -t
 	   ```
 
    Cela vous permet de configurer la période de grâce pour les limites douces.
@@ -1579,7 +1579,7 @@ Cela exécute `updatedb` chaque mercredi à midi, ce qui correspond à une pause
    Pour désactiver les quotas sur la partition `/home`, utilisez la commande suivante :
 
 	   ```bash
-	   sudo quotaoff /home
+	    quotaoff /home
 	   ```
 
 6. **Créez un nouvel utilisateur et fixez-lui les mêmes quotas que pour l'utilisateur créé au point 4**
@@ -1587,14 +1587,14 @@ Cela exécute `updatedb` chaque mercredi à midi, ce qui correspond à une pause
    - Créez un nouvel utilisateur :
 
      ```bash
-     sudo useradd newuser
-     sudo passwd newuser
+      useradd newuser
+      passwd newuser
      ```
 
    - Configurez les mêmes quotas que pour `testuser` en utilisant la commande `edquota` :
 
      ```bash
-     sudo edquota -u newuser
+      edquota -u newuser
      ```
 
    Modifiez les quotas de la même manière que pour `testuser` (100 Ko de limite douce et 300 Ko de limite dure).
@@ -1650,13 +1650,13 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    - Si vous identifiez des services inutiles, vous pouvez les arrêter avec la commande suivante (remplacez `nom_service` par le nom du service à désactiver) :
 
      ```bash
-     sudo systemctl stop nom_service
+      systemctl stop nom_service
      ```
 
    - Désactivez le service pour qu'il ne démarre pas automatiquement au prochain redémarrage :
 
      ```bash
-     sudo systemctl disable nom_service
+      systemctl disable nom_service
      ```
 
 4. **Modifiez le niveau de fonctionnement par défaut afin de démarrer sans interface graphique.**
@@ -1670,7 +1670,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    - Modifiez le niveau de fonctionnement pour démarrer en mode multi-utilisateur sans interface graphique (runlevel 3) :
 
      ```bash
-     sudo systemctl set-default multi-user.target
+      systemctl set-default multi-user.target
      ```
 
 5. **Indiquez la marche à suivre pour vous connecter en tant que root sans connaître le mot de passe administrateur.**
@@ -1690,13 +1690,13 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    - Les niveaux de fonctionnement (ou targets) peuvent être modifiés temporairement avec `systemctl`. Par exemple, pour passer en mode mono-utilisateur (runlevel 1) :
 
      ```bash
-     sudo systemctl isolate rescue.target
+      systemctl isolate rescue.target
      ```
 
    - Pour revenir à un mode multi-utilisateur avec interface graphique :
 
      ```bash
-     sudo systemctl isolate graphical.target
+      systemctl isolate graphical.target
      ```
 
    Vous pouvez démarrer dans un autre niveau de fonctionnement en modifiant les options de démarrage dans GRUB comme vu dans la question précédente.
@@ -1732,14 +1732,14 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    - Activez et démarrez le service :
 
      ```bash
-     sudo systemctl enable pslog.service
-     sudo systemctl start pslog.service
+      systemctl enable pslog.service
+      systemctl start pslog.service
      ```
 
    - Pour tester, redémarrez la machine avec la commande suivante :
 
      ```bash
-     sudo shutdown -r +1 "Redémarrage dans 1 minute"
+      shutdown -r +1 "Redémarrage dans 1 minute"
      ```
 
 8. **Écrivez un script qui enregistre la date à la fin du fichier /home/groupeX/arret. Ce script doit être activé automatiquement à chaque démarrage du système.**
@@ -1773,8 +1773,8 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    - Activez et démarrez le service :
 
      ```bash
-     sudo systemctl enable arret.service
-     sudo systemctl start arret.service
+      systemctl enable arret.service
+      systemctl start arret.service
      ```
 
    - Redémarrez pour tester et vérifiez que la date a bien été ajoutée au fichier `/home/groupeX/arret`.
@@ -1784,14 +1784,14 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    - Installez le serveur Web `httpd` :
 
      ```bash
-     sudo dnf install httpd
+      dnf install httpd
      ```
 
    - Activez et démarrez le service :
 
      ```bash
-     sudo systemctl enable httpd.service
-     sudo systemctl start httpd.service
+      systemctl enable httpd.service
+      systemctl start httpd.service
      ```
 
    Le service `httpd` sera maintenant démarré automatiquement en mode multi-utilisateur (`multi-user.target`).
@@ -1819,7 +1819,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    Pour démarrer le service NFS, utilisez la commande suivante :
 
 	   ```bash
-	   sudo systemctl start nfs-server
+	    systemctl start nfs-server
 	   ```
 
    1.3. **Quelle commande permet d'arrêter le service NFS ?**
@@ -1827,7 +1827,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    Pour arrêter le service NFS, utilisez la commande suivante :
 
 	   ```bash
-	   sudo systemctl stop nfs-server
+	    systemctl stop nfs-server
 	   ```
 
    1.4. **Comment vérifier que les services RPC nécessaires à NFS sont démarrés (rpcinfo) ?**
@@ -1847,7 +1847,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    Pour activer NFS afin qu'il démarre automatiquement au démarrage du système (uniquement en mode multi-utilisateur avec interface graphique), utilisez :
 
 	   ```bash
-	   sudo systemctl enable nfs-server
+	    systemctl enable nfs-server
 	   ```
 
    Cela assure que le service NFS est activé en mode multi-user et graphique (runlevel 5).
@@ -1867,7 +1867,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    Après avoir configuré `/etc/exports`, utilisez la commande suivante pour exporter les répertoires NFS :
 
 	   ```bash
-	   sudo exportfs -a
+	    exportfs -a
 	   ```
 
    2.2.2. **Quelle commande devez-vous utiliser pour accéder à ce partage depuis une machine cliente ?**
@@ -1875,7 +1875,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    Depuis une machine cliente, montez le partage avec la commande suivante :
 
 	   ```bash
-	   sudo mount 192.168.1.x:/nfs/infos /mnt/nfs_infos
+	    mount 192.168.1.x:/nfs/infos /mnt/nfs_infos
 	   ```
 
    Remplacez `192.168.1.x` par l'adresse IP du serveur NFS et `/mnt/nfs_infos` par un point de montage sur la machine cliente.
@@ -1911,7 +1911,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    - Après modification, utilisez la commande `exportfs` pour appliquer les modifications :
 
      ```bash
-     sudo exportfs -r
+      exportfs -r
      ```
 
 5. **Exporter le répertoire /nfs/perso vers les hôtes "pierre" et "paul" du réseau local en le rendant accessible en écriture. Exporter ce même répertoire /nfs/perso vers l'hôte "jean" du réseau local, mais en lecture seule cette fois.**
@@ -1927,7 +1927,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    - Exportez les nouveaux partages :
 
      ```bash
-     sudo exportfs -a
+      exportfs -a
      ```
 
    5.1. **L'utilisateur pierre d’un ordinateur du réseau aura-t-il un accès en écriture au répertoire /nfs/perso ?**
@@ -1952,7 +1952,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    - Exportez le partage :
 
      ```bash
-     sudo exportfs -a
+      exportfs -a
      ```
 
    Cela rend le répertoire accessible en lecture seule pour tous les hôtes du réseau local.
@@ -1962,7 +1962,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    - Installez `autofs` si nécessaire :
 
      ```bash
-     sudo dnf install autofs
+      dnf install autofs
      ```
 
    - Modifiez le fichier `/etc/auto.master` pour ajouter la configuration de montage automatique :
@@ -1980,7 +1980,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    - Redémarrez `autofs` :
 
      ```bash
-     sudo systemctl restart autofs
+      systemctl restart autofs
      ```
 
    Le partage `/nfs/mapping` sera monté automatiquement dans `/tmp/nfs` et se démontera après 60 secondes d'inactivité.
@@ -1996,21 +1996,21 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    - Désactivez `firewalld` avec la commande suivante :
 
      ```bash
-     sudo systemctl stop firewalld
-     sudo systemctl disable firewalld
+      systemctl stop firewalld
+      systemctl disable firewalld
      ```
 
    - Installez le service `iptables-services` :
 
      ```bash
-     sudo dnf install iptables-services
+      dnf install iptables-services
      ```
 
    - Démarrez et activez `iptables-services` :
 
      ```bash
-     sudo systemctl start iptables
-     sudo systemctl enable iptables
+      systemctl start iptables
+      systemctl enable iptables
      ```
 
 2. **Affichez les règles du firewall, ensuite supprimez les règles préexistantes.**
@@ -2020,7 +2020,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    Utilisez la commande suivante pour afficher toutes les règles :
 
    ```bash
-   sudo iptables -L -v -n
+    iptables -L -v -n
    ```
 
    2.2. **Affichez toutes les règles de la chaîne OUTPUT de la table filter :**
@@ -2028,7 +2028,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    Pour afficher les règles de la chaîne `OUTPUT` :
 
    ```bash
-   sudo iptables -L OUTPUT -v -n
+    iptables -L OUTPUT -v -n
    ```
 
    2.3. **Effacez toutes les règles de la chaîne INPUT :**
@@ -2036,7 +2036,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    Supprimez toutes les règles de la chaîne `INPUT` :
 
    ```bash
-   sudo iptables -F INPUT
+    iptables -F INPUT
    ```
 
 3. **Listez les ports ouverts d'une machine (nmap)**
@@ -2044,7 +2044,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    Utilisez `nmap` pour scanner les ports ouverts d'une machine spécifique. Par exemple, pour scanner votre propre machine :
 
    ```bash
-   sudo nmap -p- 127.0.0.1
+    nmap -p- 127.0.0.1
    ```
 
    Cette commande scannera tous les ports sur la machine locale.
@@ -2054,13 +2054,13 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    - Pour sauvegarder la configuration actuelle des règles `iptables` :
 
      ```bash
-     sudo iptables-save > /etc/iptables/rules.v4
+      iptables-save > /etc/iptables/rules.v4
      ```
 
    - Pour restaurer la configuration à partir d'une sauvegarde :
 
      ```bash
-     sudo iptables-restore < /etc/iptables/rules.v4
+      iptables-restore < /etc/iptables/rules.v4
      ```
 
 5. **Créez les règles suivantes :**
@@ -2068,33 +2068,33 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    - **Ajoutez la règle OUTPUT -j DROP (Appelez ensuite le professeur) :**
 
      ```bash
-     sudo iptables -A OUTPUT -j DROP
+      iptables -A OUTPUT -j DROP
      ```
 
    - **Autorisez le sous-réseau 10.1.0.0/16 à envoyer des informations à votre machine :**
 
      ```bash
-     sudo iptables -A INPUT -s 10.1.0.0/16 -j ACCEPT
+      iptables -A INPUT -s 10.1.0.0/16 -j ACCEPT
      ```
 
    - **Autorisez tout sauf l'hôte 10.1.10.1 à envoyer des informations à votre machine :**
 
      ```bash
-     sudo iptables -A INPUT -s 10.1.10.1 -j DROP
-     sudo iptables -A INPUT -s 10.1.0.0/16 -j ACCEPT
+      iptables -A INPUT -s 10.1.10.1 -j DROP
+      iptables -A INPUT -s 10.1.0.0/16 -j ACCEPT
      ```
 
    - **Refuser les pings en entrée :**
 
      ```bash
-     sudo iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
+      iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
      ```
 
    - **Acceptez les données envoyées par un site web (HTTP) et un FTP :**
 
      ```bash
-     sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
-     sudo iptables -A INPUT -p tcp --dport 21 -j ACCEPT
+      iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+      iptables -A INPUT -p tcp --dport 21 -j ACCEPT
      ```
 
    - **Interdisez l'adresse MAC d'un ordinateur de la classe en entrée :**
@@ -2102,7 +2102,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      Remplacez `00:11:22:33:44:55` par l'adresse MAC de l'ordinateur à interdire :
 
      ```bash
-     sudo iptables -A INPUT -m mac --mac-source 00:11:22:33:44:55 -j DROP
+      iptables -A INPUT -m mac --mac-source 00:11:22:33:44:55 -j DROP
      ```
 
 6. **Créez une nouvelle chaîne ayant une règle qui accepte toutes les connexions de la localloop. Testez la règle, ensuite supprimez la chaîne créée.**
@@ -2110,14 +2110,14 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    - Créez une nouvelle chaîne `LOOPBACK` :
 
      ```bash
-     sudo iptables -N LOOPBACK
-     sudo iptables -A LOOPBACK -i lo -j ACCEPT
+      iptables -N LOOPBACK
+      iptables -A LOOPBACK -i lo -j ACCEPT
      ```
 
    - Appliquez la chaîne à la règle :
 
      ```bash
-     sudo iptables -A INPUT -j LOOPBACK
+      iptables -A INPUT -j LOOPBACK
      ```
 
    - Testez la règle en pingant `127.0.0.1` :
@@ -2129,9 +2129,9 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    - Supprimez la chaîne :
 
      ```bash
-     sudo iptables -D INPUT -j LOOPBACK
-     sudo iptables -F LOOPBACK
-     sudo iptables -X LOOPBACK
+      iptables -D INPUT -j LOOPBACK
+      iptables -F LOOPBACK
+      iptables -X LOOPBACK
      ```
 
 7. **Écrivez un script pour votre FW tel que :**
@@ -2160,7 +2160,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    - Rendez le script exécutable :
 
      ```bash
-     sudo chmod +x /etc/firewall.sh
+      chmod +x /etc/firewall.sh
      ```
 
    - Créez un fichier service `/etc/systemd/system/firewall.service` pour démarrer le firewall dans les cibles graphique et non graphique multi-users :
@@ -2179,8 +2179,8 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    - Activez et démarrez le service :
 
      ```bash
-     sudo systemctl enable firewall.service
-     sudo systemctl start firewall.service
+      systemctl enable firewall.service
+      systemctl start firewall.service
      ```
 
 ---
@@ -2195,7 +2195,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      Une fois le disque ajouté à la machine virtuelle, détectez-le avec la commande suivante :
 
      ```bash
-     sudo fdisk -l
+      fdisk -l
      ```
 
      Vous verrez apparaître un nouveau périphérique, par exemple `/dev/sdb`.
@@ -2205,7 +2205,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      Utilisez `fdisk` pour partitionner le disque :
 
      ```bash
-     sudo fdisk /dev/sdb
+      fdisk /dev/sdb
      ```
 
      Créez une nouvelle partition primaire, enregistrez et quittez.
@@ -2215,7 +2215,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      Initialisez le nouveau disque en tant que PV :
 
      ```bash
-     sudo pvcreate /dev/sdb1
+      pvcreate /dev/sdb1
      ```
 
    - **Ajoutez le PV au Volume Group (VG)** :
@@ -2223,7 +2223,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      Ajoutez le PV au VG existant (par exemple `vg_home`) :
 
      ```bash
-     sudo vgextend vg_home /dev/sdb1
+      vgextend vg_home /dev/sdb1
      ```
 
    - **Augmentez la taille du Logical Volume (LV) contenant `/home` de 1 Go** :
@@ -2231,13 +2231,13 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      Augmentez le LV contenant `/home` :
 
      ```bash
-     sudo lvextend -L +1G /dev/vg_home/lv_home
+      lvextend -L +1G /dev/vg_home/lv_home
      ```
 
      Ensuite, redimensionnez le système de fichiers :
 
      ```bash
-     sudo resize2fs /dev/vg_home/lv_home
+      resize2fs /dev/vg_home/lv_home
      ```
 
 2. **Diminuez la taille du LV de `/home` pour le remettre à 1 Go.**
@@ -2247,7 +2247,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      Avant de réduire la taille du LV, démontez la partition :
 
      ```bash
-     sudo umount /home
+      umount /home
      ```
 
    - **Vérifiez le système de fichiers** :
@@ -2255,7 +2255,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      Utilisez `fsck` pour vérifier le système de fichiers avant de le redimensionner :
 
      ```bash
-     sudo e2fsck -f /dev/vg_home/lv_home
+      e2fsck -f /dev/vg_home/lv_home
      ```
 
    - **Redimensionnez le système de fichiers à 1 Go** :
@@ -2263,7 +2263,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      Réduisez la taille du système de fichiers à 1 Go :
 
      ```bash
-     sudo resize2fs /dev/vg_home/lv_home 1G
+      resize2fs /dev/vg_home/lv_home 1G
      ```
 
    - **Réduisez la taille du LV à 1 Go** :
@@ -2271,7 +2271,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      Ensuite, réduisez la taille du LV :
 
      ```bash
-     sudo lvreduce -L 1G /dev/vg_home/lv_home
+      lvreduce -L 1G /dev/vg_home/lv_home
      ```
 
    - **Remontez `/home`** :
@@ -2279,7 +2279,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      Enfin, remontez `/home` :
 
      ```bash
-     sudo mount /home
+      mount /home
      ```
 
 3. **Réalisez une commande « toto » qui ouvrira en édition le fichier de configuration de l’interface réseau.**
@@ -2288,7 +2288,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      - **Option 1 : Alias** (ajoutez cette ligne dans `~/.bashrc`) :
 
        ```bash
-       alias toto='sudo nano /etc/sysconfig/network-scripts/ifcfg-eth0'
+       alias toto=' nano /etc/sysconfig/network-scripts/ifcfg-eth0'
        ```
 
        Rechargez le shell avec :
@@ -2302,20 +2302,20 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
        Créez un script `/usr/local/bin/toto` :
 
        ```bash
-       sudo nano /usr/local/bin/toto
+        nano /usr/local/bin/toto
        ```
 
        Contenu du script :
 
        ```bash
        #!/bin/bash
-       sudo nano /etc/sysconfig/network-scripts/ifcfg-eth0
+        nano /etc/sysconfig/network-scripts/ifcfg-eth0
        ```
 
        Rendez-le exécutable :
 
        ```bash
-       sudo chmod +x /usr/local/bin/toto
+        chmod +x /usr/local/bin/toto
        ```
 
 4. **Réalisez un script qui vérifie les fichiers modifiés dans `/etc` lors des dernières 24h et écrit la liste de ces fichiers dans un fichier. Ce script devra être lancé automatiquement tous les soirs à 20h.**
@@ -2324,7 +2324,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      Créez un script `/usr/local/bin/check_etc.sh` :
 
      ```bash
-     sudo nano /usr/local/bin/check_etc.sh
+      nano /usr/local/bin/check_etc.sh
      ```
 
      Contenu du script :
@@ -2337,14 +2337,14 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      Rendez le script exécutable :
 
      ```bash
-     sudo chmod +x /usr/local/bin/check_etc.sh
+      chmod +x /usr/local/bin/check_etc.sh
      ```
 
    - **Planification avec cron** :
      Ajoutez la tâche cron pour l'exécuter chaque soir à 20h :
 
      ```bash
-     sudo crontab -e
+      crontab -e
      ```
 
      Ajoutez la ligne suivante :
@@ -2359,7 +2359,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      Créez un script `/usr/local/bin/create_user.sh` :
 
      ```bash
-     sudo nano /usr/local/bin/create_user.sh
+      nano /usr/local/bin/create_user.sh
      ```
 
      Contenu du script :
@@ -2375,26 +2375,26 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      password=$2
 
      # Créer l'utilisateur
-     sudo useradd -m $username
-     echo "$username:$password" | sudo chpasswd
+      useradd -m $username
+     echo "$username:$password" |  chpasswd
 
      # Ajouter au groupe userX
-     sudo usermod -aG userX $username
+      usermod -aG userX $username
 
      # Forcer le changement de mot de passe à la première connexion
-     sudo chage -d 0 $username
+      chage -d 0 $username
      ```
 
      Rendez-le exécutable :
 
      ```bash
-     sudo chmod +x /usr/local/bin/create_user.sh
+      chmod +x /usr/local/bin/create_user.sh
      ```
 
    - **Exécution du script** :
 
      ```bash
-     sudo /usr/local/bin/create_user.sh <nom_utilisateur> <mot_de_passe>
+      /usr/local/bin/create_user.sh <nom_utilisateur> <mot_de_passe>
      ```
 
 
@@ -2404,7 +2404,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
      Créez un script `/usr/local/bin/list_users.sh` :
 
      ```bash
-     sudo nano /usr/local/bin/list_users.sh
+      nano /usr/local/bin/list_users.sh
      ```
 
      Contenu du script :
@@ -2419,7 +2419,7 @@ Cela vous permet de gérer les quotas utilisateur et groupe sur votre partition 
    - **Rendre le script exécutable** :
 
      ```bash
-     sudo chmod +x /usr/local/bin/list_users.sh
+      chmod +x /usr/local/bin/list_users.sh
      ```
 
    - **Exécution du script** :
