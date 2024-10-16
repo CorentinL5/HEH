@@ -77,4 +77,4 @@ tags:
 		![[Pasted image 20240920121723.png]]
 	- Distance administrative
 		![[Pasted image 20240920122606.png]]
--  
+- 
