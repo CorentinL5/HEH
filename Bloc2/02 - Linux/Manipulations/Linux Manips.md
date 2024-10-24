@@ -989,9 +989,9 @@ Remplacez `/dev/sdX` par le nom du périphérique du disque dur virtuel.
 
    Toujours dans l’éditeur crontab, ajoutez la ligne suivante :
 
-	   ```bash
-	   */15 8-17 * * 1-5 ps -eo pid,tty,etime,user | grep -v '?' >> /tmp/processusX
-	   ```
+   ```bash
+   */15 8-17 * * 1-5 ps -eo pid,tty,etime,user | grep -v '?' >> /tmp/processusX
+   ```
 
    - `*/15` : Exécuter tous les quarts d’heure.
    - `8-17` : Entre 8h et 17h.
