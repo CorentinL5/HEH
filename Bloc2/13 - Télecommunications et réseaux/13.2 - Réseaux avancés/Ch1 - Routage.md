@@ -77,4 +77,20 @@ tags:
 		![[Pasted image 20240920121723.png]]
 	- Distance administrative
 		![[Pasted image 20240920122606.png]]
-- 
+
+
+
+
+
+1)
+	# ip access-list standard EXE1
+	# Remote exe 1
+	# permit 192.168.0.0 0.0.255.255
+2)
+	# ip access-list standard EXE2
+	# Remote exe 2
+	# deny 192.168.0.0 0.0.255.255
+3)
+	# ip access-list standard EXE3
+	# Remote exe 3
+	# permit 192.168.0.0 0.0.254.255
