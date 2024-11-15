@@ -1,7 +1,7 @@
 ---
 created: 2024-09-17
 tags:
-  - Lessons/School/HEH/Bloc2/Quad2/physique
+  - Lessons/School/HEH/Bloc2/Quad1/physique
 ---
 
 # # 📚  CH1 - Notions fondamentales

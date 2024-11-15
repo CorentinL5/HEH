@@ -1,7 +1,7 @@
 ---
 created: 2024-10-01
 tags:
-  - Lessons/School/HEH/Bloc2/Quad2
+  - Lessons/School/HEH/Bloc2/Quad1
 ---
 
 # # 📚  CH2 - Cinématique et Magnétostatique

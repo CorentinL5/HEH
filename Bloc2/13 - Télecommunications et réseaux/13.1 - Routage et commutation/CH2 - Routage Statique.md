@@ -1,7 +1,7 @@
 ---
 created: 2024-10-04
 tags:
-  - Lessons/School/HEH/Bloc2/Quad2
+  - Lessons/School/HEH/Bloc2/Quad1
 ---
 
 # # 📚  CH2 - Routage Statique

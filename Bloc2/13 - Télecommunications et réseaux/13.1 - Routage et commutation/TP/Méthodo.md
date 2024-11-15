@@ -1,7 +1,7 @@
 ---
 created: 2024-11-07
 tags:
-  - Lessons/School/HEH/Bloc2/Quad2
+  - Lessons/School/HEH/Bloc2/Quad1
 ---
 
 # # 📚  Méthodo
