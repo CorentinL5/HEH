@@ -4,7 +4,7 @@ tags:
   - Lessons/School/HEH/Bloc2/Quad1
 ---
 
-# # 📚  Résolution ExercicesSQL
+# # 📚  Résolution Exercices SQL
 > **Création de la note à *`14:21`* le *`2024-11-26`.***
 ---
 
