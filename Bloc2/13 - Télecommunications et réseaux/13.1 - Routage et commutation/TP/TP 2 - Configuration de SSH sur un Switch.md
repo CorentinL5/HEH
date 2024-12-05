@@ -109,7 +109,7 @@
 
 #### Étape 1 : Tester la connexion Telnet
 
-1. Déconnectez-vous de la session Telnet :
+1. Déconnectez vous de la session Telnet :
     
     ```bash
     exit
