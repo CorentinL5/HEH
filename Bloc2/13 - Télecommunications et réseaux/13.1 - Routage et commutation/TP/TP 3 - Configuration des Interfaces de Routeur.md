@@ -5,7 +5,7 @@
 ### **Étape 1 : Configurer les adresses IPv4**
 
 #### Configuration de R1
-```bash
+```ps1
 enable
 configure terminal
 interface g0/0
