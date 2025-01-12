@@ -1,7 +1,7 @@
 ---
 created: {{date}}
 tags:
-  - Lessons/School/HEH/Bloc2/Quad1
+  - Lessons/School/HEH/BlocX/QuadX
 ---
 
 # # 📚  {{title}}
