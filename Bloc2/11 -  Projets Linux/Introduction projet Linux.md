@@ -13,7 +13,7 @@ tags:
 ---
 But de fournir un
 Serveur Linux complet en 4 jours
-WEB DNS RTP Fichier(Samba) Temps + surprise carneros ou mail
+WEB DNS RTP Fichier(Samba) Temps + surprise Carneros ou mail
 4 jours
 Montrer fonctionnalités
 Vrai Rapport + cahier de bord
