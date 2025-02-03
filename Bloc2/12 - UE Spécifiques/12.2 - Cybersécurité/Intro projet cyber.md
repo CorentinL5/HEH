@@ -64,3 +64,6 @@ Ressources dispo
 ## Procédure de dépannage 
 Vérifier les choses 
 Étape par étape
+
+## Documenter 
+![[Pasted image 20250203145155.png]] 
