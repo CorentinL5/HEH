@@ -60,3 +60,8 @@ garder en mémoire savoir et pour compter
 ![[Pasted image 20250204084747.png]]
 
 
+## Malwares
+- Adware
+- Spyware
+- Virus
+- 
