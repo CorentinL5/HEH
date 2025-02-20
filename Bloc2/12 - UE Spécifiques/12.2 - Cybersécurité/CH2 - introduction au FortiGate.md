@@ -1,7 +1,7 @@
 ---
 created: 2025-02-05
 tags:
-  - Lessons/School/HEH/BlocX/QuadX
+  - Lessons/School/HEH/Bloc2/Quad2
 ---
 
 # # 📚  CH2 - introduction au FortiGate
