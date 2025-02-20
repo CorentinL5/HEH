@@ -1,6 +1,5 @@
 ---
-created:
-  "{ date }": 
+created: 2025-02-20
 tags:
   - Lessons/School/HEH/BlocX/QuadX
 Auteur: LALLEMENT Corentin - 240314
