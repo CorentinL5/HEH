@@ -97,19 +97,19 @@ Chaque nom suit la structure suivante :
 
 ## 5. Lieu définis par agence/ site /wan
 
-| **AG/ST/WN** | **#** |  **##** | **Description**|
-| --- | --- | --- | --- |
-| AG | 0 | 01 | Agence 1, HEH local 2/13 |
-| ST | 1 | 01 | Agence 1, HEH local 2/13 |
-| AG | 0 | 01 | Agence 1, HEH local 2/13 |
-| AG | 0 | 01 | Agence 1, HEH local 2/13 |
+| **Entier** | **AG/ST/WN** | **#** | **##** | **Description**          |
+| ---------- | ------------ | ----- | ------ | ------------------------ |
+| AG001      | AG           | 0     | 01     | Agence 1, HEH local 2/13 |
+| AG101      | AG           | 1     | 01     | Agence 1, HEH local 2/16 |
+| ST002      | ST           | 0     | 02     | Site 2, HEH local 2/13   |
+| WN101      | WN           | 1     | 01     | WAN 1, HEH local 2/16    |
 
 \# -> 1
 
 
 ## 6. Exemples de Noms
 
-| **Équipement**                   | **Nom**                         | **Description**                                   |
+| **Équipement**                   | **Nom**                         | **Description**                                              |
 | -------------------------------- | ------------------------------- | ------------------------------------------------------------ |
 | Pare-feu principal (AG001)       | `G1-FRW-AG001-00-P-001`         | Pare-feu principal de l'Agence 001 local 2/13                |
 | Serveur Active Directory (AG002) | `G1-SRV-WN002-01-P-001`         | Serveur AD de la WAN 002 (Prod) local 2/13                   |
