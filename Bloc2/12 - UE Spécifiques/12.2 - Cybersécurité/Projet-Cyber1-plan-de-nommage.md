@@ -52,6 +52,7 @@ Chaque nom suit la structure suivante :
 | ----------- | ------------------------------------------------------------------------------------- | --------------------------------- |
 | **GRP**     | Groupe de l'entreprise (**G1**, **G2**)                                               | `G1`, `G2`                        |
 | **TYPE**    | Type d’équipement (**SRV**, **SWT**, **PCT**, etc.)                                   | `SRV`, `PRT`, `VPN`               |
+| **L**       | Lieu de référence (local, ville, à spécifier au <u>point 5</u>)      | `0`, `1`, `2`, ...|
 | **AG/SITE/WAN** | Code de l’agence, du site ou du WAN                                                   | `AG001`, `ST002`, `WN003`         |
 | **RÔLE**    | Fonction de l’équipement (deux chiffres)                                              | `01` (AD), `03` (Web), `07` (DB)  |
 | **E**       | Environnement (**P**, **D**, **T**)                                                   | `P` (Prod), `D` (Dev), `T` (Test) |
@@ -61,14 +62,14 @@ Chaque nom suit la structure suivante :
 
 ## 3. Types d'Équipements
 
-|Type d’Équipement|Code|
+| Type d’Équipement | Code |
 |---|---|
 |Pare-feu|**FRW**|
 |Routeur|**RTR**|
 |Switch|**SWT**|
 |Serveur|**SRV**|
-|Poste utilisateur|**PCT**|
-|VPN|**VPN**|
+|Poste utilisateur Fixe|**PCF**|
+|Poste utilisateur Mobile|**PCM**|
 |Caméra|**CAM**|
 |Imprimante|**PRT**|
 
@@ -90,21 +91,33 @@ Chaque nom suit la structure suivante :
 | **08**                              | Serveur applicatif           |
 | **09**                              | Serveur de sauvegarde        |
 | **10**                              | Poste utilisateur            |
+| **11**                              | ...            |
 
 ---
+
+## 5. Lieu définis par agence/ site /wan
+
+| **AG/ST/WN** | **#** |  **##** | **Description**|
+| --- | --- | --- | --- |
+| AG | 0 | 01 | Agence 1, HEH local 2/13 |
+| ST | 1 | 01 | Agence 1, HEH local 2/13 |
+| AG | 0 | 01 | Agence 1, HEH local 2/13 |
+| AG | 0 | 01 | Agence 1, HEH local 2/13 |
+
+\# -> 1
 
 
 ## 6. Exemples de Noms
 
 | **Équipement**                   | **Nom**                         | **Description**                                   |
-| -------------------------------- | ------------------------------- | ------------------------------------------------- |
-| Pare-feu principal (AG001)       | `G1-FRW-AG001-00-P-001`         | Pare-feu principal de l'Agence 001                |
-| Serveur Active Directory (AG002) | `G1-SRV-WN002-01-P-001`         | Serveur AD de la WAN 002 (Prod)                   |
-| Serveur Web (ST002)              | `G2-SRV-ST002-03-P-002`         | Serveur Web du Site 002 (Prod)                    |
-| Serveur FTP (AG003)              | `G1-SRV-AG003-04-P-003`         | Serveur FTP de l'Agence 003 (Prod)                |
-| Serveur base de données (AG003)  | `G2-SRV-AG003-07-P-002`         | Serveur de base de données de l'Agence 003 (Prod) |
-| PC de Jean Dupont (AG001)        | `G1-PCT-AG001-10-P-Jean_Dupont` | Poste utilisateur de Jean Dupont (Prod)           |
-| Imprimante principale (AG002)    | `G1-PRT-AG002-00-P-001`         | Imprimante principale de l'Agence 002 (Prod)      |
+| -------------------------------- | ------------------------------- | ------------------------------------------------------------ |
+| Pare-feu principal (AG001)       | `G1-FRW-AG001-00-P-001`         | Pare-feu principal de l'Agence 001 local 2/13                |
+| Serveur Active Directory (AG002) | `G1-SRV-WN002-01-P-001`         | Serveur AD de la WAN 002 (Prod) local 2/13                   |
+| Serveur Web (ST002)              | `G2-SRV-ST002-03-P-002`         | Serveur Web du Site 002 (Prod) local 2/13                    |
+| Serveur FTP (AG003)              | `G1-SRV-AG003-04-P-003`         | Serveur FTP de l'Agence 003 (Prod) local 2/13                |
+| Serveur base de données (AG003)  | `G2-SRV-AG003-07-P-002`         | Serveur de base de données de l'Agence 003 (Prod) local 2/13 |
+| PC fixe de Jean Dupont (AG001)   | `G1-PCF-AG101-10-P-Jean_Dupont` | Poste utilisateur Fixe de Jean Dupont (Prod) local 2/16      |
+| Imprimante principale (AG002)    | `G1-PRT-AG102-00-P-001`         | Imprimante principale de l'Agence 002 (Prod) local 2/16      |
 
 ---
 <div style="page-break-after: always;"></div>
