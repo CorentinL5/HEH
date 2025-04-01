@@ -2,10 +2,10 @@
 created: 2025-02-05
 tags:
   - Lessons/School/HEH/Bloc2/Quad2
+Auteur: LALLEMENT Corentin - 240314
 ---
-# 📚 Plan de Nommage des Équipements
 
-> **Note créée le _`2025-02-05`_ à _`12:17`_.**
+# # 📚  Plan de Nommage des Équipements
 
 ---
 
@@ -26,8 +26,8 @@ Les informations contenues dans ce document sont réservée à un usage interne 
 ### 1.4. Termes et conditions
 L'auteur et la HEH n'assument aucune responsabilité pour les erreurs ou omissions dans le contenu de ce document ou de tout document de tiers référencé ou associé, y compris, mais sans s'y limiter, les erreurs typographiques, les inexactitudes ou les informations périmées. Ce document et tous les renseignements qui s'y trouvent sont fournis «tels quels» sans aucune garantie, expresse ou implicite.
 ### 1.5. Informations sur le Document
-Nom du document : `Projet-Cyber1-plan-de-nommage.pdf` 
-Version : `Version 1.3`
+Nom du document : `Projet-Cyber1-plan-de-nommage-eq.pdf` 
+Version : `Version 1.4`
 Niveau de confidentialité : `Utilisation interne à la HEH uniquement`
 Auteur du document : `LALLEMENT Corentin` - `240314`
 Date de création : `5 Février 2025, 12h17`
