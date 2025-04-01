@@ -48,18 +48,16 @@ Chaque nom suit la structure suivante :
 
 ### Détails des éléments :
 
-| Élément     | Description                                                                           | Exemple                           |
-| ----------- | ------------------------------------------------------------------------------------- | --------------------------------- |
-| **GRP**     | Groupe de l'entreprise (**G1**, **G2**)                                               | `G1`, `G2`                        |
-| **TYPE**    | Type d’équipement (**SRV**, **SWT**, **PCT**, etc.)                                   | `SRV`, `PRT`, `VPN`               |
-| **L**       | Lieu de référence (local, ville, à spécifier au <u>point 5</u>)      | `0`, `1`, `2`, ...|
-| **AG/SITE/WAN** | Code de l’agence, du site ou du WAN                                                   | `AG001`, `ST002`, `WN003`         |
-| **RÔLE**    | Fonction de l’équipement (deux chiffres)                                              | `01` (AD), `03` (Web), `07` (DB)  |
-| **E**       | Environnement (**P**, **D**, **T**)                                                   | `P` (Prod), `D` (Dev), `T` (Test) |
-| **###**     | - Numéro unique (3 chiffres)<br>- OU Prénom_Nom du détenteur des périphériques finaux | `001`, `002`, `003`               |
+| Élément         | Description                                                                           | Exemple                            |     |
+| --------------- | ------------------------------------------------------------------------------------- | ---------------------------------- | --- |
+| **GRP**         | Groupe de l'entreprise (**G1**, **G2**)                                               | `G1`, `G2`                         |     |
+| **TYPE**        | Type d’équipement (**SRV**, **SWT**, **PCT**, etc.)                                   | `SRV`, `PRT`, `VPN`                |     |
+| **AG/SITE/WAN** | Code de l’agence, du site ou du WAN                                                   | `AG001`, `ST002`, `WN003` ``VD001` |     |
+| **RÔLE**        | Fonction de l’équipement (deux chiffres)                                              | `01` (AD), `03` (Web), `07` (DB)   |     |
+| **E**           | Environnement (**P**, **D**, **T**)                                                   | `P` (Prod), `D` (Dev), `T` (Test)  |     |
+| **###**         | - Numéro unique (3 chiffres)<br>- OU Prénom_Nom du détenteur des périphériques finaux | `001`, `002`, `003`                |     |
 
 ---
-
 ## 3. Types d'Équipements
 
 | Type d’Équipement | Code |
@@ -97,27 +95,23 @@ Chaque nom suit la structure suivante :
 
 ## 5. Lieu définis par agence/ site /wan
 
-| **Entier** | **AG/ST/WN** | **#** | **##** | **Description**          |
-| ---------- | ------------ | ----- | ------ | ------------------------ |
-| AG001      | AG           | 0     | 01     | Agence 1, HEH local 2/13 |
-| AG101      | AG           | 1     | 01     | Agence 1, HEH local 2/16 |
-| ST002      | ST           | 0     | 02     | Site 2, HEH local 2/13   |
-| WN101      | WN           | 1     | 01     | WAN 1, HEH local 2/16    |
-
-\# -> 1
-
+| **ST/AG** | **Lieu**                    |
+| --------- | --------------------------- |
+| ST008     | Site 8, HEH local 2/16      |
+| AG009     | Agence 9 , HEHE local 2/16  |
+| AG012     | Agence 12 , HEHE local 2/16 |
 
 ## 6. Exemples de Noms
 
 | **Équipement**                   | **Nom**                         | **Description**                                              |
 | -------------------------------- | ------------------------------- | ------------------------------------------------------------ |
 | Pare-feu principal (AG001)       | `G1-FRW-AG001-00-P-001`         | Pare-feu principal de l'Agence 001 local 2/13                |
-| Serveur Active Directory (AG002) | `G1-SRV-WN002-01-P-001`         | Serveur AD de la WAN 002 (Prod) local 2/13                   |
+| Serveur Active Directory (WN002) | `G1-SRV-WN002-01-P-001`         | Serveur AD de la WAN 002 (Prod) local 2/13                   |
 | Serveur Web (ST002)              | `G2-SRV-ST002-03-P-002`         | Serveur Web du Site 002 (Prod) local 2/13                    |
 | Serveur FTP (AG003)              | `G1-SRV-AG003-04-P-003`         | Serveur FTP de l'Agence 003 (Prod) local 2/13                |
 | Serveur base de données (AG003)  | `G2-SRV-AG003-07-P-002`         | Serveur de base de données de l'Agence 003 (Prod) local 2/13 |
-| PC fixe de Jean Dupont (AG001)   | `G1-PCF-AG101-10-P-Jean_Dupont` | Poste utilisateur Fixe de Jean Dupont (Prod) local 2/16      |
-| Imprimante principale (AG002)    | `G1-PRT-AG102-00-P-001`         | Imprimante principale de l'Agence 002 (Prod) local 2/16      |
+| PC fixe de Jean Dupont (AG001)   | `G1-PCF-AG001-10-P-Jean_Dupont` | Poste utilisateur Fixe de Jean Dupont (Prod) local 2/16      |
+| Imprimante principale (AG002)    | `G1-PRT-AG002-00-P-001`         | Imprimante principale de l'Agence 002 (Prod) local 2/16      |
 
 ---
 <div style="page-break-after: always;"></div>
@@ -130,6 +124,7 @@ Chaque nom suit la structure suivante :
 4. **Sélectionner le Rôle** (Ex : 03 pour un serveur Web)
 5. **Spécifier l'Environnement** (P = Prod, D = Dev, T = Test)
 6. **Numéroter l'Équipement** (001, 002… selon l'ordre)
+   Si Switch/routeur => 2xx: layer 2 et 3xx: layer3.
 
 **Exemple de création :**
 
