@@ -810,7 +810,7 @@ Auteur: LALLEMENT Corentin - 240314
 
 ---
 
-## ⚡QCM POO / Threads / Tests
+## **⚡QCM POO / Threads / Tests**
 > [!question] Quelle relation UML exprime "A a un B" ?
 > a) Héritage
 > b) Composition
@@ -1011,3 +1011,7 @@ Auteur: LALLEMENT Corentin - 240314
 > d) Regrouper tous les tests dans une seule fonction
 >> [!success] a)
 >> a) Nommer les fonctions test_quelquechose
+
+---
+
+## 
