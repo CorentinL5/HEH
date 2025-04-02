@@ -9,7 +9,7 @@ Auteur: LALLEMENT Corentin - 240314
 > Par `LALLEMENT Corentin`, **`240314`**.  
 ---
   
-## **⚙️ QCM - Nano-ordinateurs**  
+## **⚙️ QCM - Nano Ordinateurs**  
  
 > [!question]- Quel est le principal avantage d’un microcontrôleur ?  
 > a) Exécute des OS complexes  
@@ -811,207 +811,205 @@ Auteur: LALLEMENT Corentin - 240314
 ---
 
 ## **⚡QCM POO / Threads / Tests**
-> [!question] Quelle relation UML exprime "A a un B" ?
+> [!question]- Quelle relation UML exprime "A a un B" ?
 > a) Héritage
 > b) Composition
 > c) Association
 > d) Interface
->> [!success] c)
+>> [!success]- c)
 >> c) Association
 
-> [!question] Quelle relation UML implique une dépendance forte entre les cycles de vie ?
+> [!question]- Quelle relation UML implique une dépendance forte entre les cycles de vie ?
 > a) Agrégation
 > b) Héritage
 > c) Association
 > d) Composition
->> [!success] d)
+>> [!success]- d)
 >> d) Composition
 
-> [!question] ![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/UML_Class_Diagram_example.svg/640px-UML_Class_Diagram_example.svg.png)  
+> [!question]- ![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/UML_Class_Diagram_example.svg/640px-UML_Class_Diagram_example.svg.png)  
 > Cette flèche UML représente :
 > a) Association
 > b) Composition
 > c) Héritage
 > d) Interface
->> [!success] c)
+>> [!success]- c)
 >> c) Héritage
 
-> [!question] En Python, que fait la méthode spéciale `__str__()` ?
+> [!question]- En Python, que fait la méthode spéciale `__str__()` ?
 > a) Initialise un objet
 > b) Retourne une version lisible de l’objet
 > c) Calcule le hash d’un objet
 > d) Crée une copie profonde
->> [!success] b)
+>> [!success]- b)
 >> b) Retourne une version lisible de l’objet
 
-> [!question] Que fait `__add__()` dans une classe Python ?
+> [!question]- Que fait `__add__()` dans une classe Python ?
 > a) Additionne les attributs
 > b) Gère l’opérateur `+` entre objets
 > c) Fusionne deux classes
 > d) Ajoute une méthode automatiquement
->> [!success] b)
+>> [!success]- b)
 >> b) Gère l’opérateur `+` entre objets
 
-> [!question] Quelle notation représente un attribut protégé en Python ?
+> [!question]- Quelle notation représente un attribut protégé en Python ?
 > a) `self.name`
 > b) `self.__name`
 > c) `self._name`
 > d) `name`
->> [!success] c)
+>> [!success]- c)
 >> c) `self._name`
 
-> [!question] Quelle méthode est utilisée pour modifier une donnée dans une classe ?
+> [!question]- Quelle méthode est utilisée pour modifier une donnée dans une classe ?
 > a) Constructeur
 > b) Accesseur
 > c) Mutateur
 > d) Destructeur
->> [!success] c)
+>> [!success]- c)
 >> c) Mutateur
 
-> [!question] Une classe abstraite :
+> [!question]- Une classe abstraite :
 > a) Ne peut pas hériter
 > b) Ne peut pas être instanciée
 > c) Doit contenir `__init__`
 > d) Est toujours privée
->> [!success] b)
+>> [!success]- b)
 >> b) Ne peut pas être instanciée
 
-> [!question] Quel module Python permet de définir une classe abstraite ?
+> [!question]- Quel module Python permet de définir une classe abstraite ?
 > a) `typing`
 > b) `abc`
 > c) `abstract`
 > d) `interface`
->> [!success] b)
+>> [!success]- b)
 >> b) `abc`
 
-> [!question] Une interface en POO contient :
+> [!question]- Une interface en POO contient :
 > a) Des attributs publics
 > b) Uniquement des méthodes abstraites
 > c) Des méthodes implémentées
 > d) Des classes imbriquées
->> [!success] b)
+>> [!success]- b)
 >> b) Uniquement des méthodes abstraites
 
-> [!question] Un processus possède :
+> [!question]- Un processus possède :
 > a) Son propre espace mémoire
 > b) Des pointeurs vers d’autres processus
 > c) Un seul thread
 > d) Une méthode `run()`
->> [!success] a)
+>> [!success]- a)
 >> a) Son propre espace mémoire
 
-> [!question] Les threads d’un même processus :
+> [!question]- Les threads d’un même processus :
 > a) Ont chacun leur espace mémoire
 > b) Ne peuvent pas partager de données
 > c) Partagent le même espace mémoire
 > d) Ne s’exécutent pas en parallèle
->> [!success] c)
+>> [!success]- c)
 >> c) Partagent le même espace mémoire
 
-> [!question] Quel est le rôle d’un mutex ?
+> [!question]- Quel est le rôle d’un mutex ?
 > a) Diviser la mémoire
 > b) Gérer les entrées/sorties
 > c) Synchroniser l’accès à une ressource partagée
 > d) Créer des classes abstraites
->> [!success] c)
+>> [!success]- c)
 >> c) Synchroniser l’accès à une ressource partagée
 
-> [!question] Le problème du “dîner des philosophes” illustre :
+> [!question]- Le problème du “dîner des philosophes” illustre :
 > a) La surcharge
 > b) Le design pattern Singleton
 > c) Le partage des ressources
 > d) L’encapsulation
->> [!success] c)
+>> [!success]- c)
 >> c) Le partage des ressources
 
-> [!question] Un sémaphore en Python permet :
+> [!question]- Un sémaphore en Python permet :
 > a) De verrouiller un processus
 > b) De gérer la disponibilité d’une ressource
 > c) De générer des threads
 > d) D’exécuter des tests
->> [!success] b)
+>> [!success]- b)
 >> b) De gérer la disponibilité d’une ressource
 
-> [!question] Quelle opération met un thread en attente sur un sémaphore ?
+> [!question]- Quelle opération met un thread en attente sur un sémaphore ?
 > a) `start()`
 > b) `join()`
 > c) `P`
 > d) `run()`
->> [!success] c)
+>> [!success]- c)
 >> c) `P`
 
-> [!question] Quelle classe peut être héritée pour créer un thread personnalisé ?
+> [!question]- Quelle classe peut être héritée pour créer un thread personnalisé ?
 > a) `Thread`
 > b) `Process`
 > c) `Future`
 > d) `Semaphore`
->> [!success] a)
+>> [!success]- a)
 >> a) `Thread`
 
-> [!question] Quelle méthode de Python est adaptée pour les programmes orientés données (ex : big data) ?
+> [!question]- Quelle méthode de Python est adaptée pour les programmes orientés données (ex : big data) ?
 > a) `multiprocessing`
 > b) `joblib`
 > c) `threading`
 > d) `unittest`
->> [!success] b)
+>> [!success]- b)
 >> b) `joblib`
 
-> [!question] La méthode `concurrent.futures` permet :
+> [!question]- La méthode `concurrent.futures` permet :
 > a) D’écrire des tests
 > b) D’exécuter des threads comme des fonctions
 > c) D’imposer un ordre de priorité
 > d) De convertir une classe en thread
->> [!success] b)
+>> [!success]- b)
 >> b) D’exécuter des threads comme des fonctions
 
-> [!question] Les tests unitaires visent à :
+> [!question]- Les tests unitaires visent à :
 > a) Tester toute l’application
 > b) Tester un seul composant isolé
 > c) Tester l'interface graphique
 > d) Exécuter plusieurs threads
->> [!success] b)
+>> [!success]- b)
 >> b) Tester un seul composant isolé
 
-> [!question] Quelle librairie est intégrée à Python pour les tests ?
+> [!question]- Quelle librairie est intégrée à Python pour les tests ?
 > a) `pytest`
 > b) `nose2`
 > c) `unittest`
 > d) `mocktest`
->> [!success] c)
+>> [!success]- c)
 >> c) `unittest`
 
-> [!question] Un test est déterministe s’il :
+> [!question]- Un test est déterministe s’il :
 > a) Réagit aux exceptions
 > b) Produit toujours le même résultat
 > c) Utilise plusieurs threads
 > d) Couvre plusieurs cas
->> [!success] b)
+>> [!success]- b)
 >> b) Produit toujours le même résultat
 
-> [!question] À quoi sert `unittest.mock.patch` ?
+> [!question]- À quoi sert `unittest.mock.patch` ?
 > a) Générer un thread temporaire
 > b) Bloquer les tests
 > c) Remplacer une fonction ou un objet pendant un test
 > d) Ajouter une assertion
->> [!success] c)
+>> [!success]- c)
 >> c) Remplacer une fonction ou un objet pendant un test
 
-> [!question] Le “mock” est utile pour :
+> [!question]- Le “mock” est utile pour :
 > a) Rendre les tests aléatoires
 > b) Simuler un service externe
 > c) Compiler plus vite
 > d) Réduire la mémoire utilisée
->> [!success] b)
+>> [!success]- b)
 >> b) Simuler un service externe
 
-> [!question] Une bonne pratique en test est :
+> [!question]- Une bonne pratique en test est :
 > a) Nommer les fonctions test_quelquechose
 > b) Utiliser des noms courts et vagues
 > c) Ne pas utiliser de simulateurs
 > d) Regrouper tous les tests dans une seule fonction
->> [!success] a)
+>> [!success]- a)
 >> a) Nommer les fonctions test_quelquechose
 
 ---
-
-## 
