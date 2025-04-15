@@ -1,4 +1,4 @@
-```
+```bash
 ! Entrée en mode privilégié
 enable
 
