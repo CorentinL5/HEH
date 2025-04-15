@@ -71,19 +71,18 @@ Auteur: LALLEMENT Corentin - 240314
 | Plan de nommage VDOM                  | ✅    |
 | VDOM ?                                | ✅    |
 | Configuration du switch               | ✅    |
-| Plan de nomage nom de domaines        | ❌    |
+| Plan de nomage nom de domaines        | ✅❌   |
 | Schéma réseau                         | ❌    |
 | Plan d’adressage IP pour mon agence 3 | ❌    |
 | Configuration du routeur              | ❌    |
 |                                       |      |
 
-
 ## 15/04/2025
 
 | Tâche                                 | Fait |
 | ------------------------------------- | ---- |
-| Plan de nomage nom de domaines        |      |
-| Schéma réseau                         |      |
-| Plan d’adressage IP pour mon agence 3 |      |
+| Plan de nomage nom de domaines        | ✅    |
+| Schéma réseau                         | ✅    |
+| Plan d’adressage IP pour mon agence 3 | ✅    |
 | Configuration du routeur              |      |
 |                                       |      |
