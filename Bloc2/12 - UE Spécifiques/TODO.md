@@ -18,16 +18,13 @@ Auteur: LALLEMENT Corentin - 240314
 | Thème principal           | Spécification technique à réaliser                                              | Échéance | Terminé |
 | ------------------------- | ------------------------------------------------------------------------------- | -------- | ------- |
 | 📌 Analyse et préparation |                                                                                 |          |         |
-|                           | Recenser les objectifs du projet                                                |          | ☐       |
-|                           | Identifier les ressources disponibles (matériel, salle, IP, etc.)               |          | ☐       |
-|                           | Définir la topologie générale (nombre de sites, liens WAN, etc.)                |          | ☐       |
+|                           | Identifier les ressources disponibles (matériel, salle, IP, etc.)               |          | ✅       |
+|                           | Définir la topologie générale (nombre de sites, liens WAN, etc.)                |          | ✅       |
 | 🧠 Schémas réseau         |                                                                                 |          |         |
-|                           | Réaliser un schéma **logique** avec LAN/WAN, routeurs, VDOM, VPN                |          | ☐       |
+|                           | Réaliser un schéma **logique** avec LAN/WAN, routeurs, VDOM, VPN                |          | ✅       |
 |                           | Réaliser un schéma **physique** des salles 2/13 et 2/16                         |          | ☐       |
 | 🧮 Plan d’adressage IP    |                                                                                 |          |         |
-|                           | Définir les **plages IP** pour chaque LAN                                       |          | ☐       |
-|                           | Réserver IP pour serveurs, UTM, routeurs, AD, DNS                               |          | ☐       |
-|                           | Utiliser 192.168.0.0/16 pour simuler les IP publiques WAN                       |          | ☐       |
+|                           | Définir les **plages IP**                                                       |          | ✅       |
 | 🖧 Déploiement des LAN    |                                                                                 |          |         |
 |                           | Configurer les VLANs sur les switchs                                            |          | ☐       |
 |                           | Configurer les trunks 802.1Q                                                    |          | ☐       |
@@ -72,9 +69,21 @@ Auteur: LALLEMENT Corentin - 240314
 | ------------------------------------- | ---- |
 | Plan de nommage equipements           | ✅    |
 | Plan de nommage VDOM                  | ✅    |
+| VDOM ?                                | ✅    |
+| Configuration du switch               | ✅    |
+| Plan de nomage nom de domaines        | ❌    |
+| Schéma réseau                         | ❌    |
+| Plan d’adressage IP pour mon agence 3 | ❌    |
+| Configuration du routeur              | ❌    |
+|                                       |      |
+
+
+## 15/04/2025
+
+| Tâche                                 | Fait |
+| ------------------------------------- | ---- |
 | Plan de nomage nom de domaines        |      |
 | Schéma réseau                         |      |
 | Plan d’adressage IP pour mon agence 3 |      |
-| Configuration des switchs et routeurs |      |
-| VDOM ?                                |      |
+| Configuration du routeur              |      |
 |                                       |      |

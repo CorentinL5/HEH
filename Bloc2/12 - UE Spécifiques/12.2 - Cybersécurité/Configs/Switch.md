@@ -1,3 +1,4 @@
+```
 ! Entrée en mode privilégié
 enable
 
@@ -114,3 +115,4 @@ ip ssh version 2
 
 ! Sauvegarde de la configuration
 write memory
+```
