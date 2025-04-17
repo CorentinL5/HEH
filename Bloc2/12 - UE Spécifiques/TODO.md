@@ -84,6 +84,13 @@ Auteur: LALLEMENT Corentin - 240314
 | Plan de nomage nom de domaines        | ✅    |
 | Schéma réseau                         | ✅    |
 | Plan d’adressage IP pour mon agence 3 | ✅    |
-| Configuration du routeur              |      |
+| Configuration du routeur              | ✅❌   |
 |                                       |      |
 
+## 17/04/2025
+
+| Tâche                    | Fait |
+| ------------------------ | ---- |
+| config firewall          |      |
+| Configuration du routeur |      |
+|                          |      |
