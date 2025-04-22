@@ -21,7 +21,7 @@
 *.mov  # QuickTime
 *.iso  # Images pour les VM
 
-# Dossiers spécifiques à exclureµ
+# Dossiers spécifiques à exclure
 .git/
 .idea/
 .obsidian/
