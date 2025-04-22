@@ -92,8 +92,8 @@ no ip http secure-server
 
 banner motd ^
 
-ATTENTION : Accès réservé aux administrateurs autorisés.
-Toute tentative non autorisée sera enregistrée et signalée.
+ATTENTION : Acces reserve aux administrateurs autorises.
+Toute tentative non autorisee sera enregistree et signalee.
 
 ^
 ```
