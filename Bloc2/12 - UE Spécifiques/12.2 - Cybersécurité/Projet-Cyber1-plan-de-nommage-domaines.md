@@ -36,7 +36,7 @@ L'auteur et la HEH n'assument aucune responsabilité pour les erreurs ou omissio
 - **Date de création** : `1er Avril 2025`  
 - **Révisé par** : `/`  
 - **Date de dernière révision** : `/`  
-- **Approuvé par** : `/` 
+	- **Approuvé par** : `/` 
 
 ---
 
