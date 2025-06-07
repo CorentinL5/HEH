@@ -1,0 +1,3763 @@
+Ecommerce API
+ 1.0.0 
+OAS 3.0
+An API for ecommerce works built using NodeJS & MongoDB
+
+Mahmoud Yasser - Website
+Send email to Mahmoud Yasser
+Servers
+
+http://localhost:3000/api - Production Server
+
+Authorize
+Auth
+
+
+POST
+/auth/login
+
+
+This route allow you to login into the api
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "email": "string",
+  "password": "string"
+}
+Responses
+Code	Description	Links
+200	
+User data with access token and refresh token
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "User logged in successfully.",
+  "user": {
+    "name": "admin",
+    "username": "admin",
+    "email": "admin@ecommerce.com",
+    "password": "$argon2i$v=19$m=4096,t=3,p=1$gdPMtw/fNAnUPooMTB4BdHfNMCdg8/2gqbfXUDJuw68$WLwxa/Ms09mUNMe3GzmEVCqzhyF+eJIhVdtn3KCKzi0",
+    "role": "admin",
+    "isEmailVerified": false,
+    "address": "Toukh - Egypt",
+    "phone": "01004468937",
+    "companyName": "",
+    "profileImage": "https://res.cloudinary.com/dknma8cck/image/upload/v1629291909/EcommerceAPI/Users/admin/xxcrbfkwglqa5c5kay4u.webp",
+    "profileImageId": "EcommerceAPI/Users/admin/xxcrbfkwglqa5c5kay4u",
+    "_id": "611d08a62fc210a30ecfb75b",
+    "discountCode": "xvgVxIV0LJ"
+  },
+  "tokens": {
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTFkMDU4NWYzODY2MDhlZjIzYzI3OGQiLCJpYXQiOjE2MjkyOTIwMjAsImV4cCI6MTYyOTI5MzgyMCwidHlwZSI6ImFjY2VzcyJ9.qGuYIZQBa2UkB5WkxSy29xNdMWpVlETuK3g7T4R5Fj8",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTFkMDU4NWYzODY2MDhlZjIzYzI3OGQiLCJpYXQiOjE2MjkyOTIwMjAsImV4cCI6MTYzMTg4NDAyMCwidHlwZSI6InJlZnJlc2gifQ.pxSceF4uGMlPxaQLjdUiaEdi3ejCxnWPtSApm7BdGCw"
+  }
+}
+No links
+400	
+Error: 400
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "Please enter both email and password."
+}
+No links
+401	
+Error: 401
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "Incorrect email or password."
+}
+No links
+
+POST
+/auth/register
+
+
+This route allow you to sign up into the api
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+Request body
+
+multipart/form-data
+username
+string
+name
+string
+email
+string
+password
+string
+passwordConfirmation
+string
+role
+string
+phone
+string
+address
+string
+companyName
+string
+image
+string($image)
+Responses
+Code	Description	Links
+201	
+User data with access token and refresh token
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Account created successfull, please verify your email!",
+  "user": {
+    "name": "admin",
+    "username": "admin",
+    "email": "admin@ecommerce.com",
+    "password": "Admin_123456789",
+    "passwordConfirmation": "Admin_123456789",
+    "role": "admin",
+    "isEmailVerified": false,
+    "address": "Toukh - Egypt",
+    "phone": "01004468937",
+    "companyName": "",
+    "profileImage": "https://res.cloudinary.com/dknma8cck/image/upload/v1629291909/EcommerceAPI/Users/admin/xxcrbfkwglqa5c5kay4u.webp",
+    "profileImageId": "EcommerceAPI/Users/admin/xxcrbfkwglqa5c5kay4u",
+    "_id": "613395db169b2d0004ddc900",
+    "discountCode": ""
+  },
+  "tokens": {
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTFkMDU4NWYzODY2MDhlZjIzYzI3OGQiLCJpYXQiOjE2MjkyOTE5MDksImV4cCI6MTYyOTI5MzcwOSwidHlwZSI6ImFjY2VzcyJ9.Y-lxrp2xmLGR-pSxaqiq2A6QvcVOmqoX90aZ7y0gQgM",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTFkMDU4NWYzODY2MDhlZjIzYzI3OGQiLCJpYXQiOjE2MjkyOTE5MDksImV4cCI6MTYzMTg4MzkwOSwidHlwZSI6InJlZnJlc2gifQ.6uK5RpgM-OLjC-WxBFT8I7CuVRgfwV4IFXQ8khOZ43Q"
+  }
+}
+No links
+400	
+Error: 400
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message1": "Profile Image Is Required, Please Upload an Image",
+  "message2": "All Fields Are Required",
+  "message3": "Password must be longer than 8 characters and contains letters, numbers, and symbols",
+  "message4": "Role must be one of the following: user or seller"
+}
+No links
+409	
+Error: 409
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "Email Is Already Taken: {email}"
+}
+No links
+
+POST
+/auth/logout
+
+
+This route allow you to logout from the api
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "refreshToken": "string"
+}
+Responses
+Code	Description	Links
+200	
+Logout from the api using you refresh token.
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Logged out successfully."
+}
+No links
+401	
+Error: 401
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "Please login again!"
+}
+No links
+
+POST
+/auth/tokens
+
+
+This route allow the user with a refresh token to regenerate tokens when the access token expires
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "refreshToken": "string"
+}
+Responses
+Code	Description	Links
+200	
+Regenerate tokens and use them to log into the system again.
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Tokens generated successfully.",
+  "tokens": {
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTFkMDhhNjJmYzIxMGEzMGVjZmI3NWIiLCJpYXQiOjE2MjkyOTI3NzgsImV4cCI6MTYyOTI5NDU3OCwidHlwZSI6ImFjY2VzcyJ9.NpXEYDrETL3yZKMLUmAKYrfH1_a2mmoKagP0MPc6HFY",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTFkMDhhNjJmYzIxMGEzMGVjZmI3NWIiLCJpYXQiOjE2MjkyOTI3NzgsImV4cCI6MTYzMTg4NDc3OCwidHlwZSI6InJlZnJlc2gifQ.VG-vE3RyQi2SRdDNd_AeHH3Ue9OYtaEE2W_gfNTtE_Q"
+  }
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message1": "No user found.",
+  "message2": "No token found."
+}
+No links
+
+POST
+/auth/forgot-password
+
+
+This route allow you to send email with the reset password link to reset the password you forgot
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "email": "string"
+}
+Responses
+Code	Description	Links
+200	
+A link is going now to be sent to you email to reset you password.
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Reset Password Link Sent Successfully."
+}
+No links
+
+POST
+/auth/reset-password
+
+
+This route allow you to reset you password using the token you received in you email
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+token *
+(query)
+token
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "password": "string",
+  "passwordConfirmation": "string"
+}
+Responses
+Code	Description	Links
+200	
+Reset you password using the reset token.
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Password changed successfully."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No user found."
+}
+No links
+
+PATCH
+/auth/change-password
+
+
+This route allow you to user to change his password
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "currentPassword": "string",
+  "password": "string",
+  "passwordConfirmation": "string"
+}
+Responses
+Code	Description	Links
+200	
+Change password.
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Password changed successfully."
+}
+No links
+400	
+Error: 400
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message1": "Password and passwordConfirmation must be the same.",
+  "message2": "This is not your password. Please enter the correct current password."
+}
+No links
+User
+
+
+GET
+/user
+
+
+This route allow you to get all users data
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+filter
+(query)
+This will filter all users and select only user that contain the word you insert and search in all user fields about this word
+
+Example : admin
+
+admin
+select
+(query)
+Select only fields you want.
+
+Example : name, profileImage
+
+name, profileImage
+limit
+(query)
+Limit the number of users from for example 20 user to 5 users.
+
+Example : 5
+
+5
+sort
+(query)
+Sorting users according to specified field for example the name field, and the number before the field name indicates the order of items: descending (-1) or ascending (1)
+
+Example : -1, name
+
+-1, name
+page
+(query)
+When number of user is greater than 10 users, it divides into pages each page contain 10 users.
+
+Example : 2
+
+2
+Responses
+Code	Description	Links
+200	
+Get All Users
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Users Found Successfully.",
+  "users": [
+    {
+      "_id": "611d08a62fc210a30ecfb75b",
+      "role": "admin",
+      "isEmailVerified": true,
+      "favoriteProducts": [
+        "6123dab951ff329fed1bc794"
+      ],
+      "name": "Admin",
+      "username": "admin",
+      "email": "admin@ecommerce.com",
+      "companyName": "",
+      "address": "Toukh - Egypt",
+      "phone": "11111111111",
+      "profileImage": "https://res.cloudinary.com/dknma8cck/image/upload/v1629292710/EcommerceAPI/Users/admin/vt3wgvwvwv4s6d1e81lr.webp",
+      "profileImageId": "EcommerceAPI/Users/admin/vt3wgvwvwv4s6d1e81lr"
+    }
+  ]
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No Users Found"
+}
+No links
+
+POST
+/user
+
+
+This route allow only admin to add new user
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+Request body
+
+multipart/form-data
+name
+string
+username
+string
+email
+string
+password
+string
+passwordConfirmation
+string
+role
+string
+image
+string($image)
+phone
+string
+address
+string
+companyName
+string
+Responses
+Code	Description	Links
+201	
+Add new user
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Account Created Successfully.",
+  "user": {
+    "role": "user",
+    "isEmailVerified": false,
+    "favoriteProducts": [
+      "string"
+    ],
+    "_id": "6123f6756874853c161ec5b9",
+    "name": "armar",
+    "username": "armar",
+    "email": "armar@gmail.com",
+    "companyName": "",
+    "phone": "",
+    "address": "",
+    "profileImage": "https://res.cloudinary.com/dknma8cck/image/upload/v1629746804/EcommerceAPI/Users/armar/cmt6rf3l45rs0lqaviq7.webp",
+    "profileImageId": "EcommerceAPI/Users/armar/cmt6rf3l45rs0lqaviq7"
+  }
+}
+No links
+400	
+Error: 400
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message1": "Profile Image Is Required, Please Upload an Image",
+  "message2": "All Fields Are Required"
+}
+No links
+409	
+Error: 409
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "Email Is Already Taken: {email}"
+}
+No links
+
+GET
+/user/{userId}
+
+
+This route allow you to get users using it's ID
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+id
+(path)
+User ID
+
+id
+Responses
+Code	Description	Links
+200	
+Get User
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Found User Successfully.",
+  "user": {
+    "_id": "611d08a62fc210a30ecfb75b",
+    "role": "admin",
+    "isEmailVerified": true,
+    "favoriteProducts": [
+      "6123dab951ff329fed1bc794"
+    ],
+    "name": "Admin",
+    "username": "admin",
+    "email": "admin@ecommerce.com",
+    "companyName": "",
+    "address": "Toukh - Egypt",
+    "phone": "11111111111",
+    "profileImage": "https://res.cloudinary.com/dknma8cck/image/upload/v1629292710/EcommerceAPI/Users/admin/vt3wgvwvwv4s6d1e81lr.webp",
+    "profileImageId": "EcommerceAPI/Users/admin/vt3wgvwvwv4s6d1e81lr"
+  }
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No User Found With This ID: {id}"
+}
+No links
+
+DELETE
+/user/{userId}
+
+
+This route allow only admin to delete user account using it's ID
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+id
+(path)
+User ID
+
+id
+Responses
+Code	Description	Links
+200	
+Delete user account
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Account Deleted Successfully."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No User Found With This ID: {id}"
+}
+No links
+
+PATCH
+/user/update-details
+
+
+
+PATCH
+/user/update-profile-image
+
+
+This route allow logged in user to update his own profile image
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+Request body
+
+multipart/form-data
+image
+string($image)
+Responses
+Code	Description	Links
+200	
+Update user profile image
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "User Image Updated Successfully."
+}
+No links
+400	
+Error: 400
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "Profile Image Is Required, Please Upload an Image"
+}
+No links
+
+DELETE
+/user/me
+
+
+This route allow logged in user to delete his account
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+Responses
+Code	Description	Links
+200	
+Delete logged in user account
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Your Account Deleted Successfully."
+}
+No links
+Category
+
+
+GET
+/category
+
+
+This route allow to get all categories
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+select
+(query)
+Select only fields you want.
+
+Example : name, image
+
+name, image
+limit
+(query)
+Limit the number of categories from for example 20 category to 5 categories.
+
+Example : 5
+
+5
+sort
+(query)
+Sorting categories according to specified field for example the name field, and the number before the field name indicates the order of items: descending (-1) or ascending (1)
+
+Example : 1, name
+
+1, name
+page
+(query)
+When number of categories is greater than 10 categories, it divides into pages each page contain 10 categories.
+
+Example : 2
+
+2
+Responses
+Code	Description	Links
+200	
+Get All Categories
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Found Categories Successfully.",
+  "catagories": [
+    {
+      "_id": "611ed9117ae59e944d27920d",
+      "name": "Makeup",
+      "description": "This category contains all products related to makeup.",
+      "image": "https://res.cloudinary.com/dknma8cck/image/upload/v1629411601/EcommerceAPI/Category/Makeup/wnxfwht979aao486afll.webp",
+      "imageId": "EcommerceAPI/Category/Makeup/wnxfwht979aao486afll",
+      "createdAt": "2021-08-19T22:20:01.688Z",
+      "updatedAt": "2021-08-19T22:20:01.688Z"
+    }
+  ]
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No Categories Found"
+}
+No links
+
+POST
+/category
+
+
+This route allow only admin to add new category
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+Request body
+
+multipart/form-data
+name
+string
+description
+string
+image
+string
+Responses
+Code	Description	Links
+201	
+Add new category
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Category Created Successfully.",
+  "catagory": {
+    "name": "Laptop",
+    "description": "This category contains all products related to Laptops, it's components and accessories.",
+    "image": "https://res.cloudinary.com/dknma8cck/image/upload/v1629411453/EcommerceAPI/Category/Laptop/hqbknfppz8src5szz2w9.webp",
+    "imageId": "EcommerceAPI/Category/Laptop/hqbknfppz8src5szz2w9"
+  }
+}
+No links
+400	
+Error: 400
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "All Fields Are Required"
+}
+No links
+
+GET
+/category/{categoryId}
+
+
+This route allow to get category using it's ID
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+id
+(path)
+Category ID
+
+id
+Responses
+Code	Description	Links
+200	
+Get category using it's ID
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Category Found Successfully.",
+  "catagory": [
+    {
+      "_id": "611ed9117ae59e944d27920d",
+      "name": "Makeup",
+      "description": "This category contains all products related to makeup.",
+      "image": "https://res.cloudinary.com/dknma8cck/image/upload/v1629411601/EcommerceAPI/Category/Makeup/wnxfwht979aao486afll.webp",
+      "imageId": "EcommerceAPI/Category/Makeup/wnxfwht979aao486afll",
+      "createdAt": "2021-08-19T22:20:01.688Z",
+      "updatedAt": "2021-08-19T22:20:01.688Z"
+    }
+  ]
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No Category Found With This ID: {id}"
+}
+No links
+
+PATCH
+/category/{categoryId}
+
+
+This route allow only admin to update category details [name / description]
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+id
+(path)
+Category ID
+
+id
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "name": "string",
+  "description": "string"
+}
+Responses
+Code	Description	Links
+200	
+Updated category details
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Category Details Updated Successfully.",
+  "catagory": {
+    "name": "Makeup",
+    "description": "This category contains all products related to makeup.",
+    "image": "https://res.cloudinary.com/dknma8cck/image/upload/v1629411601/EcommerceAPI/Category/Makeup/wnxfwht979aao486afll.webp",
+    "imageId": "EcommerceAPI/Category/Makeup/wnxfwht979aao486afll"
+  }
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No Category Found With This ID: {id}"
+}
+No links
+
+DELETE
+/category/{categoryId}
+
+
+This route allow only admin to delete the category
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+id
+(path)
+Category ID
+
+id
+Responses
+Code	Description	Links
+200	
+Delete category
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Category Deleted Successfully."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No Category Found With This ID: {id}"
+}
+No links
+
+PATCH
+/category/{categoryId}/image
+
+
+This route allow only admin to update category image [image]
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+id
+(path)
+Category ID
+
+id
+Request body
+
+multipart/form-data
+image
+string($image)
+Responses
+Code	Description	Links
+200	
+Updated category image
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Category Image Updated Successfully.",
+  "catagory": {
+    "name": "Makeup",
+    "description": "This category contains all products related to makeup.",
+    "image": "https://res.cloudinary.com/dknma8cck/image/upload/v1629411601/EcommerceAPI/Category/Makeup/wnxfwht979aao486afll.webp",
+    "imageId": "EcommerceAPI/Category/Makeup/wnxfwht979aao486afll"
+  }
+}
+No links
+400	
+Error: 400
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "Image Is Required, Please Upload an Image!"
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No Category Found With This ID: {id}"
+}
+No links
+Product
+
+
+GET
+/product
+
+
+This route allow you to get all products
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+filter
+(query)
+This will filter all products and select only products that contain the word you insert and search in all product fields about this word
+
+Example : flawless
+
+flawless
+select
+(query)
+Select only fields you want.
+
+Example : name, image
+
+name, image
+limit
+(query)
+Limit the number of products from for example 20 product to 5 products.
+
+Example : 5
+
+5
+sort
+(query)
+Sorting products according to specified field for example the name field, and the number before the field name indicates the order of items: descending (-1) or ascending (1)
+
+Example : -1, name
+
+-1, name
+page
+(query)
+When number of products is greater than 10 products, it divides into pages each page contain 10 products.
+
+Example : 2
+
+2
+Responses
+Code	Description	Links
+200	
+Get All Products
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Products Found Successfully.",
+  "products": [
+    {
+      "_id": "611f6385628e64b6ff96393c",
+      "images": [
+        "https://res.cloudinary.com/dknma8cck/image/upload/v1629447042/EcommerceAPI/Products/LenovoYoga914ITL5Laptop-IntelCorei7-1185G7%2C14InchUHD%2C1TBSSD%2C16GBRAM%2CIntegratedIntelIrisXeGraphics%2CWindows-ShadowBlack/ivz6pdoeo61hwbe5fos4.webp"
+      ],
+      "imagesId": [
+        "EcommerceAPI/Products/LenovoYoga914ITL5Laptop-IntelCorei7-1185G7,14InchUHD,1TBSSD,16GBRAM,IntegratedIntelIrisXeGraphics,Windows-ShadowBlack/ivz6pdoeo61hwbe5fos4"
+      ],
+      "price": 3100,
+      "quantity": 49,
+      "sold": 10,
+      "isOutOfStock": false,
+      "ratingsAverage": 4.5,
+      "ratingsQuantity": 0,
+      "mainImage": "https://res.cloudinary.com/dknma8cck/image/upload/v1629447044/EcommerceAPI/Products/LenovoYoga914ITL5Laptop-IntelCorei7-1185G7%2C14InchUHD%2C1TBSSD%2C16GBRAM%2CIntegratedIntelIrisXeGraphics%2CWindows-ShadowBlack/kxrk6ijsf0osjxnnyuq2.webp",
+      "mainImageId": "EcommerceAPI/Products/LenovoYoga914ITL5Laptop-IntelCorei7-1185G7,14InchUHD,1TBSSD,16GBRAM,IntegratedIntelIrisXeGraphics,Windows-ShadowBlack/kxrk6ijsf0osjxnnyuq2",
+      "description": "1- Brand: Lenovo\n2- Dimensions: 319.5 x 216.7 x 15.3-16.5 mm\n3- Weight: 1.44 kg \n4- Operating system: Windows10 Home\n5- Hard Disk Capacity: 1 TB \n6- Hard Disk Interface: SSD\n7- Memory capacity: 16GB\n8- 11th Generation Intel Core i7 Processor\n9- Processor Number:  i7-1185G7 \n10- Number of Cores: 4\n11- Max Turbo Frequency: 4.8GHz\n12- 14 inches UHD (3840x2160) IPS 500nits\n13- Touchscreen:10-point Multi-touch\n14- Camera: 720P\n15- Graphic Card: Integrated Intel Iris Xe Graphics\n",
+      "name": "Lenovo Yoga 9 14ITL5 Laptop - Intel Core i7-1185G7, 14 Inch UHD, 1TB SSD, 16 GB RAM, Integrated Intel Iris Xe Graphics, Windows - Shadow Black",
+      "category": "611ed87e7ae59e944d27920a",
+      "priceDiscount": 15,
+      "priceAfterDiscount": 2635,
+      "colors": [
+        {
+          "_id": "6145a457d495858ff0d6e8a2",
+          "color": "Black"
+        }
+      ],
+      "sizes": [
+        {
+          "_id": "6145a458d495858ff0d6e8a5",
+          "size": "Large"
+        }
+      ],
+      "seller": "611f62e28fa5d0a76cefbc96",
+      "createdAt": "2021-08-20T08:10:45.242Z",
+      "updatedAt": "2021-08-20T08:10:45.242Z",
+      "slug": "lenovo-yoga-9-14itl5-laptop-intel-core-i7-1185g7-14-inch-uhd-1tb-ssd-16-gb-ram-integrated-intel-iris-xe-graphics-windows-shadow-black"
+    }
+  ]
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No products found."
+}
+No links
+
+POST
+/product
+
+
+This route allow only admin and seller to add new product
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+Request body
+
+multipart/form-data
+name
+string
+description
+string
+category
+string
+price
+integer
+priceDiscount
+integer
+colors
+string
+sizes
+string
+quantity
+integer
+sold
+integer
+isOutOfStock
+boolean
+mainImage
+string($image)
+images
+array<string>
+Responses
+Code	Description	Links
+201	
+Add New Product
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Product Created Successfully.",
+  "product": {
+    "_id": "611f6385628e64b6ff96393c",
+    "images": [
+      "https://res.cloudinary.com/dknma8cck/image/upload/v1629447042/EcommerceAPI/Products/LenovoYoga914ITL5Laptop-IntelCorei7-1185G7%2C14InchUHD%2C1TBSSD%2C16GBRAM%2CIntegratedIntelIrisXeGraphics%2CWindows-ShadowBlack/ivz6pdoeo61hwbe5fos4.webp"
+    ],
+    "imagesId": [
+      "EcommerceAPI/Products/LenovoYoga914ITL5Laptop-IntelCorei7-1185G7,14InchUHD,1TBSSD,16GBRAM,IntegratedIntelIrisXeGraphics,Windows-ShadowBlack/ivz6pdoeo61hwbe5fos4"
+    ],
+    "price": 3100,
+    "quantity": 49,
+    "sold": 10,
+    "isOutOfStock": false,
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 0,
+    "mainImage": "https://res.cloudinary.com/dknma8cck/image/upload/v1629447044/EcommerceAPI/Products/LenovoYoga914ITL5Laptop-IntelCorei7-1185G7%2C14InchUHD%2C1TBSSD%2C16GBRAM%2CIntegratedIntelIrisXeGraphics%2CWindows-ShadowBlack/kxrk6ijsf0osjxnnyuq2.webp",
+    "mainImageId": "EcommerceAPI/Products/LenovoYoga914ITL5Laptop-IntelCorei7-1185G7,14InchUHD,1TBSSD,16GBRAM,IntegratedIntelIrisXeGraphics,Windows-ShadowBlack/kxrk6ijsf0osjxnnyuq2",
+    "description": "1- Brand: Lenovo\n2- Dimensions: 319.5 x 216.7 x 15.3-16.5 mm\n3- Weight: 1.44 kg \n4- Operating system: Windows10 Home\n5- Hard Disk Capacity: 1 TB \n6- Hard Disk Interface: SSD\n7- Memory capacity: 16GB\n8- 11th Generation Intel Core i7 Processor\n9- Processor Number:  i7-1185G7 \n10- Number of Cores: 4\n11- Max Turbo Frequency: 4.8GHz\n12- 14 inches UHD (3840x2160) IPS 500nits\n13- Touchscreen:10-point Multi-touch\n14- Camera: 720P\n15- Graphic Card: Integrated Intel Iris Xe Graphics\n",
+    "name": "Lenovo Yoga 9 14ITL5 Laptop - Intel Core i7-1185G7, 14 Inch UHD, 1TB SSD, 16 GB RAM, Integrated Intel Iris Xe Graphics, Windows - Shadow Black",
+    "category": "611ed87e7ae59e944d27920a",
+    "priceDiscount": 15,
+    "priceAfterDiscount": 2635,
+    "colors": [
+      "6145a457d495858ff0d6e8a2"
+    ],
+    "sizes": [
+      "6145a458d495858ff0d6e8a5"
+    ],
+    "seller": "611f62e28fa5d0a76cefbc96",
+    "createdAt": "2021-08-20T08:10:45.242Z",
+    "updatedAt": "2021-08-20T08:10:45.242Z",
+    "slug": "lenovo-yoga-9-14itl5-laptop-intel-core-i7-1185g7-14-inch-uhd-1tb-ssd-16-gb-ram-integrated-intel-iris-xe-graphics-windows-shadow-black"
+  }
+}
+No links
+400	
+Error: 400
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "All fields are required."
+}
+No links
+
+GET
+/product/{productId}
+
+
+This route allow you to specific product using it's ID
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+productId
+(path)
+Product ID
+
+productId
+Responses
+Code	Description	Links
+200	
+Get Product
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Product Found Successfully.",
+  "product": {
+    "_id": "611f6385628e64b6ff96393c",
+    "images": [
+      "https://res.cloudinary.com/dknma8cck/image/upload/v1629447042/EcommerceAPI/Products/LenovoYoga914ITL5Laptop-IntelCorei7-1185G7%2C14InchUHD%2C1TBSSD%2C16GBRAM%2CIntegratedIntelIrisXeGraphics%2CWindows-ShadowBlack/ivz6pdoeo61hwbe5fos4.webp"
+    ],
+    "imagesId": [
+      "EcommerceAPI/Products/LenovoYoga914ITL5Laptop-IntelCorei7-1185G7,14InchUHD,1TBSSD,16GBRAM,IntegratedIntelIrisXeGraphics,Windows-ShadowBlack/ivz6pdoeo61hwbe5fos4"
+    ],
+    "price": 3100,
+    "quantity": 49,
+    "sold": 10,
+    "isOutOfStock": false,
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 0,
+    "mainImage": "https://res.cloudinary.com/dknma8cck/image/upload/v1629447044/EcommerceAPI/Products/LenovoYoga914ITL5Laptop-IntelCorei7-1185G7%2C14InchUHD%2C1TBSSD%2C16GBRAM%2CIntegratedIntelIrisXeGraphics%2CWindows-ShadowBlack/kxrk6ijsf0osjxnnyuq2.webp",
+    "mainImageId": "EcommerceAPI/Products/LenovoYoga914ITL5Laptop-IntelCorei7-1185G7,14InchUHD,1TBSSD,16GBRAM,IntegratedIntelIrisXeGraphics,Windows-ShadowBlack/kxrk6ijsf0osjxnnyuq2",
+    "description": "1- Brand: Lenovo\n2- Dimensions: 319.5 x 216.7 x 15.3-16.5 mm\n3- Weight: 1.44 kg \n4- Operating system: Windows10 Home\n5- Hard Disk Capacity: 1 TB \n6- Hard Disk Interface: SSD\n7- Memory capacity: 16GB\n8- 11th Generation Intel Core i7 Processor\n9- Processor Number:  i7-1185G7 \n10- Number of Cores: 4\n11- Max Turbo Frequency: 4.8GHz\n12- 14 inches UHD (3840x2160) IPS 500nits\n13- Touchscreen:10-point Multi-touch\n14- Camera: 720P\n15- Graphic Card: Integrated Intel Iris Xe Graphics\n",
+    "name": "Lenovo Yoga 9 14ITL5 Laptop - Intel Core i7-1185G7, 14 Inch UHD, 1TB SSD, 16 GB RAM, Integrated Intel Iris Xe Graphics, Windows - Shadow Black",
+    "category": "611ed87e7ae59e944d27920a",
+    "priceDiscount": 15,
+    "priceAfterDiscount": 2635,
+    "colors": [
+      {
+        "_id": "6145a457d495858ff0d6e8a2",
+        "color": "Black"
+      }
+    ],
+    "sizes": [
+      {
+        "_id": "6145a458d495858ff0d6e8a5",
+        "size": "Large"
+      }
+    ],
+    "seller": "611f62e28fa5d0a76cefbc96",
+    "createdAt": "2021-08-20T08:10:45.242Z",
+    "updatedAt": "2021-08-20T08:10:45.242Z",
+    "slug": "lenovo-yoga-9-14itl5-laptop-intel-core-i7-1185g7-14-inch-uhd-1tb-ssd-16-gb-ram-integrated-intel-iris-xe-graphics-windows-shadow-black"
+  }
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No product found with this ID."
+}
+No links
+
+DELETE
+/product/{productId}
+
+
+This route allow logged in seller/admin to delete product using it's ID
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+productId
+(path)
+Product ID
+
+productId
+Responses
+Code	Description	Links
+200	
+Delete product using it's ID
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Product deleted successfully."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No product found with this ID."
+}
+No links
+
+GET
+/product/top-5-cheap
+
+
+This route allow you to get the top 5 cheapest products
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+select
+(query)
+Select only fields you want.
+
+Example : name, image
+
+name, image
+limit
+(query)
+Limit the number of products from for example 20 product to 5 products.
+
+Example : 5
+
+5
+sort
+(query)
+Sorting products according to specified field for example the name field, and the number before the field name indicates the order of items: descending (-1) or ascending (1)
+
+Example : 1, name
+
+1, name
+page
+(query)
+When number of products is greater than 10 products, it divides into pages each page contain 10 products.
+
+Example : 2
+
+2
+Responses
+Code	Description	Links
+200	
+Get Top 5 Cheapeast Products
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Products Found Successfully.",
+  "products": [
+    {
+      "_id": "611f6385628e64b6ff96393c",
+      "images": [
+        "https://res.cloudinary.com/dknma8cck/image/upload/v1629447042/EcommerceAPI/Products/LenovoYoga914ITL5Laptop-IntelCorei7-1185G7%2C14InchUHD%2C1TBSSD%2C16GBRAM%2CIntegratedIntelIrisXeGraphics%2CWindows-ShadowBlack/ivz6pdoeo61hwbe5fos4.webp"
+      ],
+      "imagesId": [
+        "EcommerceAPI/Products/LenovoYoga914ITL5Laptop-IntelCorei7-1185G7,14InchUHD,1TBSSD,16GBRAM,IntegratedIntelIrisXeGraphics,Windows-ShadowBlack/ivz6pdoeo61hwbe5fos4"
+      ],
+      "price": 3100,
+      "quantity": 49,
+      "sold": 10,
+      "isOutOfStock": false,
+      "ratingsAverage": 4.5,
+      "ratingsQuantity": 0,
+      "mainImage": "https://res.cloudinary.com/dknma8cck/image/upload/v1629447044/EcommerceAPI/Products/LenovoYoga914ITL5Laptop-IntelCorei7-1185G7%2C14InchUHD%2C1TBSSD%2C16GBRAM%2CIntegratedIntelIrisXeGraphics%2CWindows-ShadowBlack/kxrk6ijsf0osjxnnyuq2.webp",
+      "mainImageId": "EcommerceAPI/Products/LenovoYoga914ITL5Laptop-IntelCorei7-1185G7,14InchUHD,1TBSSD,16GBRAM,IntegratedIntelIrisXeGraphics,Windows-ShadowBlack/kxrk6ijsf0osjxnnyuq2",
+      "description": "1- Brand: Lenovo\n2- Dimensions: 319.5 x 216.7 x 15.3-16.5 mm\n3- Weight: 1.44 kg \n4- Operating system: Windows10 Home\n5- Hard Disk Capacity: 1 TB \n6- Hard Disk Interface: SSD\n7- Memory capacity: 16GB\n8- 11th Generation Intel Core i7 Processor\n9- Processor Number:  i7-1185G7 \n10- Number of Cores: 4\n11- Max Turbo Frequency: 4.8GHz\n12- 14 inches UHD (3840x2160) IPS 500nits\n13- Touchscreen:10-point Multi-touch\n14- Camera: 720P\n15- Graphic Card: Integrated Intel Iris Xe Graphics\n",
+      "name": "Lenovo Yoga 9 14ITL5 Laptop - Intel Core i7-1185G7, 14 Inch UHD, 1TB SSD, 16 GB RAM, Integrated Intel Iris Xe Graphics, Windows - Shadow Black",
+      "category": "611ed87e7ae59e944d27920a",
+      "priceDiscount": 15,
+      "priceAfterDiscount": 2635,
+      "colors": [
+        {
+          "_id": "6145a457d495858ff0d6e8a2",
+          "color": "Black"
+        }
+      ],
+      "sizes": [
+        {
+          "_id": "6145a458d495858ff0d6e8a5",
+          "size": "Large"
+        }
+      ],
+      "seller": "611f62e28fa5d0a76cefbc96",
+      "createdAt": "2021-08-20T08:10:45.242Z",
+      "updatedAt": "2021-08-20T08:10:45.242Z",
+      "slug": "lenovo-yoga-9-14itl5-laptop-intel-core-i7-1185g7-14-inch-uhd-1tb-ssd-16-gb-ram-integrated-intel-iris-xe-graphics-windows-shadow-black"
+    }
+  ]
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No products found."
+}
+No links
+
+GET
+/product/product-stats
+
+
+This route allow only admin to get some statistics about products, ratings, categories, and price
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+Responses
+Code	Description	Links
+200	
+Get Products Statistics
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Product Statics.",
+  "stats": [
+    {
+      "Number Of Products": 1,
+      "Number Of Ratings": 0,
+      "Average Rating": 4.5,
+      "Average Price": 3100,
+      "Minimum Price": 3100,
+      "Maximum Price": 31,
+      "Quantity": 49,
+      "category": {
+        "name": "Laptop"
+      }
+    }
+  ]
+}
+No links
+
+PATCH
+/product/{productId}/details
+
+
+This route allow only admin or seller to update product details
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+productId
+(path)
+Product ID
+
+productId
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "name": "string",
+  "description": "string",
+  "category": "string",
+  "price": 0,
+  "priceDiscount": 0,
+  "quantity": 0,
+  "sold": 0,
+  "isOutOfStock": true
+}
+Responses
+Code	Description	Links
+200	
+Updated product details
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Product details updated successfully."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No product found with this ID."
+}
+No links
+
+PATCH
+/product/{productId}/main-image
+
+
+This route allow only seller or admin to update product main image [ mainImage ]
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+productId
+(path)
+Product ID
+
+productId
+Request body
+
+multipart/form-data
+mainImage
+string($image)
+Responses
+Code	Description	Links
+200	
+Updated product main image
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Product main image updated successfully."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No product found with this ID."
+}
+No links
+
+PATCH
+/product/{productId}/images
+
+
+This route allow only seller or admin to update product images [ images ]
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+productId
+(path)
+Product ID
+
+productId
+Request body
+
+multipart/form-data
+images
+string($image)
+Responses
+Code	Description	Links
+200	
+Updated product images
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Product images updated successfully."
+}
+No links
+400	
+Error: 400
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "Please select one or more image."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No product found with this ID."
+}
+No links
+
+POST
+/product/color/{productId}
+
+
+This route allow only admin or seller add new product color
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+productId
+(path)
+Product ID
+
+productId
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "color": "string"
+}
+Responses
+Code	Description	Links
+200	
+Add Product Color
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Color added successfully.",
+  "color": {
+    "_id": "6145e6f059b4c663fa7e0da2",
+    "color": "Red",
+    "product": [
+      "6145a457d495858ff0d6e89f"
+    ]
+  }
+}
+No links
+401	
+Error: 401
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "Color already exists."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No product found with this ID."
+}
+No links
+
+DELETE
+/product/color/{productId}
+
+
+This route allow logged in seller/admin to delete product color using it's ID
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+productId
+(path)
+Product ID
+
+productId
+Responses
+Code	Description	Links
+200	
+Delete Product Color
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Product color deleted successfully."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message1": "No product found with this ID.",
+  "message2": "Color does not exist."
+}
+No links
+
+POST
+/product/size/{productId}
+
+
+This route allow only admin or seller add new product size
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+productId
+(path)
+Product ID
+
+productId
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "size": "string"
+}
+Responses
+Code	Description	Links
+200	
+Add Product Size
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Size added successfully.",
+  "color": {
+    "_id": "6145e6f059b4c663fa7e0da2",
+    "size": "Large",
+    "product": [
+      "6145a457d495858ff0d6e89f"
+    ]
+  }
+}
+No links
+401	
+Error: 401
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "Size already exists."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No product found with this ID."
+}
+No links
+
+DELETE
+/product/size/{productId}
+
+
+This route allow logged in seller/admin to delete product size using it's ID
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+productId
+(path)
+Product ID
+
+productId
+Responses
+Code	Description	Links
+200	
+Delete product size
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Size deleted successfully."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message1": "No product found with this ID.",
+  "message2": "Size does not exist."
+}
+No links
+Favorite
+
+
+GET
+/favorite
+
+
+This route allow logged in user/seller/admin to get his favorite products list
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+Responses
+Code	Description	Links
+200	
+Get Product's Favorite List
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Favorite list successfully retrieved.",
+  "favorite": {
+    "_id": "613a6902c5fcab984501f7ee",
+    "user": "611d0cf2ab79f9bb0c388234",
+    "products": [
+      "611f6385628e64b6ff96393c"
+    ]
+  }
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No products on the favorite list found"
+}
+No links
+
+POST
+/favorite
+
+
+This route allow logged in user/seller/admin to add product to his favorite list
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "productId": "string"
+}
+Responses
+Code	Description	Links
+200	
+Add Product Favorite List
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Product added to favorite list successfully."
+}
+No links
+400	
+Error: 400
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "Product already exits."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No product found with this ID: {id}"
+}
+No links
+
+DELETE
+/favorite/{productId}
+
+
+This route allow logged in user/seller/admin to delete product from favorite list
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+id
+(path)
+Product ID
+
+id
+Responses
+Code	Description	Links
+200	
+Delete Product From Favorite List
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Product deleted from favorite list successfully."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "Product not found in favorite list."
+}
+No links
+
+GET
+/favorite/check/{productId}
+
+
+This route allow logged in user/seller/admin to check if product in favorite list
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+id
+(path)
+Product ID
+
+id
+Responses
+Code	Description	Links
+200	
+Check if Product in Favorite List
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Product in favorite list."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "Product not found in favorite list."
+}
+No links
+Discount
+
+
+GET
+/discount
+
+
+This route allow admin to get all discount codes
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+filter
+(query)
+This will filter all discounts and select only discounts that contain the word you insert and search in all discount fields about this word
+
+Example : 8
+
+8
+select
+(query)
+Select only fields you want.
+
+Example : code
+
+code
+limit
+(query)
+Limit the number of discounts from for example 20 discount to 5 discounts.
+
+Example : 5
+
+5
+sort
+(query)
+Sorting discounts according to specified field for example the code field, and the number before the field name indicates the order of items: descending (-1) or ascending (1)
+
+Example : -1, code
+
+-1, code
+page
+(query)
+When number of discounts is greater than 10 discounts, it divides into pages each page contain 10 discounts.
+
+Example : 2
+
+2
+Responses
+Code	Description	Links
+200	
+Get All Discount Codes
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Discount codes found successfully.",
+  "codes": [
+    {
+      "_id": "613a6fa16578caa1a2a7fd90",
+      "code": "bbrgVdTh9i",
+      "discount": 8,
+      "available": 0
+    }
+  ]
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No discount codes found"
+}
+No links
+
+POST
+/discount/verify
+
+
+This route allow logged in user/seller to verify discount code
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "discountCode": "string"
+}
+Responses
+Code	Description	Links
+200	
+Verify discount code
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Discount code verification completed successfully.",
+  "discount": 29
+}
+No links
+400	
+Error: 400
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "All fields are required."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No discount code found."
+}
+No links
+
+DELETE
+/discount/cancel
+
+
+This route allow logged in user to cancel discount code
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+Responses
+Code	Description	Links
+200	
+Cancel discount code
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Discount code cancelled from order successfully."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message1": "No discount code found.",
+  "message2": "No user found."
+}
+No links
+
+GET
+/discount/find
+
+
+This route allow user to get discount amount
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+Responses
+Code	Description	Links
+200	
+Get Discount
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Discount found successfully.",
+  "discount": 25
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No discount codes found"
+}
+No links
+
+POST
+/discount/generate
+
+
+
+DELETE
+/discount/{discountId}
+
+
+This route allow logged in admin to delete discount code
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+id
+(path)
+Discount Code ID
+
+id
+Responses
+Code	Description	Links
+200	
+Delete discount code
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Discount code deleted successfully."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No discount code found."
+}
+No links
+Cart
+
+
+GET
+/cart
+
+
+This route allow logged in user/seller/admin to get his cart
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+Responses
+Code	Description	Links
+200	
+Get your cart items
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Cart Found Successfully.",
+  "cart": {
+    "email": "mle.mahmoud.yasser@gmail.com",
+    "items": [
+      {
+        "_id": "61221141f34a829cdf7ca542",
+        "product": "611f6385628e64b6ff96393c",
+        "selectedColor": {
+          "_id": "6146e63c1d67816c6f9d63c7",
+          "color": "Red"
+        },
+        "selectedSize": {
+          "_id": "6145a458d495858ff0d6e8a5",
+          "color": "L"
+        },
+        "totalProductQuantity": 2,
+        "totalProductPrice": 6200
+      }
+    ],
+    "totalQuantity": 2,
+    "totalPrice": 6200
+  }
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No cart found for the user with this email."
+}
+No links
+
+POST
+/cart
+
+
+This route allow logged in user/seller/admin to add items to his cart
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "productId": "string",
+  "quantity": 0,
+  "selectedColor": "string",
+  "selectedSize": "string"
+}
+Responses
+Code	Description	Links
+201	
+Add items to your cart
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Item Added To Cart Successfully.",
+  "cart": {
+    "email": "mle.mahmoud.yasser@gmail.com",
+    "items": [
+      {
+        "_id": "61221141f34a829cdf7ca542",
+        "product": "611f6385628e64b6ff96393c",
+        "selectedColor": {
+          "_id": "6146e63c1d67816c6f9d63c7",
+          "color": "Red"
+        },
+        "selectedSize": {
+          "_id": "6145a458d495858ff0d6e8a5",
+          "color": "L"
+        },
+        "totalProductQuantity": 2,
+        "totalProductPrice": 6200
+      }
+    ],
+    "totalQuantity": 2,
+    "totalPrice": 6200
+  }
+}
+No links
+400	
+Error: 400
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "Invalid request."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No product found with this ID."
+}
+No links
+
+DELETE
+/cart
+
+
+
+PATCH
+/cart/increase-one
+
+
+This route allow logged in user/seller/admin to increase product quantity by one
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "productId": "string",
+  "selectedColor": "string",
+  "selectedSize": "string"
+}
+Responses
+Code	Description	Links
+200	
+Increase product quantity by one
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Item Increased By One In Cart Successfully.",
+  "cart": {
+    "email": "mle.mahmoud.yasser@gmail.com",
+    "items": [
+      {
+        "_id": "61221141f34a829cdf7ca542",
+        "product": "611f6385628e64b6ff96393c",
+        "selectedColor": {
+          "_id": "6146e63c1d67816c6f9d63c7",
+          "color": "Red"
+        },
+        "selectedSize": {
+          "_id": "6145a458d495858ff0d6e8a5",
+          "color": "L"
+        },
+        "totalProductQuantity": 3,
+        "totalProductPrice": 9300
+      }
+    ],
+    "totalQuantity": 3,
+    "totalPrice": 9300
+  }
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message1": "No product found with this ID.",
+  "message2": "No cart found for user with this email.",
+  "message3": "No product found with this ID in the cart."
+}
+No links
+
+PATCH
+/cart/reduce-one
+
+
+This route allow logged in user/seller/admin to reduce product quantity by one
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "productId": "string",
+  "selectedColor": "string",
+  "selectedSize": "string"
+}
+Responses
+Code	Description	Links
+200	
+Reduce product quantity by one
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Item reduced by one in cart successfully.",
+  "cart": {
+    "email": "mle.mahmoud.yasser@gmail.com",
+    "items": [
+      {
+        "_id": "61221141f34a829cdf7ca542",
+        "product": "611f6385628e64b6ff96393c",
+        "selectedColor": {
+          "_id": "6146e63c1d67816c6f9d63c7",
+          "color": "Red"
+        },
+        "selectedSize": {
+          "_id": "6145a458d495858ff0d6e8a5",
+          "color": "L"
+        },
+        "totalProductQuantity": 2,
+        "totalProductPrice": 6200
+      }
+    ],
+    "totalQuantity": 2,
+    "totalPrice": 6200
+  }
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message1": "No cart found for user with this email.",
+  "message2": "No product found with this ID in the cart."
+}
+No links
+
+DELETE
+/cart/:productId
+
+
+This route allow logged in user/seller/admin to delete product from cart
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+id
+(path)
+Product ID
+
+id
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "selectedColor": "string",
+  "selectedSize": "string"
+}
+Responses
+Code	Description	Links
+200	
+Delete Product From Cart
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Item deleted from cart successfully."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message1": "No cart found for the user with this email.",
+  "message2": "No product found with this ID."
+}
+No links
+Order
+
+
+GET
+/order
+
+
+This route allow logged in user/seller/admin get his orders
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+filter
+(query)
+This will filter all orders and select only order that contain the word you insert and search in all user fields about this word
+
+Example : card
+
+card
+select
+(query)
+Select only fields you want.
+
+Example : totalPrice
+
+totalPrice
+limit
+(query)
+Limit the number of orders from for example 20 order to 5 orders.
+
+Example : 5
+
+5
+sort
+(query)
+Sorting orders according to specified field for example the name field, and the number before the field name indicates the order of items: descending (-1) or ascending (1)
+
+Example : -1, totalPrice
+
+-1, totalPrice
+page
+(query)
+When number of orders is greater than 10 orders, it divides into pages each page contain 10 orders.
+
+Example : 2
+
+2
+Responses
+Code	Description	Links
+201	
+Get all orders
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Orders Found Successfully.",
+  "orders": [
+    {
+      "products": [
+        {
+          "_id": "61251a32c34eabdac042b36f",
+          "product": "611f6385628e64b6ff96393c",
+          "selectedColor": {
+            "_id": "6146e63c1d67816c6f9d63c7",
+            "color": "Red"
+          },
+          "selectedSize": {
+            "_id": "6145a458d495858ff0d6e8a5",
+            "color": "L"
+          },
+          "totalProductQuantity": 2,
+          "totalProductPrice": 6200
+        }
+      ],
+      "totalPrice": 6200,
+      "isPaid": true,
+      "isDelivered": false,
+      "taxPrice": 0,
+      "shippingPrice": 0,
+      "status": "Not Processed",
+      "_id": "61251a43c34eabdac042b374",
+      "user": "611d0cf2ab79f9bb0c388234",
+      "paidAt": "2021-08-24T16:11:47.502Z",
+      "shippingAddress": {
+        "address": "Toukh - Egypt",
+        "city": "Toukh",
+        "country": "Egypt",
+        "postalCode": "11311"
+      },
+      "paymentMethod": "card",
+      "phone": "01004468937"
+    }
+  ]
+}
+No links
+
+POST
+/order
+
+
+This route allow logged in user/seller/admin create new order
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "shippingAddress": {
+    "address": "string",
+    "city": "string",
+    "country": "string",
+    "postalCode": "string"
+  },
+  "paymentMethod": "string",
+  "phone": "string",
+  "cardNumber": "string",
+  "expMonth": 0,
+  "expYear": 0,
+  "cvc": "string"
+}
+Responses
+Code	Description	Links
+201	
+Create new order | paymentMethod: "card" | cardNumber: 4242424242424242 | expMonth: 4 | expYear: 2022 |g cvc: 247
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Order Created Successfully.",
+  "order": {
+    "products": [
+      {
+        "_id": "61251a32c34eabdac042b36f",
+        "product": "611f6385628e64b6ff96393c",
+        "selectedColor": {
+          "_id": "6146e63c1d67816c6f9d63c7",
+          "color": "Red"
+        },
+        "selectedSize": {
+          "_id": "6145a458d495858ff0d6e8a5",
+          "color": "L"
+        },
+        "totalProductQuantity": 2,
+        "totalProductPrice": 6200
+      }
+    ],
+    "totalPrice": 6200,
+    "isPaid": true,
+    "isDelivered": false,
+    "taxPrice": 0,
+    "shippingPrice": 0,
+    "status": "Not Processed",
+    "_id": "61251a43c34eabdac042b374",
+    "user": "611d0cf2ab79f9bb0c388234",
+    "paidAt": "2021-08-24T16:11:47.502Z",
+    "shippingAddress": {
+      "address": "Toukh - Egypt",
+      "city": "Toukh",
+      "country": "Egypt",
+      "postalCode": "11311"
+    },
+    "paymentMethod": "card",
+    "phone": "01004468937"
+  }
+}
+No links
+
+GET
+/order/{orderId}
+
+
+This route allow logged in user/seller/admin get specific order using it's ID
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+id
+(path)
+Order ID
+
+id
+Responses
+Code	Description	Links
+200	
+Get specific order using it's ID
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Order found successfully.",
+  "order": {
+    "products": [
+      {
+        "_id": "61251a32c34eabdac042b36f",
+        "product": "611f6385628e64b6ff96393c",
+        "selectedColor": {
+          "_id": "6146e63c1d67816c6f9d63c7",
+          "color": "Red"
+        },
+        "selectedSize": {
+          "_id": "6145a458d495858ff0d6e8a5",
+          "color": "L"
+        },
+        "totalProductQuantity": 2,
+        "totalProductPrice": 6200
+      }
+    ],
+    "totalPrice": 6200,
+    "isPaid": true,
+    "isDelivered": false,
+    "taxPrice": 0,
+    "shippingPrice": 0,
+    "status": "Not Processed",
+    "_id": "61251a43c34eabdac042b374",
+    "user": "611d0cf2ab79f9bb0c388234",
+    "paidAt": "2021-08-24T16:11:47.502Z",
+    "shippingAddress": {
+      "address": "Toukh - Egypt",
+      "city": "Toukh",
+      "country": "Egypt",
+      "postalCode": "11311"
+    },
+    "paymentMethod": "card",
+    "phone": "01004468937"
+  }
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "No order found."
+}
+No links
+
+PATCH
+/order/{orderId}
+
+
+This route allow logged in seller update order status
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+id
+(path)
+Order ID
+
+id
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "status": "Not Processed | Processing | Shipped | Delivered | Cancelled"
+}
+Responses
+Code	Description	Links
+201	
+Update order status
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message1": "Order status updated successfully.",
+  "message2": "Order cancelled successfully."
+}
+No links
+400	
+Error: 400
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message1": "All fields are required.",
+  "message2": "Sorry by status must be one of the following: Not Processed, Processing, Shipped, Delivered, Cancelled."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message1": "No order found",
+  "message2": "No product found with this ID"
+}
+No links
+
+DELETE
+/order/{orderId}
+
+
+This route allow logged in user/seller/admin cancel specific order using it's ID
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+id
+(path)
+Order ID
+
+id
+Responses
+Code	Description	Links
+200	
+Cancel specific order using it's ID
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Order cancelled successfully."
+}
+No links
+404	
+Error: 404
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message1": "No order found.",
+  "message2": "No product found with this ID."
+}
+No links
+Review
+
+
+GET
+/product/{productId}/reviews
+
+
+This route allow you to get all product reviews
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+productId
+(path)
+Product ID
+
+productId
+select
+(query)
+Select only fields you want.
+
+Example : name, image
+
+name, image
+limit
+(query)
+Limit the number of reviews from for example 20 review to 5 reviews.
+
+Example : 5
+
+5
+sort
+(query)
+Sorting reviews according to specified field for example the name field, and the number before the field name indicates the order of items: descending (-1) or ascending (1)
+
+Example : 1, name
+
+1, name
+page
+(query)
+When number of reviews is greater than 10 reviews, it divides into pages each page contain 10 reviews.
+
+Example : 2
+
+2
+Responses
+Code	Description	Links
+200	
+Get All Product Reviews
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Reviews Found Successfully.",
+  "reviews": [
+    {
+      "_id": "611f7236f4529300507723a2",
+      "product": "611f6385628e64b6ff96393c",
+      "user": "611f62e28fa5d0a76cefbc96",
+      "review": "Amazing Product!!",
+      "rating": 5,
+      "createdAt": "2021-08-20T09:13:26.697Z",
+      "updatedAt": "2021-08-20T09:13:26.697Z"
+    }
+  ]
+}
+No links
+
+POST
+/product/{productId}/reviews
+
+
+This route allow logged in user/seller/admin to make a review on a product
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+productId
+(path)
+Product ID
+
+productId
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "review": "string",
+  "rating": 0
+}
+Responses
+Code	Description	Links
+201	
+Add new review
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Review Created Successfully."
+}
+No links
+
+GET
+/product/{productId}/reviews/{reviewId}
+
+
+This route allow you to get specific review using it's ID
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+productId
+(path)
+Product ID
+
+productId
+reviewId
+(path)
+Review ID
+
+reviewId
+Responses
+Code	Description	Links
+200	
+Get Specific Reviews
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Review Found Successfully.",
+  "reviews": [
+    {
+      "id": "611f7236f4529300507723a2",
+      "product": "611f6385628e64b6ff96393c",
+      "user": "611f62e28fa5d0a76cefbc96",
+      "review": "Amazing Product!!",
+      "rating": 5
+    }
+  ]
+}
+No links
+
+PATCH
+/product/{productId}/reviews/{reviewId}
+
+
+This route allow logged in user/seller/admin to update review using it's ID
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : ar_MX
+
+ar_MX
+productId
+(path)
+Product ID
+
+productId
+reviewId
+(path)
+Review ID
+
+reviewId
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "review": "string",
+  "rateing": 0
+}
+Responses
+Code	Description	Links
+200	
+Update review
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Review Updated Successfully."
+}
+No links
+
+DELETE
+/product/{productId}/reviews/{reviewId}
+
+
+This route allow logged in user/seller/admin to delete review using it's ID
+
+Parameters
+Try it out
+Name	Description
+Accept-Language
+(header)
+Example : en_MX
+
+en_MX
+productId
+(path)
+Product ID
+
+productId
+reviewId
+(path)
+Review ID
+
+reviewId
+Responses
+Code	Description	Links
+200	
+Delete review
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "type": "Success",
+  "message": "Review Deleted Successfully."
+}
+No links
+400	
+When random user try to delete any review
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "type": "Error",
+  "message": "Sorry you are not the creator of this review. You are not authorized to perform this action."
+}
+No links
